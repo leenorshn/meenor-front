@@ -21,11 +21,13 @@
         v-for="(menu, i) in menus"
         :key="i"
         :to="menu.route"
-        @click="id=menu.id"
+        
         :class="`text-sm hover:text-blue-700 text-gray-500 font-medium tracking-wide hover:bg-blue-50 px-3 py-1 rounded-md mx-1 ${
           id === menu.id ? 'text-blue-700' : ''
         }`"
-        >{{ menu.menu }}</nuxt-link
+        ><span @click="id=menu.id">
+          {{ menu.menu }}
+          </span></nuxt-link
       >
     </div>
     <div class="flex items-start space-x-2 pt-2 pr-4">
@@ -77,7 +79,7 @@ export default {
         {
           menu: "Parametre",
           route: "/parametre",
-          id: "parametre",
+          id: "settings",
         },
       ],
       id: "dashbord",

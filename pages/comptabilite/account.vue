@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+    <div>
+        account
+    </div>
 </template>
 <script>
 export default {

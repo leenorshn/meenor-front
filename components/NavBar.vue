@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full flex bg-gray-100 justify-between">
+  <div class="w-full flex bg-white justify-between">
     <div class="h-14 w-12 flex justify-center items-center">
       <svg
         xmlns="http://www.w3.org/2000/svg"

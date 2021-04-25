@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <div class="bg-gray-100 min-h-screen">
     <nav-bar/>
-    <Nuxt />
+    <div class="w-11/12 mx-auto ">
+      <Nuxt />
+    </div>
   </div>
 </template>
 

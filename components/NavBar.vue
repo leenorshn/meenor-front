@@ -72,9 +72,9 @@ export default {
           id: "compte",
         },
         {
-          menu: "Notification",
-          route: "/notification",
-          id: "notification",
+          menu: "Clients",
+          route: "/clients",
+          id: "client",
         },
         {
           menu: "Parametre",

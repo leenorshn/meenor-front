@@ -2,9 +2,16 @@
   <div class="flex px-2 pt-4 pb-8">
     <div class="w-3/4 pr-4">
       <div class="flex space-x-4">
-        <div class="w-1/4 bg-white h-72 rounded-md"></div>
+        <div class="w-1/4 bg-white h-72 rounded-md">
+          <circle-chart :data="chartDataCircle" :options="circleChartOptions"/>
+        </div>
         <div class="w-3/4 bg-white h-72 rounded-md">
-        <my-line v-if="showLine" :data="barChartData" :options="barChartOptions" class="h-72"/>
+          <my-line
+            v-if="showLine"
+            :data="barChartData"
+            :options="barChartOptions"
+            class="h-72"
+          />
         </div>
       </div>
       <div class="grid grid-cols-3 py-4 gap-x-3">
@@ -140,90 +147,134 @@ export default {
   data() {
     return {
       showLine: false,
+      chartDataCircle: {
+        labels: ["Entre","Prevision", "Sortie", ],
+        datasets: [
+          {
+            label: "Solde",
+            data: [190,455,150],
+            backgroundColor: Object.values(["#21CE99","#1E40AF","#EF4444"]),
+          },
+        ],
+      },
       chartData: {
-          datasets: [{
-            label: 'Title',
-            data: [45, 55, 48, 35, 12]
-          }]
-        },
-        barChartData: {
+        datasets: [
+          {
+            label: "Title",
+            data: [45, 55, 48, 35, 12],
+          },
+        ],
+      },
+      barChartData: {
         labels: [
-          '2019-06',
-          '2019-07',
-          '2019-08',
-          '2019-09',
-          '2019-10',
-          '2019-11',
-          '2019-12',
-          '2020-01',
-          '2020-02',
-          '2020-03',
-          '2020-04',
-          '2020-05'
+          "2019-06",
+          "2019-07",
+          "2019-08",
+          "2019-09",
+          "2019-10",
+          "2019-11",
+          "2019-12",
+          "2020-01",
+          "2020-02",
+          "2020-03",
+          "2020-04",
+          "2020-05",
         ],
         datasets: [
-          
           // {
           //   label: 'Balance',
           //   data: [45, 65, 30, 53, 34, 35, 26, 37, 34, 45, 67, 28, 18],
           //   backgroundColor: '#21ce99'
           // },
           {
-            label: 'Entré',
+            label: "Entré",
             data: [15, 25, 30, 50, 40, 5, 50, 13, 34, 45, 17, 28, 98],
-            backgroundColor: '#EF4444'
+            backgroundColor: "#EF4444",
           },
           // {
           //   label: 'Sortie',
           //   data: [45, 65, 30, 59, 35, 35, 56, 37, 34, 45, 67, 28, 18],
           //   backgroundColor: '#1E40AF65'
           // }
-        ]
+        ],
       },
       barChartOptions: {
         responsive: true,
-        maintainAspectRatio:false,
+        maintainAspectRatio: false,
         legend: {
-          display: false
+          display: false,
         },
         title: {
           display: true,
-          text: 'Mouvement Balance',
+          text: "Mouvement Balance",
           fontSize: 14,
-          fontColor: '#6b7280'
+          fontColor: "#6b7280",
         },
         tooltips: {
-          backgroundColor: '#17BF62'
+          backgroundColor: "#17BF62",
         },
         scales: {
           xAxes: [
             {
               gridLines: {
-                display: true
-              }
-            }
+                display: true,
+              },
+            },
           ],
           yAxes: [
             {
               ticks: {
-                beginAtZero: true
+                beginAtZero: true,
               },
               gridLines: {
-                display: true
-              }
-            }
-          ]
-        }
-      }
-    
+                display: true,
+              },
+            },
+          ],
+        },
+      },
+      circleChartOptions: {
+        responsive: true,
+        maintainAspectRatio: true,
+        legend: {
+          display: false,
+        },
+        title: {
+          display: true,
+          text: "Etant de compte",
+          fontSize: 14,
+          fontColor: "#6b7280",
+        },
+        tooltips: {
+          backgroundColor: "#17BF62",
+        },
+        scales: {
+          xAxes: [
+            {
+              gridLines: {
+                display: false,
+              },
+            },
+          ],
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+              },
+              gridLines: {
+                display: false,
+              },
+            },
+          ],
+        },
+      },
     };
   },
-   mounted () {
-    this.showLine = true // showLine will only be set to true on the client. This keeps the DOM-tree in sync.
-  },  
-  asyncData () {
-    
-  }
+  mounted() {
+    this.showLine = true;
+    // showLine will only be set to true on the client. This keeps the DOM-tree in sync.
+  },
+  methods: {},
 };
 </script>
 

@@ -1,23 +1,6 @@
 <template>
   <div class="flex space-x-4 py-6">
     <div class="w-4/5">
-      <!--
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ]
-  }
-  ```
--->
-
       <div class="mt-10 sm:mt-0">
         <div class="">
           <div class="mt-5 md:mt-0 ">
@@ -57,7 +40,7 @@
                       <label
                         for="first_name"
                         class="block text-sm font-medium text-gray-700"
-                        >Nom & postnom:</label
+                        >Nom et postnom:</label
                       >
                       <input
                         type="text"

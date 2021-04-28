@@ -1,8 +1,7 @@
 <template>
   <tr>
-    
-    <td class="pl-3  whitespace-nowrap">
-      <div class="text-sm text-gray-700">n-{{numero}}</div>
+    <td class="pl-3 whitespace-nowrap">
+      <div class="text-sm text-gray-700">n-{{ numero }}</div>
     </td>
     <td class="whitespace-nowrap">
       <div class="flex items-center">
@@ -15,22 +14,19 @@
         </div>
         <div class="ml-4">
           <div class="text-xs font-medium text-gray-900">Blaise tonton</div>
-          <div class="text-xs text-gray-400">
-            0978132342
-          </div>
+          <div class="text-xs text-gray-400">0978132342</div>
         </div>
       </div>
     </td>
-    <td class="pl-3  whitespace-nowrap">
+    <td class="pl-3 whitespace-nowrap">
       <div class="text-xs text-gray-500 font-bold">9</div>
-      
     </td>
-    <td class="px-2  whitespace-nowrap">
+    <td class="px-2 whitespace-nowrap">
       <div class="text-xs text-gray-400">Boutique</div>
     </td>
     <td class="px-2 text-left py-4 whitespace-nowrap text-sm text-gray-500">
       <span
-        class="px-3  inline-flex text-xs leading-5 font-semibold rounded-full bg-red-200 text-green-800"
+        class="px-3 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-200 text-green-800"
       >
         150 $
       </span>
@@ -90,19 +86,16 @@
         </svg>
       </nuxt-link>
     </td>
-    
   </tr>
 </template>
 
 <script>
 export default {
-    props:{
-        numero:Number,
-    },
-    data(){
-        return{
-            
-        }
-    }
-}
+  props: {
+    numero: Number,
+  },
+  data() {
+    return {};
+  },
+};
 </script>

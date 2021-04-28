@@ -3,20 +3,40 @@
     <div class="w-3/4 pr-4">
       <div class="flex space-x-4">
         <div class="w-1/3 bg-white h-72 rounded-md"></div>
-        <div class="w-2/3 bg-white h-72 rounded-md"></div>
+        <div class="w-2/3 bg-white h-72 rounded-md">
+        
+        </div>
       </div>
       <div class="grid grid-cols-3 py-4 gap-x-3">
-        <div class="bg-blue-800 h-28 rounded-md relative flex justify-center items-center">
-          <h3 class="text-sm text-gray-100 absolute right-2 top-1">Solde actuel</h3>
-          <h3 class="text-3xl text-white">27 400 <span class="text-lg">$</span></h3>
+        <div
+          class="bg-blue-800 h-28 rounded-md relative flex justify-center items-center"
+        >
+          <h3 class="text-sm text-gray-100 absolute right-2 top-1">
+            Solde actuel
+          </h3>
+          <h3 class="text-3xl text-white">
+            27 400 <span class="text-lg">$</span>
+          </h3>
         </div>
-        <div class="bg-red-500 h-28 rounded-md relative flex justify-center items-center">
-          <h3 class="text-sm text-gray-100 absolute right-2 top-1">Sortie (hebdo.)</h3>
-          <h3 class="text-3xl text-white">5025 <span class="text-lg">$</span></h3>
+        <div
+          class="bg-red-500 h-28 rounded-md relative flex justify-center items-center"
+        >
+          <h3 class="text-sm text-gray-100 absolute right-2 top-1">
+            Sortie (hebdo.)
+          </h3>
+          <h3 class="text-3xl text-white">
+            5025 <span class="text-lg">$</span>
+          </h3>
         </div>
-        <div class="bg-green-500 h-28 rounded-md relative flex justify-center items-center">
-          <h3 class="text-sm text-gray-100 absolute right-2 top-1">Prevision (ans)</h3>
-          <h3 class="text-3xl text-white">152 500 <span class="text-lg">$</span></h3>
+        <div
+          class="bg-green-500 h-28 rounded-md relative flex justify-center items-center"
+        >
+          <h3 class="text-sm text-gray-100 absolute right-2 top-1">
+            Prevision (ans)
+          </h3>
+          <h3 class="text-3xl text-white">
+            152 500 <span class="text-lg">$</span>
+          </h3>
         </div>
       </div>
       <h3 class="text-blue-600 text-lg mb-1">Dernier paiements</h3>
@@ -68,7 +88,7 @@
                           scope="col"
                           class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
                         >
-                         Prix/mois
+                          Prix/mois
                         </th>
                         <th
                           scope="col"
@@ -117,5 +137,18 @@
 import CalenderBlock from "../../components/CalenderBlock.vue";
 export default {
   components: { CalenderBlock },
+  data() {
+    return {
+      chartData: {
+        datasets: [
+          {
+            label: "Title",
+            data: [45, 55, 48, 35, 12],
+          },
+        ],
+      },
+    };
+  },
 };
 </script>
+

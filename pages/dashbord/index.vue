@@ -2,9 +2,9 @@
   <div class="flex px-2 pt-4 pb-8">
     <div class="w-3/4 pr-4">
       <div class="flex space-x-4">
-        <div class="w-1/3 bg-white h-72 rounded-md"></div>
-        <div class="w-2/3 bg-white h-72 rounded-md">
-        
+        <div class="w-1/4 bg-white h-72 rounded-md"></div>
+        <div class="w-3/4 bg-white h-72 rounded-md">
+        <my-line v-if="showLine" :data="barChartData" :options="barChartOptions" class="h-72"/>
         </div>
       </div>
       <div class="grid grid-cols-3 py-4 gap-x-3">
@@ -139,16 +139,90 @@ export default {
   components: { CalenderBlock },
   data() {
     return {
-      showLine: false
+      showLine: false,
+      chartData: {
+          datasets: [{
+            label: 'Title',
+            data: [45, 55, 48, 35, 12]
+          }]
+        },
+        barChartData: {
+        labels: [
+          '2019-06',
+          '2019-07',
+          '2019-08',
+          '2019-09',
+          '2019-10',
+          '2019-11',
+          '2019-12',
+          '2020-01',
+          '2020-02',
+          '2020-03',
+          '2020-04',
+          '2020-05'
+        ],
+        datasets: [
+          
+          // {
+          //   label: 'Balance',
+          //   data: [45, 65, 30, 53, 34, 35, 26, 37, 34, 45, 67, 28, 18],
+          //   backgroundColor: '#21ce99'
+          // },
+          {
+            label: 'Entré',
+            data: [15, 25, 30, 50, 40, 5, 50, 13, 34, 45, 17, 28, 98],
+            backgroundColor: '#EF4444'
+          },
+          // {
+          //   label: 'Sortie',
+          //   data: [45, 65, 30, 59, 35, 35, 56, 37, 34, 45, 67, 28, 18],
+          //   backgroundColor: '#1E40AF65'
+          // }
+        ]
+      },
+      barChartOptions: {
+        responsive: true,
+        maintainAspectRatio:false,
+        legend: {
+          display: false
+        },
+        title: {
+          display: true,
+          text: 'Mouvement Balance',
+          fontSize: 14,
+          fontColor: '#6b7280'
+        },
+        tooltips: {
+          backgroundColor: '#17BF62'
+        },
+        scales: {
+          xAxes: [
+            {
+              gridLines: {
+                display: true
+              }
+            }
+          ],
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true
+              },
+              gridLines: {
+                display: true
+              }
+            }
+          ]
+        }
+      }
+    
     };
   },
    mounted () {
     this.showLine = true // showLine will only be set to true on the client. This keeps the DOM-tree in sync.
   },  
   asyncData () {
-    const lineData = {} // some data
-    const options = {} // some options
-    return { lineData, options }
+    
   }
 };
 </script>

@@ -139,16 +139,17 @@ export default {
   components: { CalenderBlock },
   data() {
     return {
-      chartData: {
-        datasets: [
-          {
-            label: "Title",
-            data: [45, 55, 48, 35, 12],
-          },
-        ],
-      },
+      showLine: false
     };
   },
+   mounted () {
+    this.showLine = true // showLine will only be set to true on the client. This keeps the DOM-tree in sync.
+  },  
+  asyncData () {
+    const lineData = {} // some data
+    const options = {} // some options
+    return { lineData, options }
+  }
 };
 </script>
 

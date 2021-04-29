@@ -1,8 +1,10 @@
 <template>
   <div class="flex h-screen w-screen">
-     <div class="w-2/5 flex flex-col justify-center bg-blue-800 relative">
-        <h2 class="absolute text-center text-7xl text-yellow-400 mt-6 inset-0">B-online</h2>
-        <img src="imagelogin.jpg" alt="" class="bg-gradient-to-br mt-4 from-bluegrey-300 to-indigo-600">
+     <div class="w-2/5 flex items-center justify-center bg-blue-800 relative">
+        <div class="">
+          <h2 class="text-center text-7xl text-gray-50 mt-6">Meenor</h2>
+        <p class="text-center text-xl text-gray-200 mt-6">Gerer en toute liberte vos multiples revenus locatif</p>
+        </div>
     </div>
     <div class="flex-1 flex flex-col justify-between items-center h-full bg-bluegrey-200">
         <NuxtLink to="/register" class="absolute right-0 m-4 focus:outline-none focus:ring-none focus:text-green hover:font-bold hover:text-lg">Avez-vous un compte?</NuxtLink>

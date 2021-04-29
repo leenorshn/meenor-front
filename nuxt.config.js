@@ -20,7 +20,8 @@ export default {
   plugins: [
     { src: "~plugins/v-calendar.js", ssr: false },
     { src: "~plugins/vue-chart.js", ssr: false },
-    { src: "~plugins/circle-chart.js", ssr: false }
+    { src: "~plugins/circle-chart.js", ssr: false },
+    {src:'~/plugins/alt-apollo-config.js'}
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -39,7 +40,7 @@ export default {
     "nuxt-highcharts",
     '@nuxtjs/apollo',
   ],
-  apollo: {
+  
     apollo: {
       // Sets up the apollo client endpoints
       clientConfigs: {
@@ -128,7 +129,7 @@ export default {
           */
         secure: false,
       },
-    }
+    
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

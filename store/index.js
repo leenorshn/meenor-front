@@ -5,13 +5,13 @@ export const state = () => ({
   })
   
   export const mutations = {
-    SET_CURRENT_USER(state) {
+    SET_CURRENT_USER(state,data) {
       state.currentUser=data;
     }
   }
   
   export const actions={
-      async login(_,data){
+      async login(context,data){
         let client = this.app.apolloProvider.defaultClient;
       try {
         console.log(data);

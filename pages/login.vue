@@ -67,7 +67,7 @@ export default {
       loginUser(){
         this.login({...this.credential}).then(
           (d)=>{
-            console.log(d);
+            this.$router.push({path:'/dashbord',});
           }
         ).catch((error)=>{
           console.log(error);

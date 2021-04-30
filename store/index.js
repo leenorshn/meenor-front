@@ -1,4 +1,5 @@
 import { LOGIN_REQUEST } from "~/apollo/login_gql";
+import { REGISTER_REQUEST } from "~/apollo/register_gql";
 
 export const state = () => ({
     currentUser:null
@@ -30,7 +31,13 @@ export const state = () => ({
         console.error(error)
       }
       },
-      register(context,data){
+     async register(_,data){
+        let client = this.app.apolloProvider.defaultClient;
+      const res=await  client.mutate({mutation:REGISTER_REQUEST,variables:data})
+      .then(({data})=>{
+        return data;
+      });
+        return res;
 
       }
   }

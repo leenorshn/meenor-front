@@ -33,7 +33,7 @@
     <div class="flex items-start space-x-2 pt-2 pr-4">
       <div class="w-10 h-10 rounded-full bg-blue-300"></div>
       <div class="">
-        <button class="bg-blue-900 py-2 px-8 text-blue-50 rounded">
+        <button @click.prevent="onLogout()" class="bg-blue-900 py-2 px-8 text-blue-50 rounded">
           logout
         </button>
       </div>
@@ -57,7 +57,7 @@ export default {
         },
         {
           menu: "Comptabilite",
-          route: "/comptabilite",
+          route: "/comptabilite/general",
           id: "compte",
         },
         {
@@ -76,7 +76,8 @@ export default {
   },
   methods:{
     async onLogout () {
-      await this.$apolloHelpers.onLogout()
+      await this.$apolloHelpers.onLogout();
+      this.$router.push('/login');
     },
   }
 };

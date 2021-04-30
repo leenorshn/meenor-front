@@ -142,8 +142,22 @@
 
 <script>
 import CalenderBlock from "../../components/CalenderBlock.vue";
+import { GET_CURRENT_USER } from "~/apollo/user_gql";
 export default {
   components: { CalenderBlock },
+  
+
+  apollo: {
+    user: {
+      query: GET_CURRENT_USER,
+      variables () {
+        return {
+          id: "608929ddeab4ff2b54771901"
+        }
+      }
+    }
+  },
+
   data() {
     return {
       showLine: false,

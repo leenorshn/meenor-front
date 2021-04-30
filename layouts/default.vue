@@ -6,6 +6,12 @@
     </div>
   </div>
 </template>
+<script>
+//import { mapState } from "vuex";
+export default {
+  //middleware:'isAuth'
+}
+</script>
 
 <style>
 html {

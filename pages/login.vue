@@ -18,6 +18,7 @@
             <input
               id="email"
               type="text"
+              v-model="credential.phone"
               placeholder="Adresse email"
               class="w-full rounded-md border mt-1 border-gray-100 placeholder-gray-400 focus:border-gray-200 outline-none"
             />
@@ -31,6 +32,7 @@
             <input
               id="password"
               type="password"
+              v-model="credential.password"
               placeholder="votre mot de passe securise"
               class="w-full rounded-md mt-1 focus:outline-none focus:border-indigo-200 focus:ring focus:ring-indigo-400 border border-gray-100 placeholder-gray-400 outline-none"
             />
@@ -63,7 +65,13 @@ export default {
     methods:{
       ...mapActions(['login']),
       loginUser(){
-        this.login(this.credential);
+        this.login({...this.credential}).then(
+          (d)=>{
+            console.log(d);
+          }
+        ).catch((error)=>{
+          console.log(error);
+        });
       }
     }
 };

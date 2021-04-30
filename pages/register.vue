@@ -20,6 +20,7 @@
             <input
               id="entreprise"
               type="text"
+              v-model="company.name"
               placeholder="nom de l'entreprise"
               class="w-full rounded-md border mt-1 border-gray-100 placeholder-gray-400 focus:border-gray-200 outline-none"
             />
@@ -34,6 +35,7 @@
               <input
                 id="entreprise"
                 type="text"
+                v-model="company.address.city"
                 placeholder="Ex: Butembo"
                 class="w-full rounded-md mt-1 border  border-gray-100 placeholder-gray-400 focus:border-gray-200 outline-none"
               />
@@ -47,6 +49,7 @@
               <input
                 id="entreprise"
                 type="text"
+                v-model="company.phone"
                 placeholder="Numero de telephone"
                 class="w-full rounded-md mt-1 border  border-gray-100 placeholder-gray-400 focus:border-gray-200 outline-none"
               />
@@ -60,6 +63,7 @@
             <input
               id="entreprise"
               type="password"
+              v-model="company.password"
               placeholder="votre mot de passe securise"
               class="w-full rounded-md mt-1 focus:outline-none focus:border-indigo-200 focus:ring focus:ring-indigo-400 border border-gray-100 placeholder-gray-400 outline-none"
             />
@@ -69,7 +73,7 @@
             <span>Acceptez les <a class="text-blue-500 underline" href="#"> conditions</a> d'utilisation</span>
           </div>
           <div class="flex justify-center mt-8">
-            <NuxtLink to="/verifyPhone" class="px-16 py-4 bg-blue-800  text-white font-bold text-sm uppercase rounded-md">Creer compte</NuxtLink>
+            <button @click.prevent="registerCompany()" class="px-16 py-4 bg-blue-800  text-white font-bold text-sm uppercase rounded-md">Creer compte</button>
           </div>
         </form>
       </div>
@@ -84,13 +88,22 @@ export default {
     layout:'auth',
     data(){
         return {
-            company:{}
+            company:{
+                address:{
+                    city:''
+                }
+            }
         }
     },
     methods:{
         ...mapActions(['register']),
         registerCompany(){
-            this.register(this.company);
+            this.register(this.company).
+            then(d=>{
+                this.$router.push('/dashbord');
+            }).catch(err=>{
+                console.log(err);
+            });
         }
     }
 };

@@ -55,10 +55,15 @@ import { mapActions } from "vuex";
 export default {
     name:"Login",
     layout:'auth',
+    data(){
+      return {
+        credential:{}
+      }
+    },
     methods:{
       ...mapActions(['login']),
       loginUser(){
-        this.login({phone:"+243978154329",password:"123456"})
+        this.login(this.credential);
       }
     }
 };

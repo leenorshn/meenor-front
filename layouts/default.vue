@@ -9,7 +9,16 @@
 <script>
 //import { mapState } from "vuex";
 export default {
-  //middleware:'isAuth'
+  apollo: {
+    user: {
+      query: fooGql,
+      variables () {
+        return {
+          myVar: this.myVar
+        }
+      }
+    }
+  }
 }
 </script>
 

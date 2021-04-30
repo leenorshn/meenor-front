@@ -86,7 +86,7 @@
             </button>
           </div>
         </form>
-        <div class="h-16 w-6/12 p-4 text-white bg-red-500 rounded-md absolute right-3 top-3">
+        <div class="h-16 w-6/12 p-4 text-white bg-red-500 rounded-md absolute right-8 top-16">
             {{error}} 
         </div>
       </div>

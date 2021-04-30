@@ -32,11 +32,16 @@ export const state = () => ({
       }
       },
      async register(_,data){
+       //console.log(data);
         let client = this.app.apolloProvider.defaultClient;
-      const res=await  client.mutate({mutation:REGISTER_REQUEST,variables:data})
+      const res=await  client.mutate({mutation:REGISTER_REQUEST,variables:{
+        data:data
+      }})
       .then(({data})=>{
+        //console.log(data);
         return data;
       });
+      //console.log(res);
         return res;
 
       }

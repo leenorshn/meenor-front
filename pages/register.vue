@@ -14,11 +14,11 @@
         <h2 class="text-blue-800 text-3xl font-semibold">Creer un compte</h2>
         <form>
           <div  class="mt-4 w-2/3">
-            <label for="entreprise" class="text-gray-500 mb-2"
+            <label for="entrepriseName" class="text-gray-500 mb-2"
               >Votre entreprise:</label
             >
             <input
-              id="entreprise"
+              id="entrepriseName"
               type="text"
               v-model="company.name"
               placeholder="nom de l'entreprise"
@@ -29,11 +29,11 @@
 
           <div class="flex  justify-between space-x-2 mt-4">
             <div class="w-2/3">
-              <label for="entreprise" class=" text-gray-500 mb-2"
+              <label for="entrepriseCity" class=" text-gray-500 mb-2"
                 >Votre ville:</label
               >
               <input
-                id="entreprise"
+                id="entrepriseCity"
                 type="text"
                 v-model="company.address.city"
                 placeholder="Ex: Butembo"
@@ -43,11 +43,11 @@
           </div>
           <div class="flex justify-between space-x-2 mt-4">
             <div class="w-2/3">
-              <label for="entreprise" class=" text-gray-500 mb-2"
+              <label for="entreprisePhone" class=" text-gray-500 mb-2"
                 >Numero de telephone:</label
               >
               <input
-                id="entreprise"
+                id="entreprisePhone"
                 type="text"
                 v-model="company.phone"
                 placeholder="Numero de telephone"
@@ -57,11 +57,11 @@
             
           </div>
           <div class="mt-4 w-2/3">
-            <label for="entreprise" class="text-gray-500 mb-2"
+            <label for="entreprisePassword" class="text-gray-500 mb-2"
               >Mot de passe:</label
             >
             <input
-              id="entreprise"
+              id="entreprisePassword"
               type="password"
               v-model="company.password"
               placeholder="votre mot de passe securise"
@@ -90,7 +90,8 @@ export default {
         return {
             company:{
                 address:{
-                    city:''
+                    city:'',
+                    local:"Aucun"
                 }
             }
         }
@@ -100,7 +101,7 @@ export default {
         registerCompany(){
             this.register(this.company).
             then(d=>{
-                this.$router.push('/dashbord');
+                this.$router.push('/login');
             }).catch(err=>{
                 console.log(err);
             });

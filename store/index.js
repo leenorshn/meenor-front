@@ -14,7 +14,7 @@ export const state = () => ({
       async login(context,data){
         let client = this.app.apolloProvider.defaultClient;
       try {
-        console.log(data);
+        //console.log(data);
         const res=await  client.mutate({mutation:LOGIN_REQUEST,variables:data})
 
         .then(({data}) =>{
@@ -25,6 +25,7 @@ export const state = () => ({
         //console.log(res);
         context.commit("SET_CURRENT_USER",res.user);
         await this.$apolloHelpers.onLogin(res.token)
+        return res.user;
       } catch (error) {
         console.error(error)
       }

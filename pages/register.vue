@@ -78,9 +78,21 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
     name:"Register",
-    layout:'auth'
+    layout:'auth',
+    data(){
+        return {
+            company:{}
+        }
+    },
+    methods:{
+        ...mapActions(['register']),
+        registerCompany(){
+            this.register(this.company);
+        }
+    }
 };
 </script>
 

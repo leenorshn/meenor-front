@@ -41,7 +41,7 @@
           </div>
           
           <div class="flex justify-center mt-8">
-            <NuxtLink to="/" class="px-16 py-4 bg-blue-800 focus:ring-none  text-white font-bold text-sm uppercase rounded-md">Connexion</NuxtLink>
+            <button @click.prevent="loginUser()" class="px-16 py-4 bg-blue-800 focus:ring-none  text-white font-bold text-sm uppercase rounded-md">Connexion</button>
           </div>
           
         </form>
@@ -51,9 +51,16 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
     name:"Login",
-    layout:'auth'
+    layout:'auth',
+    methods:{
+      ...mapActions(['login']),
+      loginUser(){
+        this.login({phone:"+243978154329",password:"123456"})
+      }
+    }
 };
 </script>
 

@@ -60,6 +60,7 @@ export const BATIMENT_ONE_QUERY = gql`
             }
           }
         }
+        
         kiosques {
           id
           format

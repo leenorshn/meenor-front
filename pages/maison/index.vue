@@ -97,8 +97,13 @@
 export default {
     data(){
         return{
-            cities:["Butembo","Beni","Bunia","Kasindi","Goma","Kisangani","Kinshasa"]
+           cities:[]
         }
+    },
+    apollo:{
+      batiments:{
+        
+      }
     }
 }
 </script>

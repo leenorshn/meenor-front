@@ -9,26 +9,9 @@ export const BATIMENT_QUERY = gql`
         city
         local
       }
-      niveaux {
-        id
-        name
-        kiosques {
-          id
-          format
-          numero
-          price
-          locataire {
-            id
-            name
-            avatar
-            payments {
-              amount
-              fromDate
-              toDate
-            }
-          }
-        }
-      }
+      totaleNiveaux
+      totalKiosques
+      totalApartements
     }
   }
 `;
@@ -42,42 +25,9 @@ export const BATIMENT_ONE_QUERY = gql`
         city
         local
       }
-      niveaux {
-        id
-        name
-        apartements {
-          id
-          numero
-          price
-          locataire {
-            id
-            name
-            avatar
-            payments {
-              amount
-              fromDate
-              toDate
-            }
-          }
-        }
-        
-        kiosques {
-          id
-          format
-          numero
-          price
-          locataire {
-            id
-            name
-            avatar
-            payments {
-              amount
-              fromDate
-              toDate
-            }
-          }
-        }
-      }
+      totaleNiveaux
+      totalKiosques
+      totalApartements
     }
   }
 `;

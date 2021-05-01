@@ -10,20 +10,20 @@
           />
         </div>
         <div class="ml-4">
-          <div class="text-sm font-medium text-gray-900">Galerie Beta</div>
+          <div class="text-sm font-medium text-gray-900">{{batiment.name}}</div>
           <div class="text-sm text-gray-500">
-            Rue president/a face de la Bank-bic
+            {{batiment.address.city}}/{{batiment.address.local}}
           </div>
         </div>
       </div>
     </td>
     <td class="px-3 py-4 whitespace-nowrap">
       <div class="text-xs text-gray-400">Nbre Niveaux</div>
-      <div class="text-sm text-gray-700">2</div>
+      <div class="text-sm text-gray-700">{{batiment.niveaux.length}}</div>
     </td>
     <td class="px-3 py-4 whitespace-nowrap">
       <div class="text-xs text-gray-400">Nbre Boutiques</div>
-      <div class="text-sm text-gray-700">75</div>
+      <div class="text-sm text-gray-700">0</div>
     </td>
     <td class="px-2 text-center py-4 whitespace-nowrap text-sm text-gray-500">
       <span
@@ -56,7 +56,7 @@
       </nuxt-link>
       <nuxt-link
         class="p-2 hover:bg-blue-300 text-gray-400 hover:text-blue-700 rounded-full"
-        to="/maison/2"
+        :to="`/maison/${batiment.id}`"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -82,3 +82,11 @@
     </td>
   </tr>
 </template>
+
+<script>
+export default {
+  props:{
+    batiment:Object
+  }
+}
+</script>

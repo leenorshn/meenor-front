@@ -45,7 +45,7 @@
                   </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                  <batiment-card v-for="(bat, i) in batiments" :key="i" />
+                  <batiment-card v-for="(bat, i) in batiments" :batiment="bat" :key="i" />
 
                   <!-- More people... -->
                 </tbody>

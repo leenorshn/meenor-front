@@ -33,9 +33,9 @@ export const BATIMENT_QUERY = gql`
   }
 `;
 
-export const BATIMENT_ONE_QUERY=gql`
-query getBatiment($id:ID!){
-    batiment(id:$id) {
+export const BATIMENT_ONE_QUERY = gql`
+  query getBatiment($id: ID!) {
+    batiment(id: $id) {
       id
       name
       address {
@@ -45,6 +45,21 @@ query getBatiment($id:ID!){
       niveaux {
         id
         name
+        apartements {
+          id
+          numero
+          price
+          locataire {
+            id
+            name
+            avatar
+            payments {
+              amount
+              fromDate
+              toDate
+            }
+          }
+        }
         kiosques {
           id
           format

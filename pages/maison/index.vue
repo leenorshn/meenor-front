@@ -94,15 +94,19 @@
   </div>
 </template>
 <script>
+import {BATIMENT_QUERY} from "~/apollo/batiment_gql"
 export default {
     data(){
         return{
            cities:[]
         }
     },
-    apollo:{
-      batiments:{
-        
+  async  asyncData(){
+      const {data}=await this.apollo.query({query:BATIMENT_QUERY});
+      const batiments=data;
+      console.log(data);
+      return {
+        batiments
       }
     }
 }

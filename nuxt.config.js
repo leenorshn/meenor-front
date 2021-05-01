@@ -50,11 +50,11 @@ export default {
         }
         
       },
-      // setup a global query loader observer (see below for example)
-      watchLoading: '~/plugins/apollo-watch-loading-handler.js',
+      // // setup a global query loader observer (see below for example)
+      // watchLoading: '~/plugins/apollo-watch-loading-handler.js',
       
-      // setup a global error handler (see below for example)
-      errorHandler: '~/plugins/apollo-error-handler.js',
+      // // setup a global error handler (see below for example)
+      // errorHandler: '~/plugins/apollo-error-handler.js',
   
       // Sets the authentication type for any authorized request.
       authenticationType: 'Bearer', 

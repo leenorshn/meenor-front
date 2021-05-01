@@ -28,15 +28,15 @@
         </div>
         <div>
           <h5 class="text-xs text-gray-400">locataire</h5>
-          <h2 class="text-2xl text-blue-800 font-bold tracking-wide">32</h2>
+          <!-- <h2 class="text-2xl text-blue-800 font-bold tracking-wide">{{batiment.niveaux.kiosques.locataire.length+batiment.niveaux.apartements.locataire.length}}</h2> -->
         </div>
         <div>
           <h5 class="text-xs text-gray-400">Boutique</h5>
-          <h2 class="text-2xl text-blue-800 font-bold tracking-wide">35</h2>
+          <h2 class="text-2xl text-blue-800 font-bold tracking-wide">{{batiment.niveaux.kiosques.length}}</h2>
         </div>
         <div>
           <h5 class="text-xs text-gray-400">Apartement</h5>
-          <h2 class="text-2xl text-blue-800 font-bold tracking-wide">35</h2>
+          <!-- <h2 class="text-2xl text-blue-800 font-bold tracking-wide">{{batiment.niveaux.apartements.length}}</h2> -->
         </div>
       </div>
       <div class="p-4 flex flex-col justify-around w-1/5">

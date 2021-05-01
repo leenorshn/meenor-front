@@ -19,7 +19,7 @@
     </td>
     <td class="px-3 py-4 whitespace-nowrap">
       <div class="text-xs text-gray-400">Nbre Niveaux</div>
-      <div class="text-sm text-gray-700">{{batiment.niveaux.length}}</div>
+      <div class="text-sm text-gray-700">{{batiment.totaleNiveaux}}</div>
     </td>
     <td class="px-3 py-4 whitespace-nowrap">
       <div class="text-xs text-gray-400">Nbre Boutiques</div>

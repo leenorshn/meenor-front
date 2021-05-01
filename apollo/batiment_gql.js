@@ -9,6 +9,10 @@ export const BATIMENT_QUERY = gql`
         city
         local
       }
+      niveaux{
+        id
+        name
+      }
       totaleNiveaux
       totalKiosques
       totalApartements
@@ -24,6 +28,10 @@ export const BATIMENT_ONE_QUERY = gql`
       address {
         city
         local
+      }
+      niveaux{
+        id
+        name
       }
       totaleNiveaux
       totalKiosques

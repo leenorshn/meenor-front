@@ -22,26 +22,26 @@
       >
         <div>
           <h5 class="text-xs text-gray-400">Niveau</h5>
-          <h2 class="text-2xl text-blue-800 font-bold tracking-wide">
-            {{ batiment.niveaux.length }}
+          <h2 class="text-2xl text-blue-800 font-semibold tracking-wide">
+            {{ batiment.totaleNiveaux }}
           </h2>
         </div>
         <div>
           <h5 class="text-xs text-gray-400">locataire</h5>
-          <!-- <h2 class="text-2xl text-blue-800 font-bold tracking-wide">{{batiment.niveaux.kiosques.locataire.length+batiment.niveaux.apartements.locataire.length}}</h2> -->
+          <h2 class="text-2xl text-blue-800 font-semibold tracking-wide">{{batiment.totaleNiveaux}}</h2>
         </div>
         <div>
           <h5 class="text-xs text-gray-400">Boutique</h5>
-          <h2 class="text-2xl text-blue-800 font-bold tracking-wide">{{batiment.niveaux.kiosques.length}}</h2>
+          <h2 class="text-2xl text-blue-800 font-semibold tracking-wide">{{batiment.totalKiosques}}</h2>
         </div>
         <div>
           <h5 class="text-xs text-gray-400">Apartement</h5>
-          <!-- <h2 class="text-2xl text-blue-800 font-bold tracking-wide">{{batiment.niveaux.apartements.length}}</h2> -->
+          <h2 class="text-2xl text-blue-800 font-semibold tracking-wide">{{batiment.totalApartements}}</h2>
         </div>
       </div>
       <div class="p-4 flex flex-col justify-around w-1/5">
         <div class="flex justify-between items-center w-full">
-          <h2 class="text-sm text-blue-800 font-bold tracking-wide">Actions</h2>
+          <h2 class="text-sm text-blue-800 font-semibold tracking-wide">Actions</h2>
           <div
             class="absolute top-6 right-2 flex bg-gray-800 text-white rounded py-1 px-6 space-x-3"
           >
@@ -69,7 +69,7 @@
         >
       </div>
     </div>
-    <div v-if="batiment.niveaux.length == 0">
+    <div v-if="batiment.totaleNiveaux == 0">
       <div
         class="w-1/2 bg-white mt-16 rounded-md shadow-md mx-auto p-4 space-y-3"
       >

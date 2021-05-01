@@ -45,7 +45,7 @@
                   </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                  <batiment-card v-for="(bat, i) in 8" :key="i" />
+                  <batiment-card v-for="(bat, i) in batiments" :key="i" />
 
                   <!-- More people... -->
                 </tbody>
@@ -96,15 +96,16 @@
 <script>
 import {BATIMENT_QUERY} from "~/apollo/batiment_gql"
 export default {
+  middleware:'isAuth',
     data(){
         return{
            cities:[]
         }
     },
-  async  asyncData(){
-      const {data}=await this.apollo.query({query:BATIMENT_QUERY});
-      const batiments=data;
-      console.log(data);
+  async  asyncData({app}){
+    const client = app.apolloProvider.defaultClient
+      const {data}=await client.query({query:BATIMENT_QUERY});
+      const {batiments}=data;
       return {
         batiments
       }

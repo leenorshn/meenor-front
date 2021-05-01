@@ -32,3 +32,36 @@ export const BATIMENT_QUERY = gql`
     }
   }
 `;
+
+export const BATIMENT_ONE_QUERY=gql`
+query getBatiment($id:ID!){
+    batiment(id:$id) {
+      id
+      name
+      address {
+        city
+        local
+      }
+      niveaux {
+        id
+        name
+        kiosques {
+          id
+          format
+          numero
+          price
+          locataire {
+            id
+            name
+            avatar
+            payments {
+              amount
+              fromDate
+              toDate
+            }
+          }
+        }
+      }
+    }
+  }
+`;

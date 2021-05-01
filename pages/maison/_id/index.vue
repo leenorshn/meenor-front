@@ -144,3 +144,14 @@
     <div class="h-24"></div>
   </div>
 </template>
+
+<script >
+import {BATIMENT_ONE_QUERY} from "~/apollo/batiment_gql"
+export default{
+  async asyncData({app,params}){
+    const client = app.apolloProvider.defaultClient
+      const {data}=await client.query({query:BATIMENT_QUERY});
+    return {batiment};
+  }
+}
+</script>

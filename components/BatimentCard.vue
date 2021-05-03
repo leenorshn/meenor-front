@@ -22,8 +22,8 @@
       <div class="text-sm text-gray-700">{{batiment.totaleNiveaux}}</div>
     </td>
     <td class="px-3 py-4 whitespace-nowrap">
-      <div class="text-xs text-gray-400">Nbre Boutiques</div>
-      <div class="text-sm text-gray-700">0</div>
+      <div class="text-xs text-gray-400">Nbre Chambre</div>
+      <div class="text-sm text-gray-700">{{batiment.totalKiosques+batiment.totalApartements}}</div>
     </td>
     <td class="px-2 text-center py-4 whitespace-nowrap text-sm text-gray-500">
       <span

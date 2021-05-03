@@ -2,40 +2,89 @@ import gql from "graphql-tag";
 
 export const BATIMENT_QUERY = gql`
   query {
-    batiments {
+  batiments {
+    id
+    name
+    address {
+      city
+      local
+    }
+    niveaux{
       id
       name
-      address {
-        city
-        local
-      }
-      niveaux{
+      kiosques{
         id
-        name
+        numero
+        format
+        price
+        locataire{
+          id
+          name
+          avatar
+          phone
+        }
       }
-      totaleNiveaux
-      totalKiosques
-      totalApartements
+      apartements{
+        id
+        numero
+        price
+        locataire{
+          id
+          name
+          avatar
+          phone
+        }
+      }
     }
+  totaleNiveaux  
+  totalKiosques
+  totalApartements
+    
   }
+}
 `;
 
 export const BATIMENT_ONE_QUERY = gql`
   query getBatiment($id: ID!) {
-    batiment(id: $id) {
+    
+  batiment(id:$id) {
+    id
+    name
+    address {
+      city
+      local
+    }
+    niveaux{
       id
       name
-      address {
-        city
-        local
-      }
-      niveaux{
+      kiosques{
         id
-        name
+        numero
+        format
+        price
+        locataire{
+          id
+          name
+          avatar
+          phone
+        }
       }
-      totaleNiveaux
-      totalKiosques
-      totalApartements
+      apartements{
+        id
+        numero
+        price
+        locataire{
+          id
+          name
+          avatar
+          phone
+        }
+      }
     }
+  totaleNiveaux  
+  totalKiosques
+  totalApartements
+    
   }
+}
 `;

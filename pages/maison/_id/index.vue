@@ -108,6 +108,9 @@
           <div
             class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8"
           >
+          <pre>
+                    {{n.kiosques}}
+                  </pre>
             <div
               class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
             >
@@ -158,8 +161,11 @@
                     </th>
                   </tr>
                 </thead>
+                
                 <tbody class="bg-white divide-y divide-gray-200">
-                  <chambre-item v-for="(n, i) in 3" :key="i" :numero="i" />
+                  
+                  <chambre-item v-for="(m, i) in n.kiosques" :key="i" :numero="i" />
+                  <chambre-item v-for="(l, i) in n.apartements" :key="i" :numero="i" />
                 </tbody>
               </table>
             </div>

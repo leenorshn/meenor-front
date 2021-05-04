@@ -9,6 +9,28 @@
           <div class="border-t-2 border-gray-200"></div>
         </div>
       </div>
+      <div>
+          <div>
+              <label for="numero">Numero</label>
+              <input type="text" placeholder="numero de la chambre">
+          </div>
+          <div>
+              <label for="numero">Numero</label>
+              <input type="text" placeholder="numero de la chambre">
+          </div>
+          <div>
+              <label for="numero">Numero</label>
+              <input type="text" placeholder="numero de la chambre">
+          </div>
+          <div>
+              <label for="numero">Numero</label>
+              <input type="text" placeholder="numero de la chambre">
+          </div>
+          <div>
+              <label for="numero">Numero</label>
+              <input type="text" placeholder="numero de la chambre">
+          </div>
+      </div>
     </div>
   </div>
 </template>

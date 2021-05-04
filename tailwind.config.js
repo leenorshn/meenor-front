@@ -13,6 +13,7 @@ module.exports = {
     extend: {
       colors:{
         "orange":colors.orange,
+        "greenP":"#21CE99"
       },
       height: {
         

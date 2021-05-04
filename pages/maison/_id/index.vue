@@ -172,7 +172,7 @@
       <div class="w-full flex justify-end">
         <nuxt-link
           class="w-48 mt-1 text-blue-600 text-lg inline border-b-2 border-transparent hover:border-blue-500"
-          to="/"
+          :to="`/maison/${n.id}/newRoom`"
           >Ajouter une chambre</nuxt-link
         >
       </div>

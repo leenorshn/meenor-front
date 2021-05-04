@@ -97,8 +97,7 @@
         <nuxt-link
           class="w-32 text-blue-600 text-lg block border-b-2 border-transparent hover:border-blue-500"
           to="/"
-          >Creer un niveau</nuxt-link
-        >
+          >Creer un niveau</nuxt-link>
       </div>
     </div>
     <div v-for="(n, i) in batiment.niveaux" :key="i">

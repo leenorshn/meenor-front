@@ -24,36 +24,37 @@
       <div class="w-full">
         <div class="flex space-x-4 items-center w-full">
           <div class="flex flex-col w-1/3">
-            <label for="numero">Numero</label>
+            <label class="my-2" for="numero">Numero</label>
             <input class="" type="text" placeholder="numero de la chambre" />
           </div>
           <div class="flex flex-col w-1/3">
-            <label for="numero">Numero</label>
-            <input class="" type="text" placeholder="numero de la chambre" />
+            <label class="my-2" for="numero">Prix/mensuel</label>
+            <input  type="number" placeholder="Ex: 100$" />
           </div>
-          <div class="flex flex-col w-1/3">
-            <label for="numero">Numero</label>
-            <input class="" type="text" placeholder="numero de la chambre" />
+          <div v-if="typeLocation=='boutique'" class="flex flex-col w-1/3">
+            <label class="my-2" for="numero">Forma de location</label>
+            <select id="">
+                <option value="MEDIUM">Normale</option>
+                <option value="SMALL">Petite porte</option>
+                <option value="DOUBLE">Double porte</option>
+            </select>
           </div>
           
         </div>
-        <div v-if="typeLocation=='boutique'" class="flex flex-col">
-            <label for="numero">Numero</label>
-            <input type="text" class="w-1/3" placeholder="numero de la chambre" />
-          </div>
+        
 
         <div class="py-6 space-y-2">
-            <h4>Autres Information</h4>
+            <h4 class="text-sm font-bold">Autres Information</h4>
           <div>
-            <input type="checkbox" />
+            <input class="rounded h-4 w-4 mr-4" type="checkbox" />
             <label for="hasPower">Il ya du courant</label>
           </div>
           <div>
-            <input type="checkbox" />
+            <input class="rounded h-4 w-4 mr-4" type="checkbox" />
             <label for="hasWater">Il ya de l'eau</label>
           </div>
           <div>
-            <input type="checkbox" class="" />
+            <input class="rounded h-4 w-4 mr-4" type="checkbox" />
             <label for="isAvailable">Est disponible</label>
           </div>
         </div>
@@ -61,6 +62,11 @@
         <div class="py-5">
           <div class="border-t-2 border-gray-200"></div>
         </div>
+      </div>
+      <div class="flex justify-end space-x-5">
+          <button class="px-8 py-2 bg-orange-600 rounded-md text-white">Annulez</button>
+        
+            <button class="px-8 py-2 bg-blue-600 rounded-md text-white">Enregistrer</button>
       </div>
       </div>
     </div>
@@ -71,7 +77,7 @@
 export default {
   data() {
     return {
-      typeLocation: true,
+      typeLocation: "apartement",
     };
   },
 };

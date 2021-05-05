@@ -47,7 +47,11 @@
           </div>
           <div class="flex flex-col w-1/3">
             <label class="my-2" for="numero">Prix/mensuel</label>
-            <input v-model.number="room.price" type="number" placeholder="Ex: 100$" />
+            <input
+              v-model.number="room.price"
+              type="number"
+              placeholder="Ex: 100$"
+            />
           </div>
           <div v-if="typeLocation == 'boutique'" class="flex flex-col w-1/3">
             <label class="my-2" for="format">Forma de location</label>
@@ -63,7 +67,7 @@
           <h4 class="text-sm font-bold">Autres Information</h4>
           <div>
             <input
-              v-model="room.hasPower"
+              v-model="hasPower"
               class="rounded h-4 w-4 mr-4"
               :value="true"
               type="checkbox"
@@ -72,7 +76,7 @@
           </div>
           <div>
             <input
-              v-model="room.hasWater"
+              v-model="hasWater"
               class="rounded h-4 w-4 mr-4"
               :value="true"
               type="checkbox"
@@ -81,7 +85,7 @@
           </div>
           <div>
             <input
-              v-model="room.isAvalaible"
+              v-model="isAvalaible"
               class="rounded h-4 w-4 mr-4"
               :value="true"
               type="checkbox"
@@ -129,65 +133,61 @@ export default {
     return {
       typeLocation: "apartement",
       room: {},
+      hasPower: false,
+      hasWater: false,
+      isAvalaible: false,
     };
   },
   methods: {
-      ...mapActions({createApartement:'house/createApartement',createKiosque:'house/createKiosque'}),
+    ...mapActions({
+      createApartement: "house/createApartement",
+      createKiosque: "house/createKiosque",
+    }),
     async enregisterApartement() {
       ///alert( this.$route.params.id)
       try {
-       
-      
-this.createApartement({
-                livingRooms: 1,
-                niveau: this.$route.params.id,
-                numero: this.room.numero,
-                hasPower: this.room.hasPower,
-                hasWater: this.room.hasWater,
-                isAvalaible: this.room.isAvalaible,
-                price: this.room.price,
-                features: ["Aucun"],
-              },);
-            
-            
-        this.annuler();    
-         
+        this.createApartement({
+          livingRooms: 1,
+          niveau: this.$route.params.id,
+          numero: this.room.numero,
+          hasPower: this.hasPower,
+          hasWater: this.hasWater,
+          isAvalaible: this.isAvalaible,
+          price: this.room.price,
+          features: ["Aucun"],
+        });
+
+        this.annuler();
       } catch (e) {
-          this.annuler(); 
+        this.annuler();
         console.error(e);
       }
     },
     async enregisterShop() {
-           try {
-       
-      
-this.createKiosque({
-                format: this.room.format,
-                niveau: this.$route.params.id,
-                numero: this.room.numero,
-                hasPower: this.room.hasPower,
-                hasWater: this.room.hasWater,
-                isAvalaible: this.room.isAvalaible,
-                price: this.room.price,
-                features: ["Aucun"],
-              },);
-            
-            
-        this.annuler();    
-         
+      try {
+        this.createKiosque({
+          format: this.room.format,
+          niveau: this.$route.params.id,
+          numero: this.room.numero,
+          hasPower: this.hasPower,
+          hasWater: this.hasWater,
+          isAvalaible: this.isAvalaible,
+          price: this.room.price,
+          //features: ["Aucun"],
+        });
+
+        this.annuler();
       } catch (e) {
-          this.annuler(); 
+        this.annuler();
         console.error(e);
       }
     },
     annuler() {
       this.typeLocation = "apartement";
-      this.room = {
-          hasPower: false,
-                hasWater: false,
-                isAvalaible: false,
-      };
-      //this.room=null;
+      this.room = {};
+      this.hasPower = false;
+      this.hasWater = false;
+      this.isAvalaible = false;
     },
   },
 };

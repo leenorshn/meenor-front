@@ -7,3 +7,10 @@ export const NEW_APARTEMENT = gql`
     }
   }
 `;
+export const NEW_KIOSQUE=gql`
+mutation createKio($data: KiosqueCreateInput!) {
+    createKiosque(data: $data) {
+      id
+    }
+  }
+`;

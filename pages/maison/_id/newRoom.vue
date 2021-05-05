@@ -132,7 +132,7 @@ export default {
     };
   },
   methods: {
-      ...mapActions({createApartement:'house/createApartement'}),
+      ...mapActions({createApartement:'house/createApartement',createKiosque:'house/createKiosque'}),
     async enregisterApartement() {
       ///alert( this.$route.params.id)
       try {
@@ -157,7 +157,29 @@ this.createApartement({
         console.error(e);
       }
     },
-    async enregisterShop() {},
+    async enregisterShop() {
+           try {
+       
+      
+this.createKiosque({
+                format: this.room.format,
+                niveau: this.$route.params.id,
+                numero: this.room.numero,
+                hasPower: this.room.hasPower,
+                hasWater: this.room.hasWater,
+                isAvalaible: this.room.isAvalaible,
+                price: this.room.price,
+                features: ["Aucun"],
+              },);
+            
+            
+        this.annuler();    
+         
+      } catch (e) {
+          this.annuler(); 
+        console.error(e);
+      }
+    },
     annuler() {
       this.typeLocation = "apartement";
       this.room = {

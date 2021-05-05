@@ -28,20 +28,28 @@
         </div>
         <div>
           <h5 class="text-xs text-gray-400">locataire</h5>
-          <h2 class="text-2xl text-blue-800 font-semibold tracking-wide">{{batiment.totaleNiveaux}}</h2>
+          <h2 class="text-2xl text-blue-800 font-semibold tracking-wide">
+            {{ batiment.totaleNiveaux }}
+          </h2>
         </div>
         <div>
           <h5 class="text-xs text-gray-400">Boutique</h5>
-          <h2 class="text-2xl text-blue-800 font-semibold tracking-wide">{{batiment.totalKiosques}}</h2>
+          <h2 class="text-2xl text-blue-800 font-semibold tracking-wide">
+            {{ batiment.totalKiosques }}
+          </h2>
         </div>
         <div>
           <h5 class="text-xs text-gray-400">Apartement</h5>
-          <h2 class="text-2xl text-blue-800 font-semibold tracking-wide">{{batiment.totalApartements}}</h2>
+          <h2 class="text-2xl text-blue-800 font-semibold tracking-wide">
+            {{ batiment.totalApartements }}
+          </h2>
         </div>
       </div>
       <div class="p-4 flex flex-col justify-around w-1/5">
         <div class="flex justify-between items-center w-full">
-          <h2 class="text-sm text-blue-800 font-semibold tracking-wide">Actions</h2>
+          <h2 class="text-sm text-blue-800 font-semibold tracking-wide">
+            Actions
+          </h2>
           <div
             class="absolute top-6 right-2 flex bg-gray-800 text-white rounded py-1 px-6 space-x-3"
           >
@@ -97,7 +105,8 @@
         <nuxt-link
           class="w-32 text-blue-600 text-lg block border-b-2 border-transparent hover:border-blue-500"
           to="/"
-          >Creer un niveau</nuxt-link>
+          >Creer un niveau</nuxt-link
+        >
       </div>
     </div>
     <div v-for="(n, i) in batiment.niveaux" :key="i">
@@ -157,12 +166,23 @@
                     </th>
                   </tr>
                 </thead>
+
                 
-                <tbody class="bg-white divide-y divide-gray-200">
                   
-                  <chambre-item v-for="(m, i) in n.kiosques" :key="i" :numero="i" />
-                  <chambre-item v-for="(l, i) in n.apartements" :key="i" :numero="i" />
-                </tbody>
+                    
+                    <tbody class="bg-white divide-y divide-gray-200">
+                    <chambre-item
+                      v-for="(m, i) in tt[0]"
+                      :key="i"
+                      :numero="i"
+                      :chambre="m"
+                    />
+                    </tbody>
+                  
+
+                  
+                     
+               
               </table>
             </div>
           </div>
@@ -172,7 +192,8 @@
         <nuxt-link
           class="w-48 mt-1 text-blue-600 text-lg inline border-b-2 border-transparent hover:border-blue-500"
           :to="`/maison/${n.id}/newRoom`"
-          >Ajouter une chambre</nuxt-link>
+          >Ajouter une chambre</nuxt-link
+        >
       </div>
     </div>
     <div class="h-24"></div>
@@ -191,5 +212,14 @@ export default {
     const { batiment } = data;
     return { batiment };
   },
+  computed:{
+    tt(){
+      let tableau=[]
+       this.batiment.niveaux.forEach(element => {
+         tableau.push([...element.apartements,...element.kiosques])
+       });
+       return tableau;
+    }
+  }
 };
 </script>

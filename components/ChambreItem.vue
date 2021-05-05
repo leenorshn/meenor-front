@@ -4,7 +4,7 @@
       <div class="text-sm text-gray-700">n-{{ numero }}</div>
     </td>
     <td class="whitespace-nowrap">
-      <div class="flex items-center">
+      <div v-if="chambre.locataire" class="flex items-center">
         <div class="flex-shrink-0 h-9 w-9 -m-1 py-1">
           <img
             class="h-9 w-9 rounded-full object-cover object-center"
@@ -17,25 +17,28 @@
           <div class="text-xs text-gray-400">0978132342</div>
         </div>
       </div>
+      <div v-else class="flex items-center">
+          <h3 class="text-gray-400 text-sm">Pas de locataire</h3>
+      </div>
     </td>
     <td class="pl-3 whitespace-nowrap">
       <div class="text-xs text-gray-500 font-bold">9</div>
     </td>
     <td class="px-2 whitespace-nowrap">
-      <div class="text-xs text-gray-400">Boutique</div>
+      <div class="text-xs text-gray-400">{{batiment.type}}</div>
     </td>
     <td class="px-2 text-left py-4 whitespace-nowrap text-sm text-gray-500">
       <span
         class="px-3 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-200 text-green-800"
       >
-        150 $
+        {{chambre.price}}
       </span>
     </td>
     <td class="px-2 text-left py-4 whitespace-nowrap text-sm text-gray-500">
       <span
         class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
       >
-        1350 $
+        {{chambre.isAvalaible}}
       </span>
     </td>
     <td
@@ -93,6 +96,7 @@
 export default {
   props: {
     numero: Number,
+    chambre:Object,
   },
   data() {
     return {};

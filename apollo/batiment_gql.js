@@ -16,6 +16,8 @@ export const BATIMENT_QUERY = gql`
         id
         numero
         format
+        type
+        isAvalaible
         price
         locataire{
           id
@@ -28,6 +30,8 @@ export const BATIMENT_QUERY = gql`
         id
         numero
         price
+        type
+        isAvalaible
         locataire{
           id
           name
@@ -57,11 +61,14 @@ export const BATIMENT_ONE_QUERY = gql`
     niveaux{
       id
       name
+      
       kiosques{
         id
         numero
         format
         price
+        type
+        isAvalaible
         locataire{
           id
           name
@@ -73,6 +80,8 @@ export const BATIMENT_ONE_QUERY = gql`
         id
         numero
         price
+        type
+        isAvalaible
         locataire{
           id
           name

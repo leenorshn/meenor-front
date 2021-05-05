@@ -47,7 +47,7 @@
           </div>
           <div class="flex flex-col w-1/3">
             <label class="my-2" for="numero">Prix/mensuel</label>
-            <input v-model="room.price" type="number" placeholder="Ex: 100$" />
+            <input v-model.number="room.price" type="number" placeholder="Ex: 100$" />
           </div>
           <div v-if="typeLocation == 'boutique'" class="flex flex-col w-1/3">
             <label class="my-2" for="format">Forma de location</label>
@@ -65,6 +65,7 @@
             <input
               v-model="room.hasPower"
               class="rounded h-4 w-4 mr-4"
+              :value="true"
               type="checkbox"
             />
             <label for="hasPower">Il ya du courant</label>
@@ -73,14 +74,16 @@
             <input
               v-model="room.hasWater"
               class="rounded h-4 w-4 mr-4"
+              :value="true"
               type="checkbox"
             />
             <label for="hasWater">Il ya de l'eau</label>
           </div>
           <div>
             <input
-              v-model="room.isAvailable"
+              v-model="room.isAvalaible"
               class="rounded h-4 w-4 mr-4"
+              :value="true"
               type="checkbox"
             />
             <label for="isAvailable">Est disponible</label>
@@ -120,6 +123,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -128,22 +132,40 @@ export default {
     };
   },
   methods: {
+      ...mapActions({createApartement:'house/createApartement'}),
     async enregisterApartement() {
-       alert( this.$route.params.id)
-       try {
-          const res = await this.$apollo.mutate({
-              mutation: authenticateUserGql,
-              variables: credentials
-          }).then(({data}) => data && data.authenticateUser)
-          await this.$apolloHelpers.onLogin(res.token)
+      ///alert( this.$route.params.id)
+      try {
+       
+      
+this.createApartement({
+                livingRooms: 1,
+                niveau: this.$route.params.id,
+                numero: this.room.numero,
+                hasPower: this.room.hasPower,
+                hasWater: this.room.hasWater,
+                isAvalaible: this.room.isAvalaible,
+                price: this.room.price,
+                features: ["Aucun"],
+              },);
+            
+            
+        this.annuler();    
+         
       } catch (e) {
-          console.error(e)
+          this.annuler(); 
+        console.error(e);
       }
     },
     async enregisterShop() {},
     annuler() {
       this.typeLocation = "apartement";
-      this.room = {};
+      this.room = {
+          hasPower: false,
+                hasWater: false,
+                isAvalaible: false,
+      };
+      //this.room=null;
     },
   },
 };

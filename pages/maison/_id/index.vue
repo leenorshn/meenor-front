@@ -39,7 +39,7 @@
           </h2>
         </div>
       </div>
-      <div class="p-4 flex flex-col justify-around w-1/5">
+      <div class="p-4 flex flex-col justify-around w-1/3">
         <div class="flex justify-between items-center w-full">
           <h2 class="text-sm text-blue-800 font-semibold tracking-wide">
             Actions
@@ -64,11 +64,23 @@
             <nuxt-link class="" to="/maison"> Retour</nuxt-link>
           </div>
         </div>
-        <nuxt-link
-          class="w-32 text-blue-600 text-lg inline border-b-2 border-transparent hover:border-blue-500"
-          to="/"
-          >Creer un niveau</nuxt-link
-        >
+        <button
+
+          v-if="!isNiveauEdit"
+          class="w-28 text-sm text-blue-600  block border-b-2 border-transparent hover:border-blue-500"
+          @click.prevent="showCreateNiveau()"
+          >Creer un niveau</button>
+        <div v-else >
+          <div class="flex flex-col">
+            <label for="niveau" class="text-xs">Entrer le numero du niveau</label>
+            <div class="flex items-center space-x-3 mt-2">
+              <input type="number" class="w-32 bg-gray-100" v-model="niveau" placeholder="Ex: 6">
+               <button class="text-blue-50 text-sm rounded-md block bg-blue-800 px-4 py-2">Save</button>
+            </div>
+          
+          </div>
+         
+        </div>
       </div>
     </div>
     <div v-if="batiment.totaleNiveaux == 0">
@@ -96,11 +108,16 @@
             mieux gerer votre batiment.
           </p>
         </div>
-        <nuxt-link
+        <button
+
+          v-if="!isNiveauEdit"
           class="w-32 text-blue-600 text-lg block border-b-2 border-transparent hover:border-blue-500"
-          to="/"
-          >Creer un niveau</nuxt-link
-        >
+          @click.prevent="showCreateNiveau()"
+          >Creer un niveau</button>
+        <div v-else>
+          <input type="text" v-model="niveau" placeholder="niveau">
+          <button class="text-blue-600 text-lg block border-b-2 border-transparent hover:border-blue-500">Save</button>
+        </div>
       </div>
     </div>
     <div v-for="(n, i) in batiment.niveaux" :key="i">
@@ -192,6 +209,11 @@
 <script >
 import { BATIMENT_ONE_QUERY } from "~/apollo/batiment_gql";
 export default {
+  data(){
+    return{
+      isNiveauEdit:false
+    }
+  },
   async asyncData({ app, params }) {
     const client = app.apolloProvider.defaultClient;
     const { data } = await client.query({
@@ -208,6 +230,13 @@ export default {
          tableau.push([...element.apartements,...element.kiosques])
        });
        return tableau;
+    }
+  },
+  methods:{
+    showCreateNiveau(){
+
+      this.isNiveauEdit=true;
+      console.log("Mala");
     }
   }
 };

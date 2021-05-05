@@ -27,12 +27,6 @@
           </h2>
         </div>
         <div>
-          <h5 class="text-xs text-gray-400">locataire</h5>
-          <h2 class="text-2xl text-blue-800 font-semibold tracking-wide">
-            {{ batiment.totaleNiveaux }}
-          </h2>
-        </div>
-        <div>
           <h5 class="text-xs text-gray-400">Boutique</h5>
           <h2 class="text-2xl text-blue-800 font-semibold tracking-wide">
             {{ batiment.totalKiosques }}
@@ -134,12 +128,7 @@
                     >
                       Locataire
                     </th>
-                    <th
-                      scope="col"
-                      class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                      Durée
-                    </th>
+                    
                     <th
                       scope="col"
                       class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"

@@ -1,7 +1,7 @@
 <template>
   <tr>
     <td class="pl-3 whitespace-nowrap">
-      <div class="text-sm text-gray-700">n-{{ numero }}</div>
+      <div class="text-sm text-gray-700">{{ chambre.numero }}</div>
     </td>
     <td class="whitespace-nowrap">
       <div v-if="chambre.locataire" class="flex items-center">
@@ -21,22 +21,20 @@
           <h3 class="text-gray-400 text-sm">Pas de locataire</h3>
       </div>
     </td>
-    <td class="pl-3 whitespace-nowrap">
-      <div class="text-xs text-gray-500 font-bold">9</div>
-    </td>
     <td class="px-2 whitespace-nowrap">
-      <div class="text-xs text-gray-400">{{batiment.type}}</div>
+      <div class="text-xs text-gray-400">{{chambre.type}}</div>
     </td>
     <td class="px-2 text-left py-4 whitespace-nowrap text-sm text-gray-500">
       <span
-        class="px-3 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-200 text-green-800"
+        class="px-3 inline-flex text-xs leading-5 font-semibold rounded-full bg-orange-100 text-green-800"
       >
-        {{chambre.price}}
+        {{chambre.price+' USD'}}
       </span>
     </td>
-    <td class="px-2 text-left py-4 whitespace-nowrap text-sm text-gray-500">
+    <td class="px-2 text-center py-4 whitespace-nowrap text-sm text-gray-500">
       <span
-        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+        :class="`${chambre.isAvalaible?'bg-green-100 text-green-800':'bg-red-200 text-red-900'}`"
+        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full "
       >
         {{chambre.isAvalaible}}
       </span>
@@ -45,7 +43,7 @@
       class="px-2 py-1 whitespace-nowrap flex items-center justify-center text-sm font-medium"
     >
       <nuxt-link
-        class="p-2 hover:bg-red-200 text-gray-400 hover:text-red-700 rounded-full"
+        class="p-2 hover:bg-orange-200 text-gray-400 hover:text-red-900 rounded-full"
         to="/"
       >
         <svg

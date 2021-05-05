@@ -75,7 +75,7 @@
             <label for="niveau" class="text-xs">Entrer le numero du niveau</label>
             <div class="flex items-center space-x-3 mt-2">
               <input type="number" class="w-32 bg-gray-100" v-model="niveau" placeholder="Ex: 6">
-               <button class="text-blue-50 text-sm rounded-md block bg-blue-800 px-4 py-2">Save</button>
+               <button @click.prevent="saveNiveau()" class="text-blue-50 text-sm rounded-md block bg-blue-800 px-4 py-2">Save</button>
             </div>
           
           </div>
@@ -178,9 +178,9 @@
                     
                     <tbody class="bg-white divide-y divide-gray-200">
                     <chambre-item
-                      v-for="(m, i) in tt[0]"
-                      :key="i"
-                      :numero="i"
+                      v-for="(m, f) in tt[0]"
+                      :key="f"
+                      :numero="f"
                       :chambre="m"
                     />
                     </tbody>
@@ -208,10 +208,12 @@
 
 <script >
 import { BATIMENT_ONE_QUERY } from "~/apollo/batiment_gql";
+import {mapActions} from "vuex"
 export default {
   data(){
     return{
-      isNiveauEdit:false
+      isNiveauEdit:false,
+      niveau:''
     }
   },
   async asyncData({ app, params }) {
@@ -226,17 +228,30 @@ export default {
   computed:{
     tt(){
       let tableau=[]
-       this.batiment.niveaux.forEach(element => {
-         tableau.push([...element.apartements,...element.kiosques])
-       });
+      for(var i=0;i<this.batiment.niveaux.length;i++){
+        
+ //
+         if(this.batiment.niveaux[i].apartements.length!==0||this.batiment.niveaux[i].kiosques.length!==0){
+tableau.push([...this.batiment.niveaux[i].apartements,...this.batiment.niveaux[i].kiosques])
+         }
+      }
+      console.log(tableau);
        return tableau;
     }
   },
   methods:{
+    ...mapActions({createNiveau:"house/createNiveau"}),
     showCreateNiveau(){
 
       this.isNiveauEdit=true;
       console.log("Mala");
+    },
+    saveNiveau(){
+      this.createNiveau({
+        batiment:this.$route.params.id,
+        name:this.niveau
+      })
+      this.isNiveauEdit=false;
     }
   }
 };

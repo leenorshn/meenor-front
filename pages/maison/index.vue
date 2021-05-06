@@ -50,6 +50,7 @@
                   <!-- More people... -->
                 </tbody>
               </table>
+              <pre>{{batiments}}</pre>
             </div>
           </div>
         </div>
@@ -94,7 +95,8 @@
   </div>
 </template>
 <script>
-import {BATIMENT_QUERY} from "~/apollo/batiment_gql"
+
+import { mapState,mapActions } from "vuex";
 export default {
   middleware:'isAuth',
     data(){
@@ -102,14 +104,17 @@ export default {
            cities:[]
         }
     },
-  async  asyncData({app}){
-    const client = app.apolloProvider.defaultClient
-      const {data}=await client.query({query:BATIMENT_QUERY});
-      const {batiments}=data;
-      console.log(data);
-      return {
-        batiments
+    mounted(){
+    this.loadBatiment()
+    },
+    computed:{
+     // ...mapState({batiments:'batiment/batiments'}),
+      batiments(){
+        return this.$store.state.batiment.batiments;
       }
+    },
+    methods:{
+      ...mapActions({loadBatiment:"batiment/loadBatiment"})
     }
 }
 </script>

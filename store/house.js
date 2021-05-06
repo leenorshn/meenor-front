@@ -1,4 +1,4 @@
-import { NEW_ROOM,NEW_KIOSQUE ,NEW_NIVEAU} from "~/apollo/apartement_gql";
+import { NEW_ROOM,NEW_NIVEAU} from "~/apollo/apartement_gql";
 
 export const state = () => ({});
 

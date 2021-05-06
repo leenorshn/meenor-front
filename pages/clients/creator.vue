@@ -3,10 +3,10 @@
     <div class="w-4/5">
       <div class="mt-10 sm:mt-0">
         <div class="">
-          <div class="mt-5 md:mt-0 ">
+          <div class="mt-5 md:mt-0">
             <form action="#" method="POST">
               <div class="shadow overflow-hidden sm:rounded-md">
-                <div class="px-4 py-5 bg-white sm:p-6">
+                <div class="px-4 py-5 bg-white sm:p-6 flex items-center">
                   <div>
                     <label class="block ml-3 text-sm font-medium text-gray-700">
                       Photo
@@ -33,6 +33,28 @@
                       </button>
                     </div>
                   </div>
+                  <div class="ml-8 flex space-x-4">
+                    <div class="w-72">
+                      <label
+                        class="block mb-1 text-sm font-medium text-gray-700"
+                        for="maisonId"
+                        >Choisir la maison</label
+                      >
+                      <select v-model="house" id="maisonId">
+                        <option value="">Aucune</option>
+                      </select>
+                    </div>
+                    <div class="w-72">
+                      <label
+                        class="block mb-1 text-sm font-medium text-gray-700"
+                        for="chambreId"
+                        >Choisir chambre</label
+                      >
+                      <select v-model="house" id="chambreId">
+                        <option value="">Aucun</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
                 <div class="px-4 py-3 bg-white sm:p-6">
                   <div class="flex space-x-4">
@@ -48,7 +70,7 @@
                         id="first_name"
                         autocomplete="given-name"
                         placeholder="Ex: Jeanno marteau"
-                        class="mt-1 focus:ring-indigo-500  focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                       />
                     </div>
 
@@ -67,8 +89,6 @@
                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                       />
                     </div>
-                    
-                    
                   </div>
                   <div class="w-full flex py-4 space-x-4">
                     <div class="w-2/5">
@@ -85,37 +105,45 @@
                         placeholder="Ex:  +243 97823 . . 57"
                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                       />
-                    </div>                    
                     </div>
+                  </div>
                 </div>
-                
-                
-                   <div
-                class="px-4 py-3 mt-10 bg-gray-50 text-right sm:px-6 flex space-x-4 items-center justify-end"
-              >
-                <button
-                  type="submit"
-                  class="inline-flex justify-center py-2 px-20 border-2 hover:text-white border-indigo-500 shadow-sm text-sm font-medium rounded-md text-indigo-700 bg-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+
+                <div
+                  class="px-4 py-3 mt-10 text-right sm:px-6 flex space-x-4 items-center justify-end"
                 >
-                  Annuler
-                </button>
-                <button
-                  type="submit"
-                  class="inline-flex justify-center py-2 px-20 border-2 border-indigo-500 shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  Valider
-                </button>
+                  <button
+                    class="inline-flex justify-center py-2 px-20 border-2 hover:text-white bg-orange-500 shadow-sm text-sm font-medium rounded-md text-indigo-50 hover:bg-orange-700 focus:outline-none focus:ring-0"
+                  >
+                    Annuler
+                  </button>
+                  <button
+                    class="inline-flex justify-center py-2 px-20 border-2 border-indigo-500 shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-0"
+                  >
+                    Valider
+                  </button>
+                </div>
               </div>
-                </div>
             </form>
           </div>
         </div>
+        <pre>{{batiments}}</pre>
       </div>
     </div>
     <div class="w-1/5">
-      <nuxt-link to="/clients" class="px-8 py-2 text-gray-50 bg-black rounded-md"
+      <nuxt-link
+        to="/clients"
+        class="px-8 py-2 text-gray-50 bg-black rounded-md"
         >Retour</nuxt-link
       >
     </div>
   </div>
 </template>
+<script>
+import { mapState } from "vuex";
+export default {
+  computed:{
+    ...mapState({batiments:'batiment/batiments'})
+  }
+}
+</script>

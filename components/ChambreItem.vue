@@ -22,7 +22,7 @@
       </div>
     </td>
     <td class="px-2 whitespace-nowrap">
-      <div class="text-xs text-gray-400">{{chambre.type}}</div>
+      <div class="text-xs text-gray-400">{{chambre.category}}</div>
     </td>
     <td class="px-2 text-left py-4 whitespace-nowrap text-sm text-gray-500">
       <span

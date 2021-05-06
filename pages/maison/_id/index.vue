@@ -121,6 +121,7 @@
       </div>
     </div>
     <div v-for="(n, i) in batiment.niveaux" :key="i">
+    <!-- <pre>{{batiment.niveaux[i].rooms}}</pre> -->
       <h3 class="text-blue-600 text-lg mb-1">Niveau ({{ i }})</h3>
       <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -178,7 +179,7 @@
                     
                     <tbody class="bg-white divide-y divide-gray-200">
                     <chambre-item
-                      v-for="(m, f) in tt[0]"
+                      v-for="(m, f) in batiment.niveaux[i].rooms"
                       :key="f"
                       :numero="f"
                       :chambre="m"
@@ -226,18 +227,17 @@ export default {
     return { batiment };
   },
   computed:{
-    tt(){
-      let tableau=[]
-      for(var i=0;i<this.batiment.niveaux.length;i++){
-        
- //
-         if(this.batiment.niveaux[i].apartements.length!==0||this.batiment.niveaux[i].kiosques.length!==0){
-tableau.push([...this.batiment.niveaux[i].apartements,...this.batiment.niveaux[i].kiosques])
-         }
-      }
-      console.log(tableau);
-       return tableau;
-    }
+    // tt(){
+    //   let tableau=[]
+    //   for(var i=0;i<this.batiment.niveaux.length;i++){
+      
+         
+    //     tableau.push(...this.batiment.niveaux[i].rooms)
+         
+    //   }
+    //   console.log(tableau);
+    //    return tableau;
+    // }
   },
   methods:{
     ...mapActions({createNiveau:"house/createNiveau"}),

@@ -106,6 +106,7 @@ export default {
     const client = app.apolloProvider.defaultClient
       const {data}=await client.query({query:BATIMENT_QUERY});
       const {batiments}=data;
+      console.log(data);
       return {
         batiments
       }

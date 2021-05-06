@@ -7,9 +7,9 @@ export const NEW_APARTEMENT = gql`
     }
   }
 `;
-export const NEW_KIOSQUE = gql`
-  mutation createKio($data: KiosqueCreateInput!) {
-    createKiosque(data: $data) {
+export const NEW_ROOM = gql`
+  mutation createRoo($data: RoomCreateInput!) {
+    createRoom(data: $data) {
       id
     }
   }

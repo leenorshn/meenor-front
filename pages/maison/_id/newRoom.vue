@@ -11,7 +11,7 @@
             <input
               type="radio"
               id="isLivingRoom"
-              value="apartement"
+              value="APARTEMENT"
               class="rounded-full h-5 w-5 mr-4"
               v-model="typeLocation"
             />
@@ -21,7 +21,7 @@
             <input
               type="radio"
               id="isShop"
-              value="boutique"
+              value="BOUTIQUE"
               class="rounded-full h-5 w-5 mr-4"
               v-model="typeLocation"
             />
@@ -53,7 +53,7 @@
               placeholder="Ex: 100$"
             />
           </div>
-          <div v-if="typeLocation == 'boutique'" class="flex flex-col w-1/3">
+          <div class="flex flex-col w-1/3">
             <label class="my-2" for="format">Forma de location</label>
             <select v-model="room.format" id="format">
               <option value="MEDIUM">Normale</option>
@@ -108,18 +108,11 @@
 
           <button
             @click.prevent="enregisterApartement()"
-            v-if="typeLocation == 'apartement'"
             class="px-8 py-2 bg-blue-600 rounded-md text-white"
           >
             Enregistrer Apartement
           </button>
-          <button
-            @click.prevent="enregisterShop()"
-            v-else
-            class="px-8 py-2 bg-blue-600 rounded-md text-white"
-          >
-            Enregistrer Shop
-          </button>
+          
         </div>
       </div>
     </div>
@@ -131,7 +124,7 @@ import { mapActions } from "vuex";
 export default {
   data() {
     return {
-      typeLocation: "apartement",
+      typeLocation: "APARTEMENT",
       room: {},
       hasPower: false,
       hasWater: false,
@@ -140,40 +133,19 @@ export default {
   },
   methods: {
     ...mapActions({
-      createApartement: "house/createApartement",
-      createKiosque: "house/createKiosque",
+      createRoom: "house/createRoom",
     }),
     async enregisterApartement() {
-      ///alert( this.$route.params.id)
       try {
-        this.createApartement({
-          livingRooms: 1,
-          niveau: this.$route.params.id,
-          numero: this.room.numero,
-          hasPower: this.hasPower,
-          hasWater: this.hasWater,
-          isAvalaible: this.isAvalaible,
-          price: this.room.price,
-          features: ["Aucun"],
-        });
-
-        this.annuler();
-      } catch (e) {
-        this.annuler();
-        console.error(e);
-      }
-    },
-    async enregisterShop() {
-      try {
-        this.createKiosque({
+        this.createRoom({
           format: this.room.format,
+          category:this.typeLocation,
           niveau: this.$route.params.id,
           numero: this.room.numero,
           hasPower: this.hasPower,
           hasWater: this.hasWater,
           isAvalaible: this.isAvalaible,
-          price: this.room.price,
-          //features: ["Aucun"],
+          price: this.room.price
         });
 
         this.annuler();
@@ -183,7 +155,7 @@ export default {
       }
     },
     annuler() {
-      this.typeLocation = "apartement";
+      this.typeLocation = "APARTEMENT";
       this.room = {};
       this.hasPower = false;
       this.hasWater = false;

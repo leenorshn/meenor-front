@@ -5,8 +5,8 @@
         <div class="">
           <div class="mt-5 md:mt-0">
             <form action="#" method="POST">
-              <div class="shadow overflow-hidden sm:rounded-md">
-                <div class="px-4 py-5 bg-white sm:p-6 flex items-center">
+              <div class="shadow overflow-hidden sm:rounded-md bg-white">
+                <div class="px-4 py-5  sm:p-6 flex items-center">
                   <div>
                     <label class="block ml-3 text-sm font-medium text-gray-700">
                       Photo
@@ -42,6 +42,7 @@
                       >
                       <select v-model="house" id="maisonId">
                         <option value="">Aucune</option>
+                        <option v-for="(v,i) in batiments" :key="i" :value="v.id">{{'Bat-'+v.name}}</option>
                       </select>
                     </div>
                     <div class="w-72">
@@ -50,8 +51,9 @@
                         for="chambreId"
                         >Choisir chambre</label
                       >
-                      <select v-model="house" id="chambreId">
+                      <select v-model="room" id="chambreId">
                         <option value="">Aucun</option>
+                        
                       </select>
                     </div>
                   </div>
@@ -110,7 +112,7 @@
                 </div>
 
                 <div
-                  class="px-4 py-3 mt-10 text-right sm:px-6 flex space-x-4 items-center justify-end"
+                  class="px-4 py-3 bg-white mt-10 text-right sm:px-6 flex space-x-4 items-center justify-end"
                 >
                   <button
                     class="inline-flex justify-center py-2 px-20 border-2 hover:text-white bg-orange-500 shadow-sm text-sm font-medium rounded-md text-indigo-50 hover:bg-orange-700 focus:outline-none focus:ring-0"
@@ -127,7 +129,7 @@
             </form>
           </div>
         </div>
-        <pre>{{batiments}}</pre>
+    
       </div>
     </div>
     <div class="w-1/5">
@@ -140,10 +142,31 @@
   </div>
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapActions } from "vuex";
 export default {
+  data(){
+    return{
+      room:'',
+      house:''
+    }
+  },
   computed:{
-    ...mapState({batiments:'batiment/batiments'})
+      batiments(){
+        return this.$store.state.batiment.batiments;
+      },
+      rooms(){
+        const r= this.$store.state.batiment.batiments.find(bt=>{
+          return bt.id==this.house;
+        });
+        console.log(r.niveaux);
+      }
+    
+  },
+  mounted(){
+    this.loadBatiment();
+  },
+  methods:{
+   ...mapActions({loadBatiment:"batiment/loadBatiment"})
   }
 }
 </script>

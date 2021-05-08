@@ -50,7 +50,7 @@
                   <!-- More people... -->
                 </tbody>
               </table>
-              <pre>{{batiments}}</pre>
+              <!-- <pre>{{batiments}}</pre> -->
             </div>
           </div>
         </div>

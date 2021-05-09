@@ -7,32 +7,77 @@
             <form action="#" method="POST">
               <div class="shadow overflow-hidden sm:rounded-md bg-white">
                 <div class="px-4 py-5  sm:p-6 flex items-center">
-                  <div>
-                    <label class="block ml-3 text-sm font-medium text-gray-700">
-                      Photo
-                    </label>
-                    <div class="mt-1 flex items-center">
-                      <span
-                        class="inline-block h-20 w-20 rounded-full overflow-hidden bg-gray-100"
-                      >
-                        <svg
-                          class="h-full w-full text-gray-300"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"
-                          />
-                        </svg>
-                      </span>
-                      <button
-                        type="button"
-                        class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                      >
-                        Change
-                      </button>
-                    </div>
-                  </div>
+                  <label for="" class="text-gray-500"
+              >Choisir l'image banniere
+            </label>
+            <div
+              class="flex items-center h-48 w-72 border-2 border-dashed border-gray-400 rounded-md"
+            >
+              <div
+                class="w-full h-full flex justify-center items-center inset-0 cursor-pointer bg-gray-50"
+                @click="onPickFile"
+              >
+
+              <div class="flex items-start text-gray-500">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-12 w-12"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
+                </svg>
+                </div>
+              </div>
+              <input
+                type="file"
+                style="display: none"
+                ref="fileInput"
+                accept="image/*"
+                @change="onFilePicked"
+              />
+            </div>
+          </div>
+          <div class="my-4">
+          <div class="flex space-x-4">
+            <div class="w-full">
+              <label for=" " class="text-sm text-gray-500">Nom de la competition</label>
+              <input type="text" placeholder="Ex: Boxeur doppel" />
+            </div>
+            <div class="w-2/3">
+              <label for="category" class="text-sm text-gray-500">type</label>
+              <select name="" id="category">
+                <option value="">category</option>
+                <option
+                  :value="categ"
+                  v-for="(categ, i) in categories"
+                  :key="i"
+                >
+                  {{ categ }}
+                </option>
+              </select>
+            </div>
+          </div>
                   
                 </div>
                 <div class="px-4 py-3 bg-white sm:p-6">

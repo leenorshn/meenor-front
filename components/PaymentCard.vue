@@ -2,7 +2,7 @@
     <tr>
     
     <td class="pl-3 text-center px-3  whitespace-nowrap">
-      <div class="text-sm text-gray-700">{{numero}}</div>
+      <div class="text-sm text-gray-700">{{numero+1}}</div>
     </td>
     <td class="whitespace-nowrap">
       <div class="flex items-center">
@@ -46,9 +46,9 @@
       </span>
     </td>
     <td
-      class="px-2 py-1 whitespace-nowrap flex items-center justify-center text-sm font-medium"
+      class="px-2 py-3 text-xs text-gray-500 whitespace-nowrap flex items-center justify-center font-medium"
     >
-      {{Date.now()}}
+     <h2>{{"Le "+$moment(Date.now()).format("DD-MM-YYYY")}}</h2> 
     </td>
     
   </tr>

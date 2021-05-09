@@ -44,7 +44,7 @@
     >
       <nuxt-link
         class="p-2 hover:bg-orange-200 text-gray-400 hover:text-red-900 rounded-full"
-        to="/"
+        to="/maison/2"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,8 @@
       </nuxt-link>
       <nuxt-link
         class="p-2 hover:bg-blue-300 text-gray-400 hover:text-blue-700 rounded-full"
-        to="/maison/2"
+        
+        :to="`/maison/${chambre.id}/room`"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

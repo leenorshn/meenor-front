@@ -21,6 +21,7 @@
     "vue-chartjs": "^3.5.1"
   },
   "devDependencies": {
+    "@nuxtjs/moment": "^1.6.1",
     "@nuxtjs/tailwindcss": "^4.0.3",
     "@tailwindcss/postcss7-compat": "^2.1.0",
     "autoprefixer": "^9.8.6",

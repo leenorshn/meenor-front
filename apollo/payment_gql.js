@@ -23,3 +23,11 @@ export const GET_PAYMENTS = gql`
     }
   }
 `;
+
+export const NEW_PAYMENT = gql`
+  mutation($data: PaymentCreateInput!) {
+    createPayment(data: $data) {
+      id
+    }
+  }
+`;

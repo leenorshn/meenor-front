@@ -10,13 +10,13 @@
           />
         </div>
         <div class="ml-4">
-          <div class="text-sm font-medium text-gray-900">Victorian Done</div>
-          <div class="text-sm text-gray-400">0978154328</div>
+          <div class="text-sm font-medium text-gray-900">{{client.name}}</div>
+          <div class="text-sm text-gray-400">{{client.phone}}</div>
         </div>
       </div>
     </td>
     <td class="px-6 py-4 whitespace-nowrap">
-      <div class="text-sm text-gray-900">Galerie 4</div>
+      <div class="text-sm text-gray-900">Chambre n-{{client.room?client.room.numero:""}}</div>
       <div class="text-sm text-gray-400">Chambre N-2</div>
     </td>
     <td class="px-6 py-4 whitespace-nowrap">
@@ -93,3 +93,11 @@
     </td>
   </tr>
 </template>
+
+<script>
+export default {
+  props:{
+    client:Object
+  }
+}
+</script>

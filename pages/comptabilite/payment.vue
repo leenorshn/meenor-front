@@ -30,6 +30,7 @@
                     <input
                       type="text"
                       id="type_location"
+                      v-model="phone_client"
                       placeholder="Telephone du locataire ou code de la chambre"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
@@ -54,6 +55,7 @@
                     <input
                       type="text"
                       name="company_website"
+                      v-model="payment.amount"
                       id="company_website"
                       class="pl-16 flex-1 block w-full rounded-r-md sm:text-sm border-gray-300"
                       placeholder="Montant verse"
@@ -70,6 +72,7 @@
                     <input
                       type="date"
                       name="state"
+                      v-model="payment.fromDate"
                       id="state"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
@@ -84,6 +87,7 @@
                     <input
                       type="date"
                       name="postal_code"
+                      v-model="payment.toDate"
                       id="postal_code"
                       autocomplete="postal-code"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -113,7 +117,20 @@
   </div>
 </template>
 <script>
+import { mapActions } from "vuex";
 export default {
   layout: "account",
+  data(){
+    return{
+      payment:{}
+    }
+
+  },
+  methods:{
+    ...mapActions({createPayment:'payment/createPayment'}),
+    createPay(){
+      this.createPayment({});
+    }
+  }
 };
 </script>

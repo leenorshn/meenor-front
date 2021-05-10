@@ -86,7 +86,7 @@
               </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
-              <payment-item v-for="(n, i) in 4" :key="i" />
+              <payment-item v-for="(n, i) in payments" :item="n" :key="i" />
             </tbody>
           </table>
         </div>
@@ -95,7 +95,15 @@
   </div>
 </template>
 <script>
+import { GET_PAYMENTS } from "~/apollo/payment_gql";
 export default {
   layout: "account",
+  apollo:{
+    payments:{
+      query:GET_PAYMENTS
+    }
+  }
+
+
 };
 </script>

@@ -4,7 +4,7 @@
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="mt-5 md:mt-0 md:col-span-3">
           <form action="#" method="POST">
-            <div class="shadow overflow-hidden sm:rounded-md">
+            <div class="overflow-hidden sm:rounded-md">
               <div class="px-4 py-5 bg-white sm:p-6 space-y-6">
                 <div>
                   <h1 class="text-2xl text-indigo-700 tracking-wide">Paiement facture locatif</h1>
@@ -19,109 +19,19 @@
                 </div>
                 </div>
                 
-                <div class="flex space-x-4">
-                  <div class="w-1/3">
-                    <label
-                      for="country"
-                      class="block text-sm font-medium text-gray-700"
-                      >Batiment</label
-                    >
-                    <select
-                      id="country"
-                      name="country"
-                      autocomplete="country"
-                      class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    >
-                      <option>Galerie BTK</option>
-                      <option>Batiment Haonjin</option>
-                      <option>Imeble A</option>
-                    </select>
-                  </div>
-                  <div class="w-1/3">
-                    <label
-                      for="country"
-                      class="block text-sm font-medium text-gray-700"
-                      >Niveau</label
-                    >
-                    <select
-                      id="country"
-                      name="country"
-                      autocomplete="country"
-                      class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    >
-                      <option>Red de chausse</option>
-                      <option>Niveau-1</option>
-                      <option>Niveau-2</option>
-                      <option>Niveau-3</option>
-                      <option>Niveau-4</option>
-                    </select>
-                  </div>
-
-                  <div class="w-1/3">
-                    <label
-                      for="country"
-                      class="block text-sm font-medium text-gray-700"
-                      >chambre</label
-                    >
-                    <select
-                      id="country"
-                      name="country"
-                      autocomplete="country"
-                      class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    >
-                      <option>numero 1</option>
-                      <option>numero 2</option>
-                      <option>numero 3</option>
-                      <option>numero 4</option>
-                      <option>numero 5</option>
-                      <option>numero 6</option>
-                      <option>numero 7</option>
-                    </select>
-                  </div>
-                </div>
+                
                 <div class="flex space-x-4">
                   <div class="w-1/3">
                     <label
                       for="type_location"
-                      class="block text-sm font-medium text-gray-700"
-                      >Type de location</label
+                      class="block text-sm  text-gray-700"
+                      >Telephone du locataire ou code de la chambre</label
                     >
                     <input
                       type="text"
                       id="type_location"
-                      placeholder="type location"
-                      disabled
-                      class="mt-1 focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
-                  </div>
-
-                  <div class="w-1/3">
-                    <label
-                      for="prix_mois"
-                      class="block text-sm font-medium text-gray-700"
-                      >Prix mensuel</label
-                    >
-                    <input
-                      type="text"
-                      id="prix_mois"
-                      placeholder="prix / mois"
-                      disabled
-                      class="mt-1 focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
-                  </div>
-
-                  <div class="w-1/3">
-                    <label
-                      for="client_name"
-                      class="block text-sm font-medium text-gray-700"
-                      >Client</label
-                    >
-                    <input
-                      type="text"
-                      id="client_name"
-                      placeholder="Nom du client"
-                      disabled
-                      class="mt-1 focus:ring-indigo-500 bg-gray-100 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                      placeholder="Telephone du locataire ou code de la chambre"
+                      class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
                 </div>
@@ -129,7 +39,7 @@
                 <div class="w-1/2">
                   <label
                     for="company_website"
-                    class="block text-sm font-medium text-gray-700"
+                    class="block text-sm text-gray-700"
                   >
                     Montant Versé :
                   </label>
@@ -154,7 +64,7 @@
                   <div class="w-1/3">
                     <label
                       for="state"
-                      class="block text-sm font-medium text-gray-700"
+                      class="block text-sm  text-gray-700"
                       >Date de debut</label
                     >
                     <input
@@ -168,7 +78,7 @@
                   <div class="w-1/3">
                     <label
                       for="postal_code"
-                      class="block text-sm font-medium text-gray-700"
+                      class="block text-sm  text-gray-700"
                       >Date de fin</label
                     >
                     <input

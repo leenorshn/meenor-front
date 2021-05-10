@@ -1,10 +1,10 @@
 <template>
   <tr>
-    <td class="px-6 py-4 whitespace-nowrap">24Az88E</td>
+    <td class="px-6 py-4 whitespace-nowrap">{{item.id.substring(0,6)}}</td>
     <td class="px-6 py-4 whitespace-nowrap">
       <div class="text-sm text-gray-900">Entré</div>
     </td>
-    <td class="px-6 text-center py-4 whitespace-nowrap">700</td>
+    <td class="px-6 text-center py-4 whitespace-nowrap">{{item.amount}}</td>
     <td
       class="px-4 py-4 text-center whitespace-nowrap text-sm text-gray-500"
     >
@@ -13,7 +13,7 @@
     <td
       class="px-4 py-4  text-center whitespace-nowrap text-sm text-gray-500"
     >
-      {{new Date().toString().substring(0,21)}}
+      {{"Le "+$moment(item.createdAt).format("DD-MM-YYYY")}}
     </td>
     <td
       class="px-6 py-2 text-gray-500 whitespace-nowrap text-right text-sm font-medium"
@@ -66,3 +66,10 @@
     </td>
   </tr>
 </template>
+<script>
+export default {
+  props:{
+    item:Object
+  }
+}
+</script>

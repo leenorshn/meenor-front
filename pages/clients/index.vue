@@ -44,7 +44,7 @@
                   </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                  <client-card v-for="(n, i) in 4" :key="i" />
+                  <client-card v-for="(n, i) in locataires" :client="n" :key="i" />
                 </tbody>
               </table>
             </div>
@@ -124,7 +124,27 @@
   </div>
 </template>
 <script>
+import gql from "graphql-tag";
 export default {
+  apollo: {
+    locataires: {
+      query: gql`
+        query {
+          locataires {
+            id
+            name
+            avatar
+            phone
+            room {
+              id
+              numero
+            }
+          }
+        }
+      `,
+    },
+  },
+
   data() {
     return {
       cities: [

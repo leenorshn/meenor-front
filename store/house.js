@@ -37,5 +37,19 @@ export const actions = {
       } catch (error) {
         console.error(error);
       }
+  },
+
+  async createLocataire(_,data){
+    let client =this.app.apolloProvider.defaultClient;
+    try {
+      console.log(data);
+      const res= await client.mutate({mutation:NEW_LOCATAIRE,variables:{data}})
+      .then(({data})=>{
+        console.log(data);
+        return data && data.createLocataire;
+      });
+    } catch (error) {
+      console.error(error);
+    }
   }
 };

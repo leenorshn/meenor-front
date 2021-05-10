@@ -6,7 +6,9 @@
           <div class="mt-5 md:mt-0">
             <form action="#" method="POST" class="shadow bg-white rounded-md">
               <div class="overflow-visible flex">
-                <div class="w-1/3 bg-gray-900 rounded-tl-md h-80 p-4 flex flex-col items-center space-y-8">
+                <div
+                  class="w-1/3 bg-gray-900 rounded-tl-md h-80 p-4 flex flex-col items-center space-y-8"
+                >
                   <h3 class="text-white text-3xl">Nouveau client</h3>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -84,9 +86,8 @@
                     >
                     <input
                       type="text"
-                      name="first_name"
+                       v-model="locataire.name"
                       id="first_name"
-                      autocomplete="given-name"
                       placeholder="Ex: Jeanno marteau"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
@@ -98,10 +99,10 @@
                     >
                     <input
                       type="text"
-                      name="last_name"
+                      v-model="locataire.postname"
                       id="last_name"
                       placeholder="Depunt"
-                      autocomplete="family-name"
+                      
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
@@ -116,7 +117,6 @@
                         type="text"
                         name="email_address"
                         id="email_address"
-                        autocomplete="email"
                         placeholder="Ex:  +243 97823 . . 57"
                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                       />
@@ -133,6 +133,7 @@
                   Annuler
                 </button>
                 <button
+                  @click="createLoc()"
                   class="inline-flex justify-center py-2 px-20 shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-0"
                 >
                   Valider
@@ -157,26 +158,22 @@ import { mapActions } from "vuex";
 export default {
   data() {
     return {
-      room: "",
+      locataire: "",
       house: "",
     };
   },
-  computed: {
-    batiments() {
-      return this.$store.state.batiment.batiments;
-    },
-    rooms() {
-      const r = this.$store.state.batiment.batiments.find((bt) => {
-        return bt.id == this.house;
-      });
-      console.log(r.niveaux);
-    },
-  },
-  mounted() {
-    this.loadBatiment();
-  },
+  computed: {},
+
   methods: {
-    ...mapActions({ loadBatiment: "batiment/loadBatiment" }),
+    ...mapActions({ createLocataire: "house/createLocataire" }),
+    createLoc() {
+      this.createLocataire({
+        name: this.locataire.name+" "+this.locataire.postname,
+        phone: this.locataire.phone,
+        avatar: "ttt.com",
+        room: this.$route.params.id,
+      });
+    },
 
     onPickFile() {
       this.$refs.fileInput.click();

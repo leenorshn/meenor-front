@@ -117,7 +117,7 @@
   </div>
 </template>
 <script>
-import { mapActions } from "vuex";
+import { mapActions,mapState } from "vuex";
 export default {
   layout: "account",
   data(){
@@ -126,6 +126,12 @@ export default {
       phone_client:""
     }
 
+  },
+  computed:{
+    ...mapState({locataires:'house/locataires'}),
+    locataire(){
+      return this.locataires.find(el=>el.phone.includes(this.phone_client));
+    }
   },
   methods:{
     ...mapActions({createPayment:'payment/createPayment'}),

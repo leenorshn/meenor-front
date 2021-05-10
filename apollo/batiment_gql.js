@@ -63,10 +63,4 @@ export const BATIMENT_ONE_QUERY = gql`
   }
 `;
 
-export const NEW_LOCATAIRE = gql`
-  mutation createLoc($data: LocataireCreateInput!) {
-    createLocataire(data: $data) {
-      id
-    }
-  }
-`;
+

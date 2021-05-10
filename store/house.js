@@ -1,4 +1,5 @@
 import { NEW_ROOM,NEW_NIVEAU} from "~/apollo/apartement_gql";
+import { NEW_LOCATAIRE} from "~/apollo/locataire_gql";
 
 export const state = () => ({});
 

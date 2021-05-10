@@ -93,19 +93,7 @@
                     />
                   </div>
 
-                  <div class="w-full">
-                    <label for="last_name" class="block text-sm text-gray-500"
-                      >Prenom:</label
-                    >
-                    <input
-                      type="text"
-                      v-model="locataire.postname"
-                      id="last_name"
-                      placeholder="Depunt"
-                      
-                      class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
-                  </div>
+                  
                   <div class="w-full flex py-4">
                     <div class="w-full">
                       <label
@@ -115,7 +103,7 @@
                       >
                       <input
                         type="text"
-                        name="email_address"
+                        v-model="locataire.phone"
                         id="email_address"
                         placeholder="Ex:  +243 97823 . . 57"
                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -133,7 +121,7 @@
                   Annuler
                 </button>
                 <button
-                  @click="createLoc()"
+                  @click.prevent="createLoc()"
                   class="inline-flex justify-center py-2 px-20 shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-0"
                 >
                   Valider
@@ -158,7 +146,7 @@ import { mapActions } from "vuex";
 export default {
   data() {
     return {
-      locataire: "",
+      locataire: {},
       house: "",
     };
   },
@@ -168,7 +156,7 @@ export default {
     ...mapActions({ createLocataire: "house/createLocataire" }),
     createLoc() {
       this.createLocataire({
-        name: this.locataire.name+" "+this.locataire.postname,
+        name: this.locataire.name,
         phone: this.locataire.phone,
         avatar: "ttt.com",
         room: this.$route.params.id,

@@ -2,64 +2,71 @@ import gql from "graphql-tag";
 
 export const BATIMENT_QUERY = gql`
   query {
-  batiments{
-    id
-    name
-    address{
-      city
-      local
-    }
-    totaleNiveaux
-    totalRooms
-    niveaux{
+    batiments {
       id
       name
+      address {
+        city
+        local
+      }
+      totaleNiveaux
       totalRooms
-      rooms{
+      niveaux {
         id
-        format
-        category
-        price
-        niveau{
+        name
+        totalRooms
+        rooms {
           id
+          format
+          category
+          price
+          niveau {
+            id
+          }
+          numero
+          isAvalaible
         }
-        numero
-        isAvalaible
       }
     }
   }
-}
 `;
 
 export const BATIMENT_ONE_QUERY = gql`
   query getBatiment($id: ID!) {
-    
-  batiment(id:$id){
-    id
-    name
-    address{
-      city
-      local
-    }
-    totaleNiveaux
-    totalRooms
-    niveaux{
+    batiment(id: $id) {
       id
       name
+      address {
+        city
+        local
+      }
+      totaleNiveaux
       totalRooms
-     
-      rooms{
+      niveaux {
         id
-        format
-         price
-        niveau{
+        name
+        totalRooms
+
+        rooms {
           id
+          format
+          price
+          niveau {
+            id
+          }
+          category
+          numero
+          isAvalaible
         }
-        category
-        numero
-        isAvalaible
       }
     }
   }
-}
+`;
+
+export const NEW_LOCATAIRE = gql`
+  mutation createLoc($data: LocataireCreateInput!) {
+    createLocataire(data: $data) {
+      id
+    }
+  }
 `;

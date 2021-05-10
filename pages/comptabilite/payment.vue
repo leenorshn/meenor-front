@@ -97,13 +97,13 @@
               </div>
               <div class="px-4 py-3 bg-gray-50 text-right sm:px-6 flex space-x-4 items-center justify-end">
                   <button
-                  type="submit"
+                  @click.prevent="annuler()"
                   class="inline-flex justify-center py-2 px-20 border-2 hover:text-white border-indigo-500 shadow-sm text-sm font-medium rounded-md text-indigo-700  bg-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Annuler
                 </button>
                 <button
-                  type="submit"
+                  @click.prevent="createPay()"
                   class="inline-flex justify-center py-2 px-20 border-2 border-indigo-500 shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Confirmer
@@ -122,7 +122,8 @@ export default {
   layout: "account",
   data(){
     return{
-      payment:{}
+      payment:{},
+      phone_client:""
     }
 
   },
@@ -130,6 +131,10 @@ export default {
     ...mapActions({createPayment:'payment/createPayment'}),
     createPay(){
       this.createPayment({});
+    },
+    annuler(){
+      this.payment={}
+      this.phone_client=""
     }
   }
 };

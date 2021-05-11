@@ -1,9 +1,15 @@
 import { NEW_ROOM,NEW_NIVEAU} from "~/apollo/apartement_gql";
 import { NEW_LOCATAIRE} from "~/apollo/locataire_gql";
 
-export const state = () => ({});
+export const state = () => ({
+  locataires:[]
+});
 
-export const mutations = {};
+export const mutations = {
+  SET_LOCATAIRES(state,data){
+    state.locataires=data;
+  }
+};
 
 export const actions = {
   async createRoom(_, data) {
@@ -61,6 +67,7 @@ export const actions = {
         console.log(data);
         return data && data.locataires;
       });
+      context.commit("SET_LOCATAIRES",res);
       console.log(res);
     } catch (error) {
       console.error(error);

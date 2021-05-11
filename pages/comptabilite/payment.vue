@@ -57,6 +57,14 @@
                         </div>
                       </div>
                     </div>
+                    <div class="p-4">
+                      <h3 class="text-sm text-gray-500">Maison: <span class="text-gray-700 font-semibold">Galerie</span></h3>
+                      <h3 class="text-sm text-gray-500">chambre: <span class="text-gray-700 font-semibold">Galerie</span></h3>
+                      <h3 class="text-sm text-gray-500">room: <span class="text-gray-700 font-semibold">Galerie</span></h3>
+                      <h3 class="text-base text-gray-700">client</h3>
+                      <h3 class="text-sm text-gray-500">ID: <span class="text-gray-700 font-semibold">Galerie</span></h3>
+                      <h3 class="text-sm text-gray-500">name: <span class="text-gray-700 font-semibold">Galerie</span></h3>
+                    </div>
                   </div>
                   <div class="w-1/2 space-y-6">
                     <div>

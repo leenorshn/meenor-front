@@ -10,7 +10,7 @@ export const actions = {
   async createPayment(_,data) {
     let client = this.app.apolloProvider.defaultClient;
     try {
-
+        console.log(data);
         const res = await client
         .mutate({ mutation: NEW_PAYMENT, variables: {data} })
         .then(({ data }) => {

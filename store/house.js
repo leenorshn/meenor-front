@@ -1,5 +1,5 @@
 import { NEW_ROOM,NEW_NIVEAU} from "~/apollo/apartement_gql";
-import { NEW_LOCATAIRE} from "~/apollo/locataire_gql";
+import { NEW_LOCATAIRE,QUERY_LOCATAIRES} from "~/apollo/locataire_gql";
 
 export const state = () => ({
   locataires:[]
@@ -62,7 +62,7 @@ export const actions = {
   async getLocataire(context){
     let client =this.app.apolloProvider.defaultClient;
     try {
-      const res= await client.query({query:NEW_LOCATAIRE})
+      const res= await client.query({query:QUERY_LOCATAIRES})
       .then(({data})=>{
         console.log(data);
         return data && data.locataires;

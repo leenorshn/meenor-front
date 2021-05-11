@@ -7,3 +7,17 @@ export const NEW_LOCATAIRE = gql`
     }
   }
 `;
+
+export const QUERY_LOCATAIRES = gql`
+  query {
+    locataires {
+      id
+      name
+      phone
+      room {
+        id
+        numero
+      }
+    }
+  }
+`;

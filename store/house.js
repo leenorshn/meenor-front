@@ -52,5 +52,18 @@ export const actions = {
     } catch (error) {
       console.error(error);
     }
+  },
+  async getLocataire(context){
+    let client =this.app.apolloProvider.defaultClient;
+    try {
+      const res= await client.query({query:NEW_LOCATAIRE})
+      .then(({data})=>{
+        console.log(data);
+        return data && data.locataires;
+      });
+      console.log(res);
+    } catch (error) {
+      console.error(error);
+    }
   }
 };

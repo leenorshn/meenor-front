@@ -7,66 +7,83 @@
             <div class="overflow-hidden sm:rounded-md">
               <div class="px-4 py-5 bg-white sm:p-6 space-y-6">
                 <div>
-                  <h1 class="text-2xl text-indigo-700 tracking-wide">Paiement facture locatif</h1>
+                  <h1 class="text-2xl text-indigo-700 tracking-wide">
+                    Paiement facture locatif
+                  </h1>
                   <p class="text-gray-500 text-sm">
                     Veillez bien souvre les etapes de haut vers le bas pour
                     enregistrer un payment
                   </p>
                   <div class="hidden sm:block" aria-hidden="true">
-                  <div class="py-5">
-                    <div class="border-t border-gray-200"></div>
+                    <div class="py-5">
+                      <div class="border-t border-gray-200"></div>
+                    </div>
                   </div>
                 </div>
-                </div>
-                
-                
-                <div class="flex space-x-4">
-                  <div class="w-1/3">
-                    <label
-                      for="type_location"
-                      class="block text-sm  text-gray-700"
-                      >Telephone du locataire ou code de la chambre</label
-                    >
-                    <input
-                      type="text"
-                      id="type_location"
-                      v-model="phone_client"
-                      placeholder="Telephone du locataire ou code de la chambre"
-                      class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
+                <div class="flex space-x-8">
+                  <div class="w-1/2">
+                    <div>
+                      <label
+                        for="type_location"
+                        class="block text-sm text-gray-700"
+                        >Telephone du locataire ou code de la chambre</label
+                      >
+                      <div class="relative">
+                        <input
+                          type="text"
+                          id="type_location"
+                          v-model="phone_client"
+                          placeholder="Telephone ou #code chambre"
+                          class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                        />
+                        <div
+                          class="flex items-center space-x-2 absolute right-0 top-0 text-gray-50 bg-blue-600 rounded-r -m-b-1 px-3 py-2"
+                        >
+                          <h3 class="font-semibold text-base tracking-tight leading-5">Rechercher</h3>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-
-                <div class="w-1/2">
-                  <label
-                    for="company_website"
-                    class="block text-sm text-gray-700"
-                  >
-                    Montant Versé :
-                  </label>
-                  <div
-                    class="relative mt-2 flex rounded-md shadow-sm items-center"
-                  >
-                    <span
-                      class="h-9 absolute inline-flex items-center px-6 text-base py-4 font-bold rounded-l-md border border-r-0 border-gray-300 bg-indigo-500 leading-3 text-gray-50"
-                    >
-                      $
-                    </span>
-                    <input
-                      type="text"
-                      name="company_website"
-                      v-model="payment.amount"
-                      id="company_website"
-                      class="pl-16 flex-1 block w-full rounded-r-md sm:text-sm border-gray-300"
-                      placeholder="Montant verse"
-                    />
-                  </div>
-                </div>
-                <div class="flex space-x-4">
-                  <div class="w-1/3">
-                    <label
-                      for="state"
-                      class="block text-sm  text-gray-700"
+                  <div class="w-1/2 space-y-6">
+                    <div>
+                      <label
+                        for="company_website"
+                        class="block text-sm text-gray-700"
+                      >
+                        Montant Versé :
+                      </label>
+                      <div class="relative mt-2 flex rounded-md items-center">
+                        <span
+                          class="h-9 absolute inline-flex items-center px-6 text-base py-4 font-bold rounded-l-md border border-r-0 border-gray-300 bg-indigo-500 leading-3 text-gray-50"
+                        >
+                          $
+                        </span>
+                        <input
+                          type="text"
+                          name="company_website"
+                          v-model="payment.amount"
+                          id="company_website"
+                          class="pl-16 flex-1 block w-full rounded-r-md sm:text-sm border-gray-300"
+                          placeholder="Montant verse"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                    <label for="state" class="block text-sm text-gray-700"
                       >Date de debut</label
                     >
                     <input
@@ -78,10 +95,8 @@
                     />
                   </div>
 
-                  <div class="w-1/3">
-                    <label
-                      for="postal_code"
-                      class="block text-sm  text-gray-700"
+                  <div >
+                    <label for="postal_code" class="block text-sm text-gray-700"
                       >Date de fin</label
                     >
                     <input
@@ -93,12 +108,15 @@
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
+                  </div>
                 </div>
               </div>
-              <div class="px-4 py-3 bg-gray-50 text-right sm:px-6 flex space-x-4 items-center justify-end">
-                  <button
+              <div
+                class="px-4 py-3 bg-gray-50 text-right sm:px-6 flex space-x-4 items-center justify-end"
+              >
+                <button
                   @click.prevent="annuler()"
-                  class="inline-flex justify-center py-2 px-20 border-2 hover:text-white border-indigo-500 shadow-sm text-sm font-medium rounded-md text-indigo-700  bg-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  class="inline-flex justify-center py-2 px-20 border-2 hover:text-white border-indigo-500 shadow-sm text-sm font-medium rounded-md text-indigo-700 bg-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Annuler
                 </button>
@@ -117,31 +135,30 @@
   </div>
 </template>
 <script>
-import { mapActions,mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
   layout: "account",
-  data(){
-    return{
-      payment:{},
-      phone_client:""
-    }
-
+  data() {
+    return {
+      payment: {},
+      phone_client: "",
+    };
   },
-  computed:{
-    ...mapState({locataires:'house/locataires'}),
-    locataire(){
-      return this.locataires.find(el=>el.phone.includes(this.phone_client));
-    }
+  computed: {
+    ...mapState({ locataires: "house/locataires" }),
+    locataire() {
+      return this.locataires.find((el) => el.phone.includes(this.phone_client));
+    },
   },
-  methods:{
-    ...mapActions({createPayment:'payment/createPayment'}),
-    createPay(){
+  methods: {
+    ...mapActions({ createPayment: "payment/createPayment" }),
+    createPay() {
       this.createPayment({});
     },
-    annuler(){
-      this.payment={}
-      this.phone_client=""
-    }
-  }
+    annuler() {
+      this.payment = {};
+      this.phone_client = "";
+    },
+  },
 };
 </script>

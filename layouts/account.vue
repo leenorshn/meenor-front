@@ -90,16 +90,13 @@
                   d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
                 />
               </svg>
-              <h3 class="text-white">Compte</h3></nuxt-link
+              <h3 class="text-white">Listes sorties</h3></nuxt-link
             >
           </div>
           <div class="mt-10 space-y-3">
             <h3 class="text-yellow-500 text-lg font-semibold">Information</h3>
             <p class="text-gray-300 text-sm text-justify">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-              repellendus, nobis eum enim assumenda blanditiis tempora maxime ex
-              asperiores. Et quis, veniam delectus nam maxime odio error
-              voluptatibus. Architecto, fugiat.
+              En cours de dev
             </p>
           </div>
         </div>

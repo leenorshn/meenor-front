@@ -6,19 +6,19 @@
         <div>
           <h6 class="text-xs text-gray-500">Entré</h6>
           <h4 class="text-lg text-blue-700 font-bold">
-            <span class="text-gray-500 text-sm font-normal"> $</span> 35000
+            <span class="text-gray-500 text-sm font-normal"> $</span> {{entree}}
           </h4>
         </div>
         <div>
           <h6 class="text-xs text-gray-500">Sortie</h6>
           <h4 class="text-lg text-red-700 font-bold">
-            <span class="text-gray-500 text-sm font-normal"> $</span> 1500
+            <span class="text-gray-500 text-sm font-normal"> $</span> 0
           </h4>
         </div>
         <div>
           <h6 class="text-xs text-gray-500">Solde</h6>
           <h4 class="text-lg text-green-700 font-bold">
-            <span class="text-gray-500 text-sm font-normal"> $</span> 33500
+            <span class="text-gray-500 text-sm font-normal"> $</span> {{entree}}
           </h4>
         </div>
       </div>
@@ -101,6 +101,14 @@ export default {
   apollo:{
     payments:{
       query:GET_PAYMENTS
+    }
+  },
+  computed:{
+    entree(){
+      var msgTotal = this.payments.reduce(function(prev, cur) {
+  return prev + cur.amount;
+}, 0);
+return msgTotal;
     }
   }
 

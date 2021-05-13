@@ -111,13 +111,13 @@
                 class="px-4 py-3  bg-gray-50 text-right sm:px-6 flex space-x-4 items-center justify-end"
               >
                 <button
-                  @click="annulerSortie()"
-                  class="inline-flex justify-center py-2 px-20 border-2 border-indigo-500 shadow-sm text-sm font-medium rounded-md text-indigo-700 hover:text-white bg-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  @click.prevent="annulerSortie()"
+                  class="inline-flex justify-center py-2 px-20  shadow-sm text-sm font-medium rounded-md text-indigo-50 hover:text-white  bg-orange-600 focus:outline-none "
                 >
                   Annuler
                 </button>
                 <button
-                 @click="validerSortie()"
+                 @click.prevent="validerSortie()"
                   class="inline-flex justify-center py-2 px-20 border-2 border-indigo-500 shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Valider

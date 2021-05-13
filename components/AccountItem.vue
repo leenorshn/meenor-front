@@ -54,3 +54,10 @@
       </div>
     </div>
 </template>
+<script>
+export default {
+  props:{
+    account:Object,
+  }
+}
+</script>

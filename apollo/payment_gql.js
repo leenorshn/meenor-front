@@ -36,6 +36,7 @@ export const ACCOUNT_QUERY = gql`
     accounts {
       id
       name
+      balance
     }
   }
 `;

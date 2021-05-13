@@ -40,6 +40,7 @@
                       <input
                         type="text"
                         name="company_website"
+                        v-model="sortie.amount"
                         id="company_website"
                         class="pl-16 flex-1 block w-full rounded-r-md sm:text-sm border-gray-300"
                         placeholder="Montant demandé"
@@ -56,11 +57,12 @@
                     <select
                       id="country"
                       name="country"
+                      v-model="sortie.moyen"
                       autocomplete="country"
                       class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                     >
-                      <option>Cash</option>
-                      <option>Check bancaire</option>
+                      <option value="cash">Cash</option>
+                      <option value="bank">Check bancaire</option>
                     </select>
                   </div>
                 </div>
@@ -75,13 +77,12 @@
                     <select
                       id="country"
                       name="country"
+                      v-model="sortie.account"
                       autocomplete="country"
                       class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                     >
-                      <option>Paiement personnel</option>
-                      <option>Construction</option>
-                      <option>Assurence sante</option>
-                      <option>Electricite</option>
+                      <option v-for="(acc,i) in accounts" :key="i" :value="acc.id">{{acc.name}}</option>
+                      
                     </select>
                   </div>
                   <div class="w-1/2">
@@ -107,16 +108,16 @@
                     </div>
                   </div>
               <div
-                class="px-4 py-3 mt-10 bg-gray-50 text-right sm:px-6 flex space-x-4 items-center justify-end"
+                class="px-4 py-3  bg-gray-50 text-right sm:px-6 flex space-x-4 items-center justify-end"
               >
                 <button
-                  type="submit"
+                  @click="annulerSortie()"
                   class="inline-flex justify-center py-2 px-20 border-2 border-indigo-500 shadow-sm text-sm font-medium rounded-md text-indigo-700 hover:text-white bg-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Annuler
                 </button>
                 <button
-                  type="submit"
+                 @click="validerSortie()"
                   class="inline-flex justify-center py-2 px-20 border-2 border-indigo-500 shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Valider
@@ -130,7 +131,34 @@
   </div>
 </template>
 <script>
+import { mapActions } from "vuex";
+import { ACCOUNT_QUERY } from "~/apollo/payment_gql.js";
 export default {
   layout: "account",
+  apollo:{
+    accounts:{
+      query:ACCOUNT_QUERY
+    }
+  },
+  data(){
+    return {
+      sortie:{}
+    }
+  },
+  method:{
+    ...mapActions({createSortie:'payment/createSortie'}),
+    annulerSortie(){
+      this.sortie={}
+    },
+    validerSortie(){
+
+      this.createSortie({
+        ...sortie,
+      });
+
+      this.annulerSortie();
+    },
+
+  }
 };
 </script>

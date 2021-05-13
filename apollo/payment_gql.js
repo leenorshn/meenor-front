@@ -31,3 +31,19 @@ export const NEW_PAYMENT = gql`
     }
   }
 `;
+export const ACCOUNT_QUERY = gql`
+  query {
+    accounts {
+      id
+      name
+    }
+  }
+`;
+
+export const NEW_SORTIE = gql`
+  mutation createSortie($data: SortieCreateInput!) {
+    createSortie(data: $data) {
+      id
+    }
+  }
+`;

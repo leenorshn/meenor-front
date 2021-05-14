@@ -8,18 +8,9 @@
 </template>
 <script>
 //import { mapState } from "vuex";
-import { GET_CURRENT_USER } from "~/apollo/user_gql";
+//import { GET_CURRENT_USER } from "~/apollo/user_gql";
 export default {
-  apollo: {
-    user: {
-      query: GET_CURRENT_USER,
-      variables () {
-        return {
-          id: "608929ddeab4ff2b54771901"
-        }
-      }
-    }
-  }
+  
 }
 </script>
 

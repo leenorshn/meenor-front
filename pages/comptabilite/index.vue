@@ -3,6 +3,7 @@
 </template>
 <script>
 export default {
-    layout:"account"
+    layout:"account",
+    middleware:'isAuth.js'
 }
 </script>

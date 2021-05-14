@@ -3,7 +3,7 @@
     <div class="w-3/4 pr-4">
       <div class="flex space-x-4">
         <div class="w-1/4 bg-white h-72 rounded-md">
-          <circle-chart :data="chartDataCircle" :options="circleChartOptions"/>
+          <circle-chart :data="chartDataCircle" :options="circleChartOptions" />
         </div>
         <div class="w-3/4 bg-white h-72 rounded-md">
           <my-line
@@ -146,19 +146,18 @@ import CalenderBlock from "../../components/CalenderBlock.vue";
 
 export default {
   components: { CalenderBlock },
-  
-
+  middleware: "isAuth",
 
   data() {
     return {
       showLine: false,
       chartDataCircle: {
-        labels: ["Entre","Prevision", "Sortie", ],
+        labels: ["Entre", "Prevision", "Sortie"],
         datasets: [
           {
             label: "Solde",
-            data: [190,455,150],
-            backgroundColor: Object.values(["#21CE99","#1E40AF","#EF4444"]),
+            data: [190, 455, 150],
+            backgroundColor: Object.values(["#21CE99", "#1E40AF", "#EF4444"]),
           },
         ],
       },

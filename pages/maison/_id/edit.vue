@@ -81,7 +81,7 @@ export default {
             name:this.editHouse.name,
             address:this.address
         }
-      this.createHouse(house);
+      this.editBatiment(house);
       this.annuler();
     },
     annuler() {

@@ -46,7 +46,7 @@ export const actions = {
         .mutate({ mutation: EDIT_HOUSE, variables: {data} })
         .then(({ data }) => {
           //console.log(data);
-          return data && data.createBatiment;
+          return data && data.updateBatiment;
         });
 
       console.log(res);

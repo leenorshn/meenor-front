@@ -43,7 +43,13 @@ export const actions = {
     try {
       console.log(data);
       const res = await client
-        .mutate({ mutation: EDIT_HOUSE, variables: {data} })
+        .mutate({ mutation: EDIT_HOUSE, variables(){
+          console.log(data.id);
+          return{
+            data:data,
+            id:data.id,
+          }
+        } })
         .then(({ data }) => {
           //console.log(data);
           return data && data.updateBatiment;

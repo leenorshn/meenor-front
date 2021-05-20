@@ -77,7 +77,9 @@ export default {
   methods: {
     ...mapActions({ editBatiment: "batiment/editBatiment" }),
     modifBatiment() {
+        //console.log(this.$route.params.id);
         const house={
+            id:this.$route.params.id,
             name:this.editHouse.name,
             address:this.address
         }

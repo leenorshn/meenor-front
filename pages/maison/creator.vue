@@ -1,11 +1,11 @@
 <template>
     <div>
-        <div class="bg-black text-white py-2 px-4 w-full rounded-b flex justify-between">
-           <h2> Nouveau</h2>
-           <nuxt-link to="/maison">Retour</nuxt-link>
+        <div class="bg-black text-white py-2 px-4 w-full rounded-b flex items-center justify-between">
+           <h2 class="font-bold tracking-wide"> Nouveau</h2>
+           <nuxt-link class="bg-blue-100 text-blue-800 px-8 py-1 rounded-md" to="/maison">Retour</nuxt-link>
         </div>
         <div class="bg-white h-96">
-            <div class="w-2/3 mx-auto bg-blue-100 h-96 py-5 px-16 space-y-3">
+            <div class="w-2/3 mx-auto bg-gray-200 h-96 py-5 px-16 space-y-3">
                 <div class="w-80">
                     <label for="house_name" class="block text-sm text-gray-500"
                       >Nom du batiment:</label
@@ -66,7 +66,7 @@ export default {
     methods:{
         ...mapActions({createHouse:'batiment/createHouse'}),
         createBatiment(){
-            this.createHouse({newHouse});
+            this.createHouse(this.newHouse);
             this.annuler();
         },
         annuler(){

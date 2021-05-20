@@ -72,7 +72,7 @@ export default {
     methods:{
         ...mapActions({editHouse:'batiment/editHouse'}),
         modifBatiment(){
-            this.createHouse({editHouse});
+            this.createHouse(this.editHouse);
             this.annuler();
         },
         annuler(){

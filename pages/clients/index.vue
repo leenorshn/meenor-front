@@ -126,9 +126,10 @@
 <script>
 import gql from "graphql-tag";
 export default {
-  apollo: {
-    locataires: {
-      query: gql`
+  async asyncData({app}){
+
+    const locataires=await  app.apolloProvider.defaultClient
+    .query({ query: gql`
         query {
           locataires {
             id
@@ -141,10 +142,15 @@ export default {
             }
           }
         }
-      `,
-    },
+      ` })
+        .then(({ data }) => {
+          return data && data.locataires;
+        });
+        
+    return {
+      locataires
+    }
   },
-
   data() {
     return {
       cities: [

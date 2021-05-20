@@ -98,11 +98,21 @@
 import { GET_PAYMENTS } from "~/apollo/payment_gql";
 export default {
   layout: "account",
-  apollo:{
-    payments:{
-      query:GET_PAYMENTS
+ async asyncData({app}){
+   const payments=await  app.apolloProvider.defaultClient.query({ query: GET_PAYMENTS })
+        .then(({ data }) => {
+          return data && data.payments;
+        });
+    //console.log(data);
+    return {
+      payments
     }
   },
+  // apollo:{
+  //   payments:{
+  //     query:GET_PAYMENTS
+  //   }
+  // },
   computed:{
     entree(){
       var msgTotal = this.payments.reduce(function(prev, cur) {

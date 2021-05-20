@@ -75,11 +75,11 @@ export default {
     };
   },
   methods: {
-    ...mapActions({ editHouse: "batiment/editHouse" }),
+    ...mapActions({ editBatiment: "batiment/editBatiment" }),
     modifBatiment() {
         const house={
             name:this.editHouse.name,
-            ...this.address
+            address:this.address
         }
       this.createHouse(house);
       this.annuler();

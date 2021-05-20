@@ -77,9 +77,9 @@ export default {
     };
   },
   methods: {
-    ...mapActions({ createHouse: "batiment/createHouse" }),
+    ...mapActions({ createHouse: "batiment/createBatiment" }),
     createBatiment() {
-      this.createHouse({...this.newHouse,...this.address});
+      this.createHouse({...this.newHouse,address:this.address});
       this.annuler();
     },
     annuler() {

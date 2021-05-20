@@ -23,7 +23,7 @@ export const actions = {
   async createBatiment(_, data) {
     let client = this.app.apolloProvider.defaultClient;
     try {
-     // console.log(data);
+      console.log(data);
       const res = await client
         .mutate({ mutation: CREATE_HOUSE, variables: {data} })
         .then(({ data }) => {
@@ -38,10 +38,10 @@ export const actions = {
     }
   },
 
-  async createBatiment(_, data) {
+  async editBatiment(_, data) {
     let client = this.app.apolloProvider.defaultClient;
     try {
-     // console.log(data);
+      console.log(data);
       const res = await client
         .mutate({ mutation: EDIT_HOUSE, variables: {data} })
         .then(({ data }) => {

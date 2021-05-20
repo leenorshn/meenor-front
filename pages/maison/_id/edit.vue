@@ -72,40 +72,41 @@ export default {
     return {
       editHouse: {},
       address: {
+          city:"",
+          local:"Ok"
       },
     };
   },
   methods: {
-   // ...mapActions({ editBatiment: "batiment/editBatiment" }),
+    // ...mapActions({ editBatiment: "batiment/editBatiment" }),
     async editBatiment() {
-
-    try {
-     // console.log(data);
-      const res = await this.$apollo
-        .mutate({ mutation: EDIT_HOUSE, variables(){
-          console.log(data.id);
-          return{
-            data:{
-                ...this.editHouse,
-                address:this.address
+      try {
+        console.log(this.$route.params.id);
+        const res = await this.$apollo
+          .mutate({
+            mutation: EDIT_HOUSE,
+            variables: {
+              id: "609e35e803d1151f5892481d",//this.$route.params.id,
+              data: {
+                name: this.editHouse.name,
+                address: this.address,
+              },
             },
-            id:this.$route.params.id,
-          }
-        } })
-        .then(({ data }) => {
-          //console.log(data);
-          return data && data.updateBatiment;
-        });
+          })
+          .then(({ data }) => {
+            //console.log(data);
+            return data && data.updateBatiment;
+          });
 
-      console.log(res);
-      return res;
-    } catch (error) {
-      console.error(error);
-    }
-  },
+        console.log(res);
+        return res;
+      } catch (error) {
+        console.error(error);
+      }
+    },
     annuler() {
       this.editHouse = {};
-      this.address={}
+      this.address = {};
     },
   },
 };

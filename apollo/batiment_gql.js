@@ -71,7 +71,7 @@ export const CREATE_HOUSE = gql`
 `;
 
 export const EDIT_HOUSE = gql`
- mutation updateHouse($id:ID!,$data:BatimentUpdateInput!){
+mutation updateHouse($id:ID!,$data:BatimentUpdateInput!){
   updateBatiment(id:$id,data:$data){
     id
   }

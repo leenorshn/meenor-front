@@ -11,7 +11,7 @@
                     >
                     <input
                       type="text"
-                       
+                       v-model="editHouse.name"
                       id="house_name"
                       placeholder="Ex: Immeuble X"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -23,7 +23,7 @@
                     >
                     <input
                       type="text"
-                       
+                       v-model="editHouse.address.city" 
                       id="city"
                       placeholder="Ex: Goma"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -35,17 +35,45 @@
                     >
                     <textarea
                       type="text"
-                       
+                       v-model="editHouse.address.city" 
                       id="first_name"
                       placeholder="Ex: Com. Xx , Av. Yy n-Z"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
                     <div class="flex py-2 w-full space-x-6">
-                        <button class="px-8 py-2 rounded bg-orange-600 text-white">Annuler</button>
-                        <button class="px-8 py-2 rounded bg-blue-600 text-white">Modifier</button>
+                        <button @click.prevent="annuler()" class="px-8 py-2 rounded bg-orange-600 text-white">Annuler</button>
+                        <button @click.prevent="modifBatiment()" class="px-8 py-2 rounded bg-blue-600 text-white">Modifier</button>
                     </div>
             </div>
         </div>
     </div>
 </template>
+<script>
+
+    
+
+import { mapActions } from "vuex";
+export default {
+    data(){
+        return {
+            editHouse:{
+                address:{
+                    city:'',
+                    local:''
+                }
+            }
+        }
+    },
+    methods:{
+        ...mapActions({editHouse:'batiment/editHouse'}),
+        modifBatiment(){
+            this.createHouse({editHouse});
+            this.annuler();
+        },
+        annuler(){
+            this.editHouse={}
+        }
+    }
+}
+</script>

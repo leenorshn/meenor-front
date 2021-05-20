@@ -69,3 +69,11 @@ export const CREATE_HOUSE = gql`
     }
   }
 `;
+
+export const EDIT_HOUSE = gql`
+  mutation updateHouse($data: BatimentUpdateInput!) {
+    updateBatiment(data: $data) {
+      id
+    }
+  }
+`;

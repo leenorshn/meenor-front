@@ -1,4 +1,4 @@
-import { BATIMENT_QUERY,CREATE_HOUSE} from "~/apollo/batiment_gql";
+import { BATIMENT_QUERY,CREATE_HOUSE,EDIT_HOUSE} from "~/apollo/batiment_gql";
 
 export const state = () => ({
     batiments:[]
@@ -26,6 +26,24 @@ export const actions = {
      // console.log(data);
       const res = await client
         .mutate({ mutation: CREATE_HOUSE, variables: {data} })
+        .then(({ data }) => {
+          //console.log(data);
+          return data && data.createBatiment;
+        });
+
+      console.log(res);
+      return res;
+    } catch (error) {
+      console.error(error);
+    }
+  },
+
+  async createBatiment(_, data) {
+    let client = this.app.apolloProvider.defaultClient;
+    try {
+     // console.log(data);
+      const res = await client
+        .mutate({ mutation: EDIT_HOUSE, variables: {data} })
         .then(({ data }) => {
           //console.log(data);
           return data && data.createBatiment;

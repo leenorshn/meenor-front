@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="bg-blue-600 text-white py-2 px-4 w-full rounded-b">
-            edit-header
+            Modifier
         </div>
         <div class="bg-white h-96">
             <div class="w-2/3 mx-auto bg-blue-100 h-96 py-5 px-16 space-y-3">

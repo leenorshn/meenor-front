@@ -62,5 +62,10 @@ export const BATIMENT_ONE_QUERY = gql`
     }
   }
 `;
-
-
+export const CREATE_HOUSE = gql`
+  mutation createHouse($data: BatimentCreateInput!) {
+    createBatiment(data: $data) {
+      id
+    }
+  }
+`;

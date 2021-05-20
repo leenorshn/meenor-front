@@ -48,7 +48,7 @@
         </div>
         <div class="py-2 w-full space-y-4 px-16">
           <button
-            @click.prevent="modifBatiment()"
+            @click.prevent="editBatiment()"
             class="px-8 w-64 block py-2 rounded bg-blue-600 text-white"
           >
             Modifier
@@ -65,7 +65,8 @@
   </div>
 </template>
 <script>
-import { mapActions } from "vuex";
+//import { mapActions } from "vuex";
+import { EDIT_HOUSE } from "~/apollo/batiment_gql.js";
 export default {
   data() {
     return {
@@ -75,17 +76,33 @@ export default {
     };
   },
   methods: {
-    ...mapActions({ editBatiment: "batiment/editBatiment" }),
-    modifBatiment() {
-        //console.log(this.$route.params.id);
-        const house={
+   // ...mapActions({ editBatiment: "batiment/editBatiment" }),
+    async editBatiment() {
+
+    try {
+     // console.log(data);
+      const res = await this.$apollo
+        .mutate({ mutation: EDIT_HOUSE, variables(){
+          console.log(data.id);
+          return{
+            data:{
+                ...this.editHouse,
+                address:this.address
+            },
             id:this.$route.params.id,
-            name:this.editHouse.name,
-            address:this.address
-        }
-      this.editBatiment(house);
-      this.annuler();
-    },
+          }
+        } })
+        .then(({ data }) => {
+          //console.log(data);
+          return data && data.updateBatiment;
+        });
+
+      console.log(res);
+      return res;
+    } catch (error) {
+      console.error(error);
+    }
+  },
     annuler() {
       this.editHouse = {};
       this.address={}

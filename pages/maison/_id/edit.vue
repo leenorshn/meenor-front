@@ -72,8 +72,7 @@ export default {
     return {
       editHouse: {},
       address: {
-          city:"",
-          local:"Ok"
+          
       },
     };
   },

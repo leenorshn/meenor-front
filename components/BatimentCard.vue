@@ -37,7 +37,7 @@
     >
       <nuxt-link
         class="p-2 hover:bg-red-200 text-gray-400 hover:text-red-700 rounded-full"
-        to="/"
+        :to="`/maison/${batiment.id}/edit`"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

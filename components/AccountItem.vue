@@ -2,18 +2,21 @@
     <div class="flex items-end space-x-3">
       <div class="h-20 w-4/5 border border-gray-200 rounded-md flex p-2 space-x-4">
         <div class="flex-shrink-0">
-          <div class="w-16 h-16 rounded-full bg-indigo-100"></div>
+          <div class="w-16 h-16 rounded-full flex justify-center items-center bg-indigo-100">
+            <img src="/money.svg" alt="" class="w-10 h-10">
+          </div>
         </div>
+        
         <div class="flex justify-between w-full">
           <div class="">
             <h3 class="text-blue-700 text-xl tracking-tight font-semibold">
-              Account name
+              {{account.name}}
             </h3>
             <p class="text-sm text-gray-500">
-              Account Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              {{account.__typename}}
             </p>
           </div>
-          <h4>#001-A</h4>
+          <h4>#{{account.id.substring(18)}}-A</h4>
         </div>
       </div>
       <div class="space-y-2">

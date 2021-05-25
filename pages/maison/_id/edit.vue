@@ -80,16 +80,25 @@ export default {
     // ...mapActions({ editBatiment: "batiment/editBatiment" }),
     async editBatiment() {
       try {
-        console.log(this.$route.params.id);
+        //console.log(this.$route.params.id);
+        var tt={}
+        if(this.editHouse.name){
+          tt.name=this.editHouse.name
+
+        }
+        if (this.address.city){
+          tt.address.city=this.address.city
+        }
+
+        if (this.address.local){
+          tt.address.local=this.address.local
+        }
         const res = await this.$apollo
           .mutate({
             mutation: EDIT_HOUSE,
             variables: {
-              id: "609e35e803d1151f5892481d",//this.$route.params.id,
-              data: {
-                name: this.editHouse.name,
-                address: this.address,
-              },
+              id: this.$route.params.id,
+              data: tt,
             },
           })
           .then(({ data }) => {

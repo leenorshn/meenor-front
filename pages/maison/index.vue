@@ -65,7 +65,7 @@
         >
       </div>
       <div class="flex justify-center bg-white shadow items-center h-28 border border-gray-100 rounded-lg m-4 ">
-          <h3 class="text-2xl text-blue-800 font-semibold">23 <span class="text-sm text-gray-500 font-normal">Batiment(s)</span></h3>
+          <h3 class="text-xl text-blue-800 font-semibold">{{" "+batiments.length+"  "}}<span class="text-sm text-gray-500 font-normal">Batiment(s)</span></h3>
       </div>
       <h3 class="mx-4 text-gray-500">Vous pouvez faire une selection basé sur des criteres ci-dessous:</h3>
         <div class="flex flex-col mx-4 my-3">

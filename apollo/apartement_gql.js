@@ -22,3 +22,20 @@ export const NEW_NIVEAU = gql`
     }
   }
 `;
+
+export const GET_ROOM = gql`
+  query getHouse($id: ID!) {
+    room(id: $id) {
+      id
+      format
+      niveau {
+        name
+      }
+      numero
+      hasPower
+      hasWater
+      isAvalaible
+      category
+    }
+  }
+`;

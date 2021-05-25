@@ -153,3 +153,24 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  async asyncData({app,params}){
+const res = await app.apolloProvider.defaultClient
+          .query({
+            query: GET_HOUSE,
+            variables: {
+              id: params.id,
+            },
+          })
+          .then(({ data }) => {
+            //console.log(data);
+            return data && data.room;
+          });
+
+          return {
+            room:res
+          }
+  }
+}
+</script>

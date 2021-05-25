@@ -17,7 +17,7 @@
             >
             <input
               type="text"
-              v-model="editHouse.name"
+              v-model="batiment.name"
               id="house_name"
               placeholder="Ex: Immeuble X"
               class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -27,7 +27,7 @@
             <label for="city" class="block text-sm text-gray-500">Ville:</label>
             <input
               type="text"
-              v-model="address.city"
+              v-model="batiment.address.city"
               id="city"
               placeholder="Ex: Goma"
               class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -39,7 +39,7 @@
             >
             <textarea
               type="text"
-              v-model="address.local"
+              v-model="batiment.address.local"
               id="first_name"
               placeholder="Ex: Com. Xx , Av. Yy n-Z"
               class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -48,7 +48,7 @@
         </div>
         <div class="py-2 w-full space-y-4 px-16">
           <button
-            @click.prevent="editBatiment()"
+            @click="editBatiment()"
             class="px-8 w-64 block py-2 rounded bg-blue-600 text-white"
           >
             Modifier
@@ -70,59 +70,57 @@ import { EDIT_HOUSE,GET_HOUSE } from "~/apollo/batiment_gql.js";
 export default {
   data() {
     return {
-      editHouse: {},
-      address: {
-          
-      },
     };
   },
-  async asyncData(){
-    const res = await this.$apollo
+  async asyncData({app,params}){
+    const res = await app.apolloProvider.defaultClient
           .query({
             query: GET_HOUSE,
             variables: {
-              id: this.$route.params.id,
+              id: params.id,
             },
           })
           .then(({ data }) => {
             //console.log(data);
-            return data && data.updateBatiment;
+            return data && data.batiment;
           });
+
+          return {
+            batiment:res
+          }
   },
   
   methods: {
     
     async editBatiment() {
       try {
-        //console.log(this.$route.params.id);
-        
-       
-        
-        if ((this.address.city|| this.address.local) && this.editHouse.name){
-          
+       // console.log(this.$route.params.id)          
           const res = await this.$apollo
           .mutate({
             mutation: EDIT_HOUSE,
             variables: {
-              id: this.$route.params.id,
-              data: {
-                name:this.editHouse.name,
-                address:this.address
-              },
+              id: this.batiment.id,
+              data:{
+                name:this.batiment.name,
+                address:{
+                  city:this.batiment.address.city,
+                  local:this.batiment.address.local
+                },
+              }
             },
           })
           .then(({ data }) => {
-            //console.log(data);
+            console.log(data);
             return data && data.updateBatiment;
           });
 
-        console.log(res);
+        
         return res;
         
-        }
+        
        
-      } catch (error) {
-        console.error(error);
+      } catch (err) {
+        console.log(err);
       }
     },
     annuler() {

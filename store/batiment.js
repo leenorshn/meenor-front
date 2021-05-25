@@ -33,8 +33,8 @@ export const actions = {
 
       console.log(res);
       return res;
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.log(err);
     }
   },
 
@@ -57,8 +57,8 @@ export const actions = {
 
       console.log(res);
       return res;
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.log(err);
     }
   },
  

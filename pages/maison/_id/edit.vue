@@ -76,50 +76,28 @@ export default {
       },
     };
   },
+  async asyncData(){
+    const res = await this.$apollo
+          .query({
+            query: EDIT_HOUSE,
+            variables: {
+              id: this.$route.params.id,
+            },
+          })
+          .then(({ data }) => {
+            //console.log(data);
+            return data && data.updateBatiment;
+          });
+  },
+  
   methods: {
-    // ...mapActions({ editBatiment: "batiment/editBatiment" }),
+    
     async editBatiment() {
       try {
         //console.log(this.$route.params.id);
-        var tt={}
-        if(this.editHouse.name && !this.address.city){
-          const res = await this.$apollo
-          .mutate({
-            mutation: EDIT_HOUSE,
-            variables: {
-              id: this.$route.params.id,
-              data: {
-                name:this.editHouse.name,
-              },
-            },
-          })
-          .then(({ data }) => {
-            //console.log(data);
-            return data && data.updateBatiment;
-          });
-
-        console.log(res);
-        return res;
-        }
-        if(this.editHouse.name && !this.address.local){
-          const res = await this.$apollo
-          .mutate({
-            mutation: EDIT_HOUSE,
-            variables: {
-              id: this.$route.params.id,
-              data: {
-                name:this.editHouse.name,
-              },
-            },
-          })
-          .then(({ data }) => {
-            //console.log(data);
-            return data && data.updateBatiment;
-          });
-
-        console.log(res);
-        return res;
-        }
+        
+       
+        
         if ((this.address.city|| this.address.local) && this.editHouse.name){
           
           const res = await this.$apollo
@@ -129,28 +107,6 @@ export default {
               id: this.$route.params.id,
               data: {
                 name:this.editHouse.name,
-                address:this.address
-              },
-            },
-          })
-          .then(({ data }) => {
-            //console.log(data);
-            return data && data.updateBatiment;
-          });
-
-        console.log(res);
-        return res;
-        
-        }
-
-         if ((this.address.city|| this.address.local) && !this.editHouse.name){
-          
-          const res = await this.$apollo
-          .mutate({
-            mutation: EDIT_HOUSE,
-            variables: {
-              id: this.$route.params.id,
-              data: {
                 address:this.address
               },
             },

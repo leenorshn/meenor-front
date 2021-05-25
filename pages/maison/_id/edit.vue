@@ -66,7 +66,7 @@
 </template>
 <script>
 //import { mapActions } from "vuex";
-import { EDIT_HOUSE } from "~/apollo/batiment_gql.js";
+import { EDIT_HOUSE,GET_HOUSE } from "~/apollo/batiment_gql.js";
 export default {
   data() {
     return {
@@ -79,7 +79,7 @@ export default {
   async asyncData(){
     const res = await this.$apollo
           .query({
-            query: EDIT_HOUSE,
+            query: GET_HOUSE,
             variables: {
               id: this.$route.params.id,
             },

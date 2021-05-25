@@ -14,7 +14,7 @@
       <div class="w-1/5 px-1 py-3 h-96 bg-white mt-3 rounded-md space-y-3">
         <div class="px-4">
           <h2 class="text-gray-500 text-sm">Chambre numero</h2>
-          <h2 class="text-2xl text-blue-900 font-bold">10</h2>
+          <h2 class="text-2xl text-blue-900 font-bold">{{room.numero}}</h2>
         </div>
         <div class="hidden sm:block" aria-hidden="true">
           <div class="py-1">
@@ -35,11 +35,11 @@
         <div class="px-4">
         <div class="flex space-x-4 items-center">
           <h2 class="text-gray-500 text-sm">type</h2>
-          <h2 class="text-lg text-blue-900 font-semibold">Apartement</h2>
+          <h2 class="text-lg text-blue-900 font-semibold">{{room.category}}</h2>
         </div>
         <div class="flex space-x-4 items-center">
           <span class="text-gray-500 text-sm">Taille</span>
-          <h2 class="text-base text-blue-900 font-bold">Medium</h2>
+          <h2 class="text-base text-blue-900 font-bold">{{room.format}}</h2>
         </div>
         </div>
         <div class="hidden sm:block" aria-hidden="true">
@@ -50,7 +50,7 @@
         <div class="px-4">
         <div class="flex space-x-4 items-center">
           <span class="text-gray-500 text-sm">Prix: </span>
-          <h2 class="text-lg text-blue-900 font-semibold">75 $
+          <h2 class="text-lg text-blue-900 font-semibold">{{room.price}} $
               <span class="text-gray-500 text-xs"> /mois</span>
           </h2>
         </div>
@@ -154,11 +154,12 @@
   </div>
 </template>
 <script>
+import { GET_ROOM } from "~/apollo/apartement_gql.js";
 export default {
   async asyncData({app,params}){
 const res = await app.apolloProvider.defaultClient
           .query({
-            query: GET_HOUSE,
+            query: GET_ROOM,
             variables: {
               id: params.id,
             },

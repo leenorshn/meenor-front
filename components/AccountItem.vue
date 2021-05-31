@@ -1,9 +1,9 @@
 <template>
     <div class="flex items-end space-x-3">
-      <div class="h-20 w-4/5 border border-gray-200 rounded-md flex p-2 space-x-4">
+      <div class="h-16 w-4/5 border border-gray-200 rounded-md flex p-2 space-x-4">
         <div class="flex-shrink-0">
-          <div class="w-16 h-16 rounded-full flex justify-center items-center bg-indigo-100">
-            <img src="/money.svg" alt="" class="w-10 h-10">
+          <div class="w-12 h-12 rounded-full flex justify-center items-center bg-indigo-100">
+            <img src="/money.svg" alt="" class="w-8 h-8">
           </div>
         </div>
         

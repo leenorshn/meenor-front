@@ -48,6 +48,7 @@
           </div>
         </div>
         <div class="px-4">
+          <!-- <pre>{{room}}</pre> -->
         <div class="flex space-x-4 items-center">
           <span class="text-gray-500 text-sm">Prix: </span>
           <h2 class="text-lg text-blue-900 font-semibold">{{room.price}} $

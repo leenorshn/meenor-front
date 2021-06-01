@@ -22,9 +22,6 @@ export const GET_ROOM = gql`
       id
       format
       price
-      niveau {
-        name
-      }
       numero
       hasPower
       hasWater

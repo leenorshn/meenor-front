@@ -167,7 +167,7 @@
 <script>
 import { GET_ROOM } from "~/apollo/apartement_gql.js";
 export default {
-  async asyncData({ app, params,redirect }) {
+  async asyncData({ app, params }) {
     const res = await app.apolloProvider.defaultClient
       .query({
         query: GET_ROOM,
@@ -179,7 +179,7 @@ export default {
         return data && data.room;
       });
 
-      redirect(`/maison/${res.id}/room`)
+      //redirect(`/maison/${res.id}/room`)
 
     return {
       room: res,

@@ -173,10 +173,6 @@
                     </th>
                   </tr>
                 </thead>
-
-                
-                  
-                    
                     <tbody class="bg-white divide-y divide-gray-200">
                     <chambre-item
                       v-for="(m, f) in batiment.niveaux[i].rooms"
@@ -185,11 +181,6 @@
                       :chambre="m"
                     />
                     </tbody>
-                  
-
-                  
-                     
-               
               </table>
             </div>
           </div>

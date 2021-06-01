@@ -7,10 +7,6 @@ export const GET_CURRENT_USER = gql`
       name
       role
       phone
-      company {
-        id
-        name
-      }
       createdAt
     }
   }

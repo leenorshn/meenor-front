@@ -28,6 +28,7 @@ export const GET_ROOM = gql`
     room(id: $id) {
       id
       format
+      price
       niveau {
         name
       }

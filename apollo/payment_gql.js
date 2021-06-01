@@ -1,30 +1,27 @@
 import gql from "graphql-tag";
 
 export const GET_PAYMENTS = gql`
-  query getTransactions{
-  transactions{
-    id
-    libele
-    amount
-    currency
-    accountFrom{
+  query getpayments{
+    payments {
       id
-      owner{
+      locataire {
         id
         name
+        avatar
         phone
       }
-    }
-    accountTo{
-      id
-      owner{
+      room {
         id
-        name
-        phone
+        format
+        numero
+        price
       }
+      amount
+      fromDate
+      toDate
+      createdAt
     }
   }
-}
 `;
 
 export const NEW_PAYMENT = gql`

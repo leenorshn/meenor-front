@@ -22,6 +22,11 @@ export const GET_ROOM = gql`
       id
       format
       price
+      locataire{
+        id
+        name
+        phone
+      }
       numero
       hasPower
       hasWater

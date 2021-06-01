@@ -116,6 +116,7 @@
                 class="px-4 py-3 bg-gray-900 rounded-b-md mt-0 text-right sm:px-6 flex space-x-4 items-center justify-end"
               >
                 <button
+                @click.prevent="annuler()"
                   class="inline-flex justify-center py-2 px-20 hover:text-white bg-orange-500 shadow-sm text-sm font-medium rounded-md text-indigo-50 hover:bg-orange-700 focus:outline-none focus:ring-0"
                 >
                   Annuler
@@ -161,6 +162,11 @@ export default {
         avatar: "ttt.com",
         room: this.$route.params.id,
       });
+      this.annuler();
+    },
+
+    annuler(){
+      this.locataire={}
     },
 
     onPickFile() {

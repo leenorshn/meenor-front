@@ -2,9 +2,13 @@
   <div class="w-8/12 mx-auto">
     <div>
       <div class="space-y-6">
-        <h4 class="pt-4 font-semibold">
+        <div class="flex justify-between items-center">
+<h4 class="pt-4 font-semibold">
           Quelle type de location voulez-vous creer?
         </h4>
+        <nuxt-link :to="`/maison`" class="px-8 py-1 mt-2 rounded bg-black text-white">retour</nuxt-link>
+        </div>
+        
 
         <div class="flex items-center justify-around w-1/2 group py-2">
           <div>

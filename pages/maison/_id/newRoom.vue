@@ -10,7 +10,7 @@
         </div>
         
 
-        <div class="flex items-center justify-around w-1/2 group py-2">
+        <div class="flex items-center justify-around w-full group py-2">
           <div>
             <input
               type="radio"
@@ -30,6 +30,26 @@
               v-model="typeLocation"
             />
             <label for="isShop">C'est une boutique</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="isShop"
+              value="KIOSQUE"
+              class="rounded-full h-5 w-5 mr-4"
+              v-model="typeLocation"
+            />
+            <label for="isShop">C'est une kiosque</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="isShop"
+              value="ETALAGE"
+              class="rounded-full h-5 w-5 mr-4"
+              v-model="typeLocation"
+            />
+            <label for="isShop">C'est une etalage</label>
           </div>
         </div>
       </div>

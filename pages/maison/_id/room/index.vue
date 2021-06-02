@@ -171,7 +171,7 @@
                   </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                  <payment-card v-for="(n, i) in 2" :key="i" :numero="i" />
+                  <payment-card v-for="(n, i) in room.locataire.payments" :key="i" :numero="i" :payment="n" />
                 </tbody>
               </table>
               <!-- <pre>{{user}}</pre> -->

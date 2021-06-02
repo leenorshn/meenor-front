@@ -26,6 +26,7 @@ export const GET_ROOM = gql`
         id
         name
         phone
+        avatar
       }
       numero
       hasPower

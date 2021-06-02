@@ -181,7 +181,6 @@ export default {
       this.createPayment({
         ...this.payment,
         currency:'USD',
-        room:this.locataire.room.id,
         locataire:this.locataire.id
       });
       this.annuler();

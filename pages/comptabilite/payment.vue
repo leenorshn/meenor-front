@@ -6,7 +6,7 @@
           <form action="#" method="POST">
             <div class="overflow-hidden sm:rounded-md">
               <div class="px-4 py-5 bg-white sm:p-6 space-y-6">
-                <div>
+                <div class="relative">
                   <h1 class="text-2xl text-indigo-700 tracking-wide">
                     Paiement facture locatif
                   </h1>
@@ -19,6 +19,7 @@
                       <div class="border-t border-gray-200"></div>
                     </div>
                   </div>
+                  <nuxt-link class="px-8 py-1 absolute right-2 top-2 bg-black text-white font-semibold rounded" to="/comptabilite/general">retour</nuxt-link>
                 </div>
                 <div class="flex space-x-8">
                   <div class="w-1/2">
@@ -37,7 +38,7 @@
                           class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
                         />
                         <button
-                          class="flex items-center space-x-2 absolute right-0 top-0 text-gray-50 bg-blue-600 rounded-r -m-b-1 px-3 py-2"
+                          class="flex items-center space-x-2 absolute right-0 top-0 text-white bg-blue-700 rounded-r -m-b-1 px-3 py-2"
                           @click.prevent="getLocataire()"
                         >
                           <h3
@@ -67,16 +68,10 @@
                       <h3 class="text-sm text-gray-500">
                         room:
                         <span class="text-gray-700 font-semibold">
-                          {{locataire.room?locataire.room.numero:""}}</span>
-                      </h3>
-                      <h3 class="text-base text-gray-700">client</h3>
-                      <h3 class="text-sm text-gray-500">
-                        ID: 
-                        <span class="text-gray-700 font-semibold">{{locataire.id}}</span>
-                      </h3>
-                      <h3 class="text-sm text-gray-500">
-                        name:
-                        <span class="text-gray-700 font-semibold">{{locataire.name}}</span>
+                          {{locataire.room?locataire.room.numero:""}}
+                          
+                          </span>
+                           <span class="text-gray-700 font-semibold">/{{locataire.name}}</span>
                       </h3>
                     </div>
                     <div v-else>
@@ -93,7 +88,7 @@
                       </label>
                       <div class="relative mt-2 flex rounded-md items-center">
                         <span
-                          class="h-9 absolute inline-flex items-center px-6 text-base py-4 font-bold rounded-l-md border border-r-0 border-gray-300 bg-indigo-500 leading-3 text-gray-50"
+                          class="h-9 absolute inline-flex items-center px-6 text-base py-4 font-bold rounded-l-md border border-r-0 border-gray-300 bg-blue-700 leading-3 text-gray-50"
                         >
                           $
                         </span>
@@ -143,13 +138,13 @@
               >
                 <button
                   @click.prevent="annuler()"
-                  class="inline-flex justify-center py-2 px-20 border-2 hover:text-white border-indigo-500 shadow-sm text-sm font-medium rounded-md text-indigo-700 bg-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  class="inline-flex justify-center py-2 px-20 border-2 hover:text-white shadow-sm text-sm font-medium rounded-md text-white bg-orange-600  focus:outline-none focus:ring-2 focus:ring-offset-2"
                 >
                   Annuler
                 </button>
                 <button
                   @click.prevent="createPay()"
-                  class="inline-flex justify-center py-2 px-20 border-2 border-indigo-500 shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  class="inline-flex justify-center py-2 px-20 border-2 border-indigo-500 shadow-sm text-sm font-medium rounded-md text-white bg-blue-700 hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Confirmer
                 </button>
@@ -186,7 +181,6 @@ export default {
       this.createPayment({
         ...this.payment,
         currency:'USD',
-        room:this.locataire.room.id,
         locataire:this.locataire.id
       });
       this.annuler();

@@ -6,6 +6,7 @@
       <h3 class="text-gray-50 text-sm capitalize">Detail chambre</h3>
       <div>
         <nuxt-link
+        v-if="!room.isAvalaible"
         class="text-white text-sm font-bold bg-blue-800 px-5 py-2 rounded-md"
         :to="`/maison/${$route.params.id}/room/creator`"
         >Ajouter locataire</nuxt-link
@@ -18,10 +19,21 @@
       </div>
     </div>
     <div class="w-full flex">
-      <div class="w-1/5 px-1 py-3 h-96 bg-white mt-3 rounded-md space-y-3">
+      <div class="w-1/5 px-1 py-3 max-h-screen bg-white mt-3 rounded-md space-y-3">
         <div class="px-4">
           <h2 class="text-gray-500 text-sm">Chambre numero</h2>
           <h2 class="text-2xl text-blue-900 font-bold">{{ room.numero }}</h2>
+        </div>
+        <div class="hidden sm:block" aria-hidden="true">
+          <div class="py-1">
+            <div class="border-t border-gray-200"></div>
+          </div>
+        </div>
+        <div class="px-4" v-if="room.locataire">
+          <h2 class="text-gray-500 text-sm">Locataire</h2>
+          <img :src="room.locataire.avatar" alt="" class="h-10 w-10 rounded-full">
+          <h2 class="text-lg text-blue-900 font-semibold">{{room.locataire.name}}</h2>
+          <h2 class="text-sm">{{room.locataire.phone}}</h2>
         </div>
         <div class="hidden sm:block" aria-hidden="true">
           <div class="py-1">
@@ -66,6 +78,7 @@
             </h2>
           </div>
           <h2
+            v-if="!room.isAvalaible"
             class="text-lg text-greenP font-semibold flex items-center space-x-2"
           >
             <svg
@@ -84,9 +97,14 @@
             </svg>
             <span class="block">Disponible</span>
           </h2>
+          <div class="text-orange-500 text-2xl" v-else>
+            
+            <span class="block">Occupé</span>
+          </div>
         </div>
       </div>
       <div class="flex-1 px-1 py-2 mt-2 mx-2">
+        <h3 class="text-blue-800 text-sm font-semibold">Payment du client</h3>
         <div class="-my-2 overflow-x-auto w-full">
           <div class="py-2 align-middle inline-block min-w-full">
             <div
@@ -153,7 +171,7 @@
                   </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                  <payment-card v-for="(n, i) in 2" :key="i" :numero="i" />
+                  <payment-card v-for="(n, i) in room.locataire.payments" :key="i" :numero="i" :payment="n" />
                 </tbody>
               </table>
               <!-- <pre>{{user}}</pre> -->

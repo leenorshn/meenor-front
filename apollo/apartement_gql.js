@@ -26,6 +26,15 @@ export const GET_ROOM = gql`
         id
         name
         phone
+        avatar
+        payments{
+          id
+          amount
+          currency
+          fromDate
+          toDate
+          createdAt
+        }
       }
       numero
       hasPower

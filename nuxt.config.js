@@ -46,7 +46,7 @@ export default {
       // Sets up the apollo client endpoints
       clientConfigs: {
         default:{
-          httpEndpoint: 'http://localhost:4000',
+          httpEndpoint:"https://meenor-u3esd5yulq-lz.a.run.app"// 'http://localhost:4000',
          // wsEndpoint: 'ws://localhost:4000'
         }
         

@@ -118,7 +118,7 @@
                       </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                      <payment-card v-for="(n, i) in 6" :key="i" :numero="i" />
+                      <payment-card v-for="(n, i) in payments" :key="i" :numero="i" :payment="n" />
                     </tbody>
                   </table>
                   <!-- <pre>{{user}}</pre> -->
@@ -143,10 +143,29 @@
 
 <script>
 import CalenderBlock from "../../components/CalenderBlock.vue";
+import { GET_PAYMENTS } from "~/apollo/payment_gql.js";
 
 export default {
   components: { CalenderBlock },
   middleware: "isAuth",
+   async asyncData({ app, params }) {
+    const res = await app.apolloProvider.defaultClient
+      .query({
+        query: GET_PAYMENTS,
+        variables: {
+          id: params.id,
+        },
+      })
+      .then(({ data }) => {
+        return data && data.payments;
+      });
+
+      //redirect(`/maison/${res.id}/room`)
+
+    return {
+      payments: res,
+    };
+  },
 
   data() {
     return {

@@ -12,6 +12,9 @@ export const mutations = {
     DELETE_BATIMENT(state,data){
       console.log(data);
      state.batiments= state.batiments.filter(doc=>doc.id!==data);
+    },
+    CREATE_BATIMENT(state,data){
+      state.batiments.push(data)
     }
 };
 
@@ -44,7 +47,7 @@ export const actions = {
           return data && data.createBatiment;
         });
 
-        dispatch("loadBatiment");
+        commit("CREATE_BATIMENT",res);
       return res;
     } catch (err) {
       console.log(err);

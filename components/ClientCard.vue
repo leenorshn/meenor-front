@@ -5,7 +5,7 @@
         <div class="flex-shrink-0 h-10 w-10">
           <img
             class="h-10 w-10 rounded-full"
-            src="/profile.jpg"
+            src="/profile.png"
             alt=""
           />
         </div>
@@ -17,7 +17,6 @@
     </td>
     <td class="px-6 py-4 whitespace-nowrap">
       <div class="text-sm text-gray-900">Chambre n-{{client.room?client.room.numero:""}}</div>
-      <div class="text-sm text-gray-400">Chambre N-2</div>
     </td>
     <td class="px-6 py-4 whitespace-nowrap">
       <span

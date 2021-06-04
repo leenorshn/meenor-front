@@ -90,3 +90,9 @@ export const GET_HOUSE = gql`
     }
   }
 `;
+
+export const DELETE_HOUSE = gql`
+  mutation deleteHouse($id: ID!) {
+    deleteBatiment(id: $id) 
+  }
+`;

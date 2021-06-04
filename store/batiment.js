@@ -1,4 +1,4 @@
-import { BATIMENT_QUERY,CREATE_HOUSE,EDIT_HOUSE} from "~/apollo/batiment_gql";
+import { BATIMENT_QUERY,CREATE_HOUSE,EDIT_HOUSE,DELETE_HOUSE} from "~/apollo/batiment_gql";
 
 export const state = () => ({
     batiments:[]
@@ -6,10 +6,9 @@ export const state = () => ({
 
 export const mutations = {
     LOAD_BATIMENTS(state,data){
-        
         state.batiments=data
         console.log(state.batiments);
-    }
+    },
 };
 
 export const actions = {
@@ -20,7 +19,7 @@ export const actions = {
       console.log(batiments);
       context.commit("LOAD_BATIMENTS",batiments);
     },
-  async createBatiment(_, data) {
+  async createBatiment({dispatch }, data) {
     let client = this.app.apolloProvider.defaultClient;
     try {
       console.log(data);
@@ -31,7 +30,7 @@ export const actions = {
           return data && data.createBatiment;
         });
 
-      console.log(res);
+        dispatch("loadBatiment");
       return res;
     } catch (err) {
       console.log(err);
@@ -55,11 +54,25 @@ export const actions = {
           return data && data.updateBatiment;
         });
 
-      console.log(res);
+        dispatch("loadBatiment");
       return res;
     } catch (err) {
       console.log(err);
     }
   },
+  async deleteBatiment({dispatch},id){
+    let client=this.app.apolloProvider.defaultClient;
+    try {
+      const res= await client.mutate({
+        mutation: DELETE_HOUSE,
+        variables: {
+          id:id,
+        },
+      })
+      dispatch("loadBatiment");
+    } catch (e) {
+      console.log(e);
+    }
+  }
  
 };

@@ -9,6 +9,10 @@ export const mutations = {
         state.batiments=data
         console.log(state.batiments);
     },
+    DELETE_BATIMENT(state,data){
+      console.log(data);
+     state.batiments= state.batiments.filter(doc=>doc.id!==data);
+    }
 };
 
 export const actions = {
@@ -19,12 +23,22 @@ export const actions = {
       console.log(batiments);
       context.commit("LOAD_BATIMENTS",batiments);
     },
-  async createBatiment({dispatch }, data) {
+  async createBatiment(_, data) {
     let client = this.app.apolloProvider.defaultClient;
     try {
       console.log(data);
       const res = await client
-        .mutate({ mutation: CREATE_HOUSE, variables: {data} })
+        .mutate({ mutation: CREATE_HOUSE, variables: {data} ,
+          // update: (store, { data: { createBatiment } }) => {
+          //   // Read the data from our cache for this query.
+          //   const data = store.readQuery({ query: BATIMENT_QUERY })
+          //   // Add our tag from the mutation to the end
+          //   data.batiments.push(createBatiment)
+          //   // Write our data back to the cache.
+          //   store.writeQuery({ query: BATIMENT_QUERY, data })
+          // },
+        
+        })
         .then(({ data }) => {
           //console.log(data);
           return data && data.createBatiment;
@@ -37,7 +51,7 @@ export const actions = {
     }
   },
 
-  async editBatiment(_, data) {
+  async editBatiment({dispatch}, data) {
     let client = this.app.apolloProvider.defaultClient;
     try {
       console.log(data);
@@ -48,7 +62,10 @@ export const actions = {
             data:data,
             id:data.id,
           }
-        } })
+        },
+        
+      
+      })
         .then(({ data }) => {
           //console.log(data);
           return data && data.updateBatiment;
@@ -60,7 +77,8 @@ export const actions = {
       console.log(err);
     }
   },
-  async deleteBatiment({dispatch},id){
+  async deleteBatiment({commit},id){
+    console.log(commit);
     let client=this.app.apolloProvider.defaultClient;
     try {
       const res= await client.mutate({
@@ -68,8 +86,17 @@ export const actions = {
         variables: {
           id:id,
         },
+        // update: (store,) => {
+        //   // Read the data from our cache for this query.
+        //   const data = store.readQuery({ query: BATIMENT_QUERY })
+        //   // Add our tag from the mutation to the end
+        //   let updatedBatiment= data.batiments.filter(doc=>doc.id!==id)
+        //   data.batiments=updatedBatiment
+        //   // Write our data back to the cache.
+        //   store.writeQuery({ query: BATIMENT_QUERY, data })
+        // },
       })
-      dispatch("loadBatiment");
+      commit("DELETE_BATIMENT",id);
     } catch (e) {
       console.log(e);
     }

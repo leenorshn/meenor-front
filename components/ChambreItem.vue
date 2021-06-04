@@ -8,13 +8,13 @@
         <div class="flex-shrink-0 h-9 w-9 -m-1 py-1">
           <img
             class="h-9 w-9 rounded-full object-cover object-center"
-            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+            src="/profile.png"
             alt=""
           />
         </div>
         <div class="ml-4">
-          <div class="text-xs font-medium text-gray-900">Blaise tonton</div>
-          <div class="text-xs text-gray-400">0978132342</div>
+          <div class="text-xs font-medium text-gray-900">{{chambre.locataire.name}}</div>
+          <div class="text-xs text-gray-400">{{chambre.locataire.phone}}</div>
         </div>
       </div>
       <div v-else class="flex items-center">
@@ -36,7 +36,7 @@
         :class="`${chambre.isAvalaible?'bg-green-100 text-green-800':'bg-red-200 text-red-900'}`"
         class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full "
       >
-        {{chambre.isAvalaible}}
+        {{chambre.isAvalaible?"OUI":"NON"}}
       </span>
     </td>
     <td

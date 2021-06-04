@@ -2,11 +2,12 @@
   <div class="flex px-2 pt-4 pb-8">
     <div class="w-3/4 pr-4">
       <div class="flex space-x-4">
-        <div class="w-1/4 bg-white h-72 rounded-md">
+        <div class="w-1/4 bg-white h-72 rounded-md" v-if="!hide">
           <circle-chart :data="chartDataCircle" :options="circleChartOptions" />
         </div>
-        <div class="w-3/4 bg-white h-72 rounded-md">
+        <div class="w-3/4 bg-white h-72 rounded-md" v-if="!hide">
           <my-line
+
             v-if="showLine"
             :data="barChartData"
             :options="barChartOptions"
@@ -169,6 +170,7 @@ export default {
 
   data() {
     return {
+      hide:true,
       showLine: false,
       chartDataCircle: {
         labels: ["Entre", "Prevision", "Sortie"],

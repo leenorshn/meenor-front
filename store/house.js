@@ -2,7 +2,8 @@ import { NEW_ROOM,NEW_NIVEAU} from "~/apollo/apartement_gql";
 import { NEW_LOCATAIRE,QUERY_LOCATAIRES} from "~/apollo/locataire_gql";
 
 export const state = () => ({
-  locataires:[]
+  locataires:[],
+
 });
 
 export const mutations = {
@@ -15,11 +16,11 @@ export const actions = {
   async createRoom(_, data) {
     let client = this.app.apolloProvider.defaultClient;
     try {
-      console.log(data);
+     // console.log(data);
       const res = await client
         .mutate({ mutation: NEW_ROOM, variables: {data} })
         .then(({ data }) => {
-          console.log(data);
+          //console.log(data);
           return data && data.createApartement;
         });
 
@@ -32,15 +33,15 @@ export const actions = {
   async createNiveau(_,data){
     let client = this.app.apolloProvider.defaultClient; 
     try {
-        console.log(data);
+        //console.log(data);
         const res = await client
           .mutate({ mutation: NEW_NIVEAU, variables: {data} })
           .then(({ data }) => {
-            console.log(data);
+            //console.log(data);
             return data && data.createNiveau;
           });
   
-        console.log(res);
+        //console.log(res);
       } catch (error) {
         console.error(error);
       }
@@ -49,14 +50,14 @@ export const actions = {
   async createLocataire(_,data){
     let client =this.app.apolloProvider.defaultClient;
     try {
-      console.log(data);
+      //console.log(data);
       const res= await client.mutate({mutation:NEW_LOCATAIRE,variables:{data}})
       .then(({data})=>{
-        console.log(data);
+       // console.log(data);
         return data && data.createLocataire;
       });
     } catch (error) {
-      console.error(error);
+      //console.error(error);
     }
   },
   async getLocataire(context){
@@ -64,11 +65,11 @@ export const actions = {
     try {
       const res= await client.query({query:QUERY_LOCATAIRES})
       .then(({data})=>{
-        console.log(data);
+        //console.log(data);
         return data && data.locataires;
       });
       context.commit("SET_LOCATAIRES",res);
-      console.log(res);
+      //console.log(res);
     } catch (error) {
       console.error(error);
     }

@@ -15,6 +15,22 @@ export const BATIMENT_QUERY = gql`
         id
         name
         totalRooms
+        rooms {
+          id
+          format
+          category
+          price
+          locataire{
+            id
+            name
+            phone
+          }
+          niveau {
+            id
+          }
+          numero
+          isAvalaible
+        }
       }
     }
   }
@@ -35,6 +51,23 @@ export const BATIMENT_ONE_QUERY = gql`
         id
         name
         totalRooms
+
+        rooms {
+          id
+          format
+          price
+          locataire{
+            id
+            name
+            phone
+          }
+          niveau {
+            id
+          }
+          category
+          numero
+          isAvalaible
+        }
       }
     }
   }
@@ -54,7 +87,17 @@ export const CREATE_HOUSE = gql`
         id
         name
         totalRooms
-        
+        rooms {
+          id
+          format
+          category
+          price
+          niveau {
+            id
+          }
+          numero
+          isAvalaible
+        }
       }
     }
   }

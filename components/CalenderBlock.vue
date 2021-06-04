@@ -10,7 +10,7 @@
         />
       </div>
       <div class="w-full  pt-1">
-        <div class="w-full flex text-blue-50 justify-between px-4 h-12 bg-blue-800 items-center">
+        <!-- <div class="w-full flex text-blue-50 justify-between px-4 h-12 bg-blue-800 items-center">
           <h3>flux d'Activité</h3>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -26,8 +26,8 @@
               d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-        </div>
-        <div>
+        </div> -->
+        <!-- <div>
             <div 
                 v-for="(activ,i) in activites"
                 :key="i"
@@ -39,7 +39,7 @@
                     <h5 class="text-xs text-gray-400">{{activ.date}}</h5>
                 </div>
             </div>
-        </div>
+        </div> -->
       </div>
     </div>
 </template>

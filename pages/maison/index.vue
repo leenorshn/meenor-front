@@ -101,7 +101,8 @@ export default {
   middleware:'isAuth',
     data(){
         return{
-           cities:[]
+           cities:[],
+           hire:true,
         }
     },
     mounted(){

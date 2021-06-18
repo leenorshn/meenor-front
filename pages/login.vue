@@ -3,7 +3,7 @@
      <div class="w-2/5 flex flex-col items-center justify-center bg-blue-800 relative">
      <img src="/homem.jpeg" alt="">
         <div class="">
-          <h2 class="text-center text-3xl text-gray-50 mt-6">ETS KAKULE MULUMBI RANGI KMR</h2>
+          <h2 class="text-center text-3xl text-gray-50 mt-6">ETS MULUMBI RANGI</h2>
         <p class="text-center text-xl text-gray-200 mt-6">systeme de gestion des revenus locatif</p>
         </div>
     </div>

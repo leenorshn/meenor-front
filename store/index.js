@@ -33,14 +33,14 @@ export const state = () => ({
         //console.log(res);
         context.commit("SET_CURRENT_USER",res.user);
         context.dispatch("pushNotification",{
-          type:"orange",
+          type:"done",
           message:"Bienvenue encore"
         })
         await this.$apolloHelpers.onLogin(res.token)
         return res.user;
       } catch (error) {
         context.dispatch("pushNotification",{
-          type:"orange",
+          type:"error",
           message:"Erreur de connexion"
         })
         console.error(error)

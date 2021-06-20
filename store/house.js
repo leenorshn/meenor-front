@@ -25,8 +25,64 @@ export const actions = {
         });
 
       console.log(res);
+      dispatch("pushNotification",{
+        type:"done",
+        message:"Chambre creer!"
+      })
     } catch (error) {
       console.error(error);
+      dispatch("pushNotification",{
+        type:"error",
+        message:"Erreur de chambre!"
+      })
+    }
+  },
+  async editerRoom(){
+    let client = this.app.apolloProvider.defaultClient;
+    try {
+     // console.log(data);
+      const res = await client
+        .mutate({ mutation: NEW_ROOM, variables: {data} })
+        .then(({ data }) => {
+          //console.log(data);
+          return data && data.createApartement;
+        });
+
+      console.log(res);
+      dispatch("pushNotification",{
+        type:"done",
+        message:"Chambre creer!"
+      })
+    } catch (error) {
+      console.error(error);
+      dispatch("pushNotification",{
+        type:"error",
+        message:"Erreur de chambre!"
+      })
+    }
+  },
+  async deleteRoom(){
+    let client = this.app.apolloProvider.defaultClient;
+    try {
+     // console.log(data);
+      const res = await client
+        .mutate({ mutation: NEW_ROOM, variables: {data} })
+        .then(({ data }) => {
+          //console.log(data);
+          return data && data.createApartement;
+        });
+
+      console.log(res);
+      dispatch("pushNotification",{
+        type:"done",
+        message:"Chambre creer!"
+      })
+    } catch (error) {
+      console.error(error);
+      dispatch("pushNotification",{
+        type:"error",
+        message:"Erreur de chambre!"
+      })
     }
   },
  
@@ -42,12 +98,20 @@ export const actions = {
           });
   
         //console.log(res);
+        dispatch("pushNotification",{
+          type:"done",
+          message:"Niveau creer!"
+        })
       } catch (error) {
+        dispatch("pushNotification",{
+          type:"error",
+          message:"Erreur de niveau!"
+        })
         console.error(error);
       }
   },
 
-  async createLocataire(_,data){
+  async createLocataire({dispatch},data){
     let client =this.app.apolloProvider.defaultClient;
     try {
       //console.log(data);
@@ -56,11 +120,19 @@ export const actions = {
        // console.log(data);
         return data && data.createLocataire;
       });
+      dispatch("pushNotification",{
+        type:"done",
+        message:"Locataire creer!"
+      })
     } catch (error) {
       //console.error(error);
+      dispatch("pushNotification",{
+        type:"error",
+        message:"Erreur de creation de locataire!"
+      })
     }
   },
-  async getLocataire(context){
+  async getLocataire({commit,dispatch}){
     let client =this.app.apolloProvider.defaultClient;
     try {
       const res= await client.query({query:QUERY_LOCATAIRES})
@@ -68,9 +140,13 @@ export const actions = {
         //console.log(data);
         return data && data.locataires;
       });
-      context.commit("SET_LOCATAIRES",res);
+      commit("SET_LOCATAIRES",res);
       //console.log(res);
     } catch (error) {
+      dispatch("pushNotification",{
+        type:"error",
+        message:"Erreur de chargement de locataire!"
+      })
       console.error(error);
     }
   }

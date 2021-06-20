@@ -26,31 +26,29 @@ export const actions = {
       console.log(batiments);
       context.commit("LOAD_BATIMENTS",batiments);
     },
-  async createBatiment(_, data) {
+  async createBatiment({dispatch}, data) {
     let client = this.app.apolloProvider.defaultClient;
     try {
       console.log(data);
       const res = await client
-        .mutate({ mutation: CREATE_HOUSE, variables: {data} ,
-          // update: (store, { data: { createBatiment } }) => {
-          //   // Read the data from our cache for this query.
-          //   const data = store.readQuery({ query: BATIMENT_QUERY })
-          //   // Add our tag from the mutation to the end
-          //   data.batiments.push(createBatiment)
-          //   // Write our data back to the cache.
-          //   store.writeQuery({ query: BATIMENT_QUERY, data })
-          // },
-        
-        })
+        .mutate({ mutation: CREATE_HOUSE, variables: {data} ,})
         .then(({ data }) => {
           //console.log(data);
           return data && data.createBatiment;
         });
 
         commit("CREATE_BATIMENT",res);
+        dispatch("pushNotification",{
+          type:"done",
+          message:"Batiment creer!"
+        })
       return res;
     } catch (err) {
       console.log(err);
+      dispatch("pushNotification",{
+        type:"error",
+        message:"Erreur de creation de batiment!"
+      })
     }
   },
 
@@ -75,12 +73,20 @@ export const actions = {
         });
 
         dispatch("loadBatiment");
+        dispatch("pushNotification",{
+          type:"done",
+          message:"Modification reussi"
+        })
       return res;
     } catch (err) {
       console.log(err);
+      dispatch("pushNotification",{
+        type:"error",
+        message:"Erreur de modification"
+      })
     }
   },
-  async deleteBatiment({commit},id){
+  async deleteBatiment({commit,dispatch},id){
     console.log(commit);
     let client=this.app.apolloProvider.defaultClient;
     try {
@@ -89,18 +95,17 @@ export const actions = {
         variables: {
           id:id,
         },
-        // update: (store,) => {
-        //   // Read the data from our cache for this query.
-        //   const data = store.readQuery({ query: BATIMENT_QUERY })
-        //   // Add our tag from the mutation to the end
-        //   let updatedBatiment= data.batiments.filter(doc=>doc.id!==id)
-        //   data.batiments=updatedBatiment
-        //   // Write our data back to the cache.
-        //   store.writeQuery({ query: BATIMENT_QUERY, data })
-        // },
       })
       commit("DELETE_BATIMENT",id);
+      dispatch("pushNotification",{
+        type:"done",
+        message:"Batiment effacer !"
+      })
     } catch (e) {
+      dispatch("pushNotification",{
+        type:"error",
+        message:"Erreur d'effacer!"
+      })
       console.log(e);
     }
   }

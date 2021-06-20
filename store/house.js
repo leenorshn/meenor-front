@@ -28,13 +28,13 @@ export const actions = {
       dispatch("pushNotification",{
         type:"done",
         message:"Chambre creer!"
-      })
+      },{root:true})
     } catch (error) {
       console.error(error);
       dispatch("pushNotification",{
         type:"error",
         message:"Erreur de chambre!"
-      })
+      },{root:true})
     }
   },
   async editerRoom(){
@@ -52,13 +52,13 @@ export const actions = {
       dispatch("pushNotification",{
         type:"done",
         message:"Chambre creer!"
-      })
+      },{root:true})
     } catch (error) {
       console.error(error);
       dispatch("pushNotification",{
         type:"error",
         message:"Erreur de chambre!"
-      })
+      },{root:true})
     }
   },
   async deleteRoom(){
@@ -76,13 +76,13 @@ export const actions = {
       dispatch("pushNotification",{
         type:"done",
         message:"Chambre creer!"
-      })
+      },{root:true})
     } catch (error) {
       console.error(error);
       dispatch("pushNotification",{
         type:"error",
         message:"Erreur de chambre!"
-      })
+      },{root:true})
     }
   },
  
@@ -101,12 +101,12 @@ export const actions = {
         dispatch("pushNotification",{
           type:"done",
           message:"Niveau creer!"
-        })
+        },{root:true})
       } catch (error) {
         dispatch("pushNotification",{
           type:"error",
           message:"Erreur de niveau!"
-        })
+        },{root:true})
         console.error(error);
       }
   },
@@ -123,13 +123,13 @@ export const actions = {
       dispatch("pushNotification",{
         type:"done",
         message:"Locataire creer!"
-      })
+      },{root:true})
     } catch (error) {
       //console.error(error);
       dispatch("pushNotification",{
         type:"error",
         message:"Erreur de creation de locataire!"
-      })
+      },{root:true})
     }
   },
   async getLocataire({commit,dispatch}){
@@ -146,7 +146,7 @@ export const actions = {
       dispatch("pushNotification",{
         type:"error",
         message:"Erreur de chargement de locataire!"
-      })
+      },{root:true})
       console.error(error);
     }
   }

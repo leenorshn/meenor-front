@@ -41,14 +41,14 @@ export const actions = {
         dispatch("pushNotification",{
           type:"done",
           message:"Batiment creer!"
-        })
+        },{root:true})
       return res;
     } catch (err) {
       console.log(err);
       dispatch("pushNotification",{
         type:"error",
         message:"Erreur de creation de batiment!"
-      })
+      },{root:true})
     }
   },
 
@@ -76,14 +76,14 @@ export const actions = {
         dispatch("pushNotification",{
           type:"done",
           message:"Modification reussi"
-        })
+        },{root:true})
       return res;
     } catch (err) {
       console.log(err);
       dispatch("pushNotification",{
         type:"error",
         message:"Erreur de modification"
-      })
+      },{root:true})
     }
   },
   async deleteBatiment({commit,dispatch},id){
@@ -100,12 +100,12 @@ export const actions = {
       dispatch("pushNotification",{
         type:"done",
         message:"Batiment effacer !"
-      })
+      },{root:true})
     } catch (e) {
       dispatch("pushNotification",{
         type:"error",
         message:"Erreur d'effacer!"
-      })
+      },{root:true})
       console.log(e);
     }
   }

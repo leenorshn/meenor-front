@@ -32,6 +32,7 @@ export const state = () => ({
         
         //console.log(res);
         context.commit("SET_CURRENT_USER",res.user);
+        context.dispatch("pushNotification")
         await this.$apolloHelpers.onLogin(res.token)
         return res.user;
       } catch (error) {

@@ -4,7 +4,7 @@
     <div class="w-11/12 mx-auto ">
       <Nuxt />
     </div>
-    <notif-list class="absolute right-6 top-1"/>
+    <notif-list class="absolute right-6 bottom-1"/>
   </div>
 </template>
 <script>

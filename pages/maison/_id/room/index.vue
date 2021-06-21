@@ -5,12 +5,7 @@
     >
       <h3 class="text-gray-50 text-sm capitalize">Detail chambre</h3>
       <div>
-        <nuxt-link
-        v-if="!room.isAvalaible"
-        class="text-white text-sm font-bold bg-blue-800 px-5 py-2 rounded-md"
-        :to="`/maison/${$route.params.id}/room/creator`"
-        >Ajouter locataire</nuxt-link
-      >
+        
       <nuxt-link
         class="text-white text-sm font-bold bg-black px-5 py-2 rounded-md"
         :to="`/maison/`"

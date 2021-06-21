@@ -13,38 +13,82 @@
                   <tr>
                     <th
                       scope="col"
-                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      class="
+                        px-6
+                        py-3
+                        text-left text-xs
+                        font-medium
+                        text-gray-500
+                        uppercase
+                        tracking-wider
+                      "
                     >
                       Client
                     </th>
                     <th
                       scope="col"
-                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      class="
+                        px-6
+                        py-3
+                        text-left text-xs
+                        font-medium
+                        text-gray-500
+                        uppercase
+                        tracking-wider
+                      "
                     >
                       Location
                     </th>
                     <th
                       scope="col"
-                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      class="
+                        px-6
+                        py-3
+                        text-left text-xs
+                        font-medium
+                        text-gray-500
+                        uppercase
+                        tracking-wider
+                      "
                     >
                       Status
                     </th>
                     <th
                       scope="col"
-                      class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      class="
+                        px-6
+                        py-3
+                        text-center text-xs
+                        font-medium
+                        text-gray-500
+                        uppercase
+                        tracking-wider
+                      "
                     >
                       Messagerie
                     </th>
                     <th
                       scope="col"
-                      class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      class="
+                        px-6
+                        py-3
+                        text-center text-xs
+                        font-medium
+                        text-gray-500
+                        uppercase
+                        tracking-wider
+                      "
                     >
                       Actions
                     </th>
                   </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                  <client-card v-for="(n, i) in locataires" :client="n" :key="i" />
+                  <client-card
+                    v-for="(n, i) in locataires"
+                    :client="n"
+                    :key="i"
+                  />
                 </tbody>
               </table>
             </div>
@@ -55,8 +99,41 @@
     <div class="w-1/4">
       <div class="flex flex-col pl-6 space-y-2">
         <nuxt-link
+          to="/clients/creator"
+          class="
+            text-blue-600
+            flex
+            text-base
+            border-b-2
+            w-24
+            border-transparent
+            hover:border-blue-500
+          "
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 mr-4"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"
+            />
+          </svg>
+
+          Nouveau</nuxt-link
+        >
+        <nuxt-link
           to="/clients/notificator"
-          class="text-blue-600 flex text-base border-b-2 w-32 border-transparent hover:border-blue-500"
+          class="
+            text-blue-600
+            flex
+            text-base
+            border-b-2
+            w-32
+            border-transparent
+            hover:border-blue-500
+          "
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +153,17 @@
         >
       </div>
       <div
-        class="h-24 relative bg-blue-700 shadow-md rounded-md my-5 flex items-center justify-center"
+        class="
+          h-24
+          relative
+          bg-blue-700
+          shadow-md
+          rounded-md
+          my-5
+          flex
+          items-center
+          justify-center
+        "
       >
         <div class="flex items-baseline justify-center space-x-2">
           <svg
@@ -93,7 +180,9 @@
               d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
             />
           </svg>
-          <h2 class="text-2xl text-white font-semibold">{{locataires.length}}</h2>
+          <h2 class="text-2xl text-white font-semibold">
+            {{ locataires.length }}
+          </h2>
           <span class="text-sm text-gray-200"> locataires</span>
         </div>
       </div>
@@ -126,30 +215,31 @@
 <script>
 import gql from "graphql-tag";
 export default {
-  async asyncData({app}){
-
-    const locataires=await  app.apolloProvider.defaultClient
-    .query({ query: gql`
-        query {
-          locataires {
-            id
-            name
-            avatar
-            phone
-            room {
+  async asyncData({ app }) {
+    const locataires = await app.apolloProvider.defaultClient
+      .query({
+        query: gql`
+          query {
+            locataires {
               id
-              numero
+              name
+              avatar
+              phone
+              room {
+                id
+                numero
+              }
             }
           }
-        }
-      ` })
-        .then(({ data }) => {
-          return data && data.locataires;
-        });
-        
+        `,
+      })
+      .then(({ data }) => {
+        return data && data.locataires;
+      });
+
     return {
-      locataires
-    }
+      locataires,
+    };
   },
   data() {
     return {

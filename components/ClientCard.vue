@@ -110,7 +110,7 @@
             />
           </svg>
         </button>
-        <nuxt-link :to="`/client/${client.id}`" class="
+        <nuxt-link :to="`/clients/${client.id}`" class="
             w-9
             h-9
             flex

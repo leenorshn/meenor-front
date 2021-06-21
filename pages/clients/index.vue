@@ -213,34 +213,19 @@
   </div>
 </template>
 <script>
-import gql from "graphql-tag";
+import { mapActions } from "vuex";
 export default {
-  async asyncData({ app }) {
-    const locataires = await app.apolloProvider.defaultClient
-      .query({
-        query: gql`
-          query {
-            locataires {
-              id
-              name
-              avatar
-              phone
-              room {
-                id
-                numero
-              }
-            }
-          }
-        `,
-      })
-      .then(({ data }) => {
-        return data && data.locataires;
-      });
-
-    return {
-      locataires,
-    };
+  mounted(){
+    this.getLocataire()
   },
+  computed:{
+    locataires(){
+      return this.$store.state.house.locataires;
+    }
+  },
+ methods:{
+   ...mapActions({getLocataire:"house/getLocataire"})
+ },
   data() {
     return {
       cities: [

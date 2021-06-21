@@ -89,7 +89,7 @@
                         <input
                           type="text"
                           name="company_website"
-                          v-model.number="payment.amount"
+                          v-model.number="payment.garantie"
                           id="company_website"
                           class="pl-16 flex-1 block w-full rounded-r-md sm:text-sm border-gray-300"
                           placeholder="Garantie locatif"

@@ -82,34 +82,29 @@
                         </th>
                         <th
                           scope="col"
-                          class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          class="px-2 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
                         >
-                          Client
-                        </th>
-                        <th
-                          scope="col"
-                          class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                        >
-                          Chambre
+                          Montant($)
                         </th>
                         <th
                           scope="col"
                           class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
                         >
-                          Prix/mois
-                        </th>
-                        <th
-                          scope="col"
-                          class="px-2 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
-                        >
                           Durée
                         </th>
                         <th
                           scope="col"
+                          class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        >
+                          Date debut
+                        </th>
+                        <th
+                          scope="col"
                           class="px-2 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
                         >
-                          Montant versé
+                          Date fin
                         </th>
+                        
                         <th
                           scope="col"
                           class="text-center text-xs font-medium text-gray-500 uppercase tracking-wider px-6 py-3"

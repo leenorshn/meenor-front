@@ -13,7 +13,7 @@
       <span
         class="px-3  inline-flex text-xs leading-5 font-semibold rounded-full bg-red-200 text-green-800"
       >
-        <div class="text-xs text-gray-500 font-bold">{{$moment(diff,'years').fromNow()}}</div>
+        <div class="text-xs text-gray-500 font-bold">3</div>
       </span>
       
     </td>

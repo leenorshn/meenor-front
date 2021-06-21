@@ -145,7 +145,6 @@
 import { mapActions } from "vuex";
 
 export default {
-  layout: "account",
   data() {
     return {
       payment: {},

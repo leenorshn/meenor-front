@@ -80,7 +80,6 @@
 <script>
 import { GET_PAYMENTS } from "~/apollo/payment_gql";
 export default {
-  layout: "account",
  async asyncData({app}){
    const payments=await  app.apolloProvider.defaultClient.query({ query: GET_PAYMENTS })
         .then(({ data }) => {

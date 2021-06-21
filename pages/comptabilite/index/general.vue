@@ -78,15 +78,24 @@
   </div>
 </template>
 <script>
-import { GET_PAYMENTS } from "~/apollo/payment_gql";
+import { mapActions } from "vuex";
 export default {
    computed:{
+     payments(){
+       return this.$store.state.payment.payments;
+     },
     entree(){
       var msgTotal = this.payments.reduce(function(prev, cur) {
   return prev + cur.amount;
 }, 0);
 return msgTotal;
     }
+  },
+  mounted(){
+    this.loadPay()
+  },
+  methods:{
+    ...mapActions({loadPay:"payment/loadPayment"})
   }
 
 

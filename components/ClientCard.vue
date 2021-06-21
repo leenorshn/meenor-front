@@ -43,7 +43,7 @@
         text-sm text-gray-500
       "
     >
-      <button
+      <nuxt-link
         class="
           w-9
           h-9
@@ -54,6 +54,7 @@
           hover:bg-blue-200
           hover:text-blue-600
         "
+        :to="`/clients/${client.id}`"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +70,7 @@
             d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
           />
         </svg>
-      </button>
+      </nuxt-link>
     </td>
     <td
       class="
@@ -82,34 +83,7 @@
       "
     >
       <div class="flex justify-center">
-        <button
-          to="/"
-          class="
-            w-9
-            h-9
-            flex
-            justify-center
-            items-center
-            rounded-full
-            hover:bg-orange-200
-            hover:text-black
-          "
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-            />
-          </svg>
-        </button>
+        
         <nuxt-link :to="`/clients/${client.id}`" class="
             w-9
             h-9

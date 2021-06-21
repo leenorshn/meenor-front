@@ -4,7 +4,14 @@ export const state = () => ({
   payments: []
 });
 
-export const mutations = {};
+export const mutations = {
+  LOAD_PAYMENT(state,data){
+    state.payments=data;
+  },
+  DELETE_PAY(state,id){
+    state.payments= state.payments.filter(doc=>doc.id!==id);
+  }
+};
 
 export const actions = {
   async loadPayment(context,){
@@ -28,7 +35,7 @@ export const actions = {
     try {
         console.log(data);
         const res = await client
-        .mutate({ mutation: NEW_PAYMENT, variables: {id:data} })
+        .mutate({ mutation: NEW_PAYMENT, variables: {data} })
         .then(({ data }) => {
           console.log(data);
           return data && data.createPayment;
@@ -70,16 +77,17 @@ export const actions = {
       },{root:true})
     }
   },
-  async deletePayment({dispatch},data){
+  async deletePayment({dispatch,commit},data){
     let client =this.app.apolloProvider.defaultClient;
     try {
       const res= client.mutate({
-        mutation:DELETE_PAYMENT,variables:{data}
+        mutation:DELETE_PAYMENT,variables:{id:data}
       }).then(({ data }) => {
         console.log(data);
         return data && data.deletePayment;
       });
       console.log(res);
+      commit("DELETE_PAY",data)
       dispatch("pushNotification",{
         type:"done",
         message:" Payment effacer!"

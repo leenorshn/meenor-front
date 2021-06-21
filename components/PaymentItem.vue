@@ -13,7 +13,7 @@
     <td
       class="px-4 py-4 text-center whitespace-nowrap text-sm text-gray-500"
     >
-     {{item.garantie}}
+     {{item.garantie+" $"}}
     </td>
     <td
       class="px-4 py-4  text-center whitespace-nowrap text-sm text-gray-500"

@@ -52,6 +52,12 @@
                   scope="col"
                   class="px-6 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
+                  Garantie
+                </th>
+                <th
+                  scope="col"
+                  class="px-6 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Date
                 </th>
                 <th

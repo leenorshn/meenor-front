@@ -141,7 +141,7 @@ export const actions = {
         return data && data.locataires;
       });
       commit("SET_LOCATAIRES",res);
-      //console.log(res);
+      console.log(res);
     } catch (error) {
       dispatch("pushNotification",{
         type:"error",

@@ -25,6 +25,7 @@
     >
       <div class="flex justify-center">
         <button
+        @click.prevent="deletePay()"
           class="w-9 h-9 flex justify-center items-center rounded-full hover:bg-orange-200 hover:text-orange-600"
         >
           <svg
@@ -72,9 +73,16 @@
   </tr>
 </template>
 <script>
+import { mapActions } from "vuex";
 export default {
   props:{
     item:Object
+  },
+  methods:{
+    ...mapActions({deletePayment:"payment/deletePayment"}),
+    deletePay(){
+      this.deletePayment(this.item.id);
+    }
   }
 }
 </script>

@@ -19,6 +19,12 @@ export const GET_PAYMENTS = gql`
   }
 `;
 
+export const DELETE_PAYMENT=gql`
+  mutation deletePay($id:ID!){
+  deletePayment(id:$id)
+}
+`;
+
 export const NEW_PAYMENT = gql`
   mutation($data: PaymentCreateInput!) {
     createPayment(data: $data) {

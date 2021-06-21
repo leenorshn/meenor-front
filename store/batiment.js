@@ -26,7 +26,7 @@ export const actions = {
       console.log(batiments);
       context.commit("LOAD_BATIMENTS",batiments);
     },
-  async createBatiment({dispatch}, data) {
+  async createBatiment({dispatch,commit}, data) {
     let client = this.app.apolloProvider.defaultClient;
     try {
       console.log(data);

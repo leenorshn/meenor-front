@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-24 rounded-md m-4 w-full flex justify-between items-center p-2"
+    class="h-24 rounded-md m-4 w-full flex justify-around items-center p-2"
     :class="`${notification.type == 'error' ? 'bg-orange-500' : 'bg-greenP'}`"
   >
     <div v-if="notification.type == 'error'">
@@ -35,7 +35,7 @@
         />
       </svg>
     </div>
-    <div class="text-white text-xl font-semibold">
+    <div class="text-white text-lg font-semibold">
       {{ notification.message }}
     </div>
   </div>

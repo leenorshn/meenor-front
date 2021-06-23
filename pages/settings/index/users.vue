@@ -10,7 +10,78 @@
             <nuxt-link to="/settings/users/newUser" class="text-white px-6 py-1 bg-blue-500 rounded-md">Nouveau</nuxt-link>
         </div>
         <div>
-            <user-item v-for="(u,i) in users" :client="u" :key="i"/>
+           <div class="overflow-hidden border-b border-gray-200 sm:rounded-b-lg">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th
+                      scope="col"
+                      class="
+                        px-6
+                        py-3
+                        text-left text-xs
+                        font-medium
+                        text-gray-500
+                        uppercase
+                        tracking-wider
+                      "
+                    >
+                      User
+                    </th>
+                    <th
+                      scope="col"
+                      class="
+                        px-6
+                        py-3
+                        text-left text-xs
+                        font-medium
+                        text-gray-500
+                        uppercase
+                        tracking-wider
+                      "
+                    >
+                      Phone
+                    </th>
+                    <th
+                      scope="col"
+                      class="
+                        px-6
+                        py-3
+                        text-left text-xs
+                        font-medium
+                        text-gray-500
+                        uppercase
+                        tracking-wider
+                      "
+                    >
+                      Role
+                    </th>
+                    
+                    <th
+                      scope="col"
+                      class="
+                        px-6
+                        py-3
+                        text-center text-xs
+                        font-medium
+                        text-gray-500
+                        uppercase
+                        tracking-wider
+                      "
+                    >
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <user-item
+                    v-for="(n, i) in users"
+                    :client="n"
+                    :key="i"
+                  />
+                </tbody>
+              </table>
+            </div>
         </div>
 
     </div>

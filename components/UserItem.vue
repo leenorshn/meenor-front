@@ -7,9 +7,13 @@
         </div>
         <div class="ml-4">
           <div class="text-sm font-medium text-gray-900">{{ client.name }}</div>
-          <div class="text-sm text-gray-400">{{ client.phone }}</div>
         </div>
       </div>
+    </td>
+    <td class="px-6 py-4 whitespace-nowrap text-gray-600">
+      
+        {{client.phone}}
+      
     </td>
     
     <td class="px-6 py-4 whitespace-nowrap">
@@ -35,16 +39,16 @@
         py-2
         text-gray-500
         whitespace-nowrap
-        text-right text-sm
+        text-center text-sm
         font-medium
       "
     >
       
         
         <nuxt-link :to="`/clients/${client.id}`" class="
-            flex
-            justify-center
-            items-center
+            px-4 py-1
+            
+
             rounded-full
             hover:bg-blue-200
             hover:text-blue-600">

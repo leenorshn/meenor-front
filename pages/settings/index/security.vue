@@ -22,7 +22,8 @@
             <h4 class="text-lg text-left py-4 font-semibold">Modifier votre mot de passe</h4>
             <div class="w-1/2">
                 <input type="text" placeholder="Mot de passe" >
-                <button>Modifier</button>
+                <button
+                 class="px-4 w-72 py-2 bg-blue-600 text-blue-50 rounded-md">Modifier</button>
             </div>
         </div>
     </div>

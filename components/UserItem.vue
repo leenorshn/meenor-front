@@ -48,7 +48,7 @@
             rounded-full
             hover:bg-blue-200
             hover:text-blue-600">
-          
+          changer
         </nuxt-link>
         
         

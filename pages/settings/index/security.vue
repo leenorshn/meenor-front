@@ -17,5 +17,14 @@
       </svg>
       <h2 class=" text-yellow-50 font-semibold text-lg">Secutité</h2>
     </div>
+    <div>
+        <div class="flex h-96 flex-col items-center justify-center">
+            <h4 class="text-lg text-left py-4 font-semibold">Modifier votre mot de passe</h4>
+            <div class="w-1/2">
+                <input type="text" placeholder="Mot de passe" >
+                <button>Modifier</button>
+            </div>
+        </div>
+    </div>
   </div>
 </template>

@@ -40,7 +40,7 @@
             </p>
           </div>
         </div>
-        <div class="w-5/6 shadow rounded  p-4">
+        <div class="w-5/6  rounded  p-4">
           <nuxt-child></nuxt-child>
         </div>
       </div>

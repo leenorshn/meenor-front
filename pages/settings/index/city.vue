@@ -44,7 +44,8 @@ export default {
     },
     methods:{
         addCity(){
-            this.cities.push(this.city_field);
+            this.cities.unshift(this.city_field);
+            this.city_field=""
         },
         deleteCity(i){
             this.cities=this.cities.filter(d=>d!=i);

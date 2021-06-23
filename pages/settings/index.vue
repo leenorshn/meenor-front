@@ -12,11 +12,11 @@
             </nuxt-link>
             <nuxt-link
               class="flex space-x-2 items-center"
-              to="/settings/account"
+              to="/settings/city"
             >
              
 
-              <h3 class="text-white">Mon compte</h3></nuxt-link
+              <h3 class="text-white">Nos villes</h3></nuxt-link
             >
             <nuxt-link
               class="flex space-x-2 items-center"

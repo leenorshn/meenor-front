@@ -10,6 +10,7 @@
 
 export default {
   middleware: 'isAuth',
+  
 }
 </script>
 

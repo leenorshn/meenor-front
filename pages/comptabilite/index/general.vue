@@ -52,6 +52,12 @@
                   scope="col"
                   class="px-6 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
+                  Garantie
+                </th>
+                <th
+                  scope="col"
+                  class="px-6 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Date
                 </th>
                 <th
@@ -72,31 +78,24 @@
   </div>
 </template>
 <script>
-import { GET_PAYMENTS } from "~/apollo/payment_gql";
+import { mapActions } from "vuex";
 export default {
-  layout: "account",
- async asyncData({app}){
-   const payments=await  app.apolloProvider.defaultClient.query({ query: GET_PAYMENTS })
-        .then(({ data }) => {
-          return data && data.payments;
-        });
-    //console.log(data);
-    return {
-      payments
-    }
-  },
-  // apollo:{
-  //   payments:{
-  //     query:GET_PAYMENTS
-  //   }
-  // },
-  computed:{
+   computed:{
+     payments(){
+       return this.$store.state.payment.payments;
+     },
     entree(){
       var msgTotal = this.payments.reduce(function(prev, cur) {
   return prev + cur.amount;
 }, 0);
 return msgTotal;
     }
+  },
+  mounted(){
+    this.loadPay()
+  },
+  methods:{
+    ...mapActions({loadPay:"payment/loadPayment"})
   }
 
 

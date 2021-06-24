@@ -1,4 +1,4 @@
-import { BATIMENT_QUERY,CREATE_HOUSE,EDIT_HOUSE} from "~/apollo/batiment_gql";
+import { BATIMENT_QUERY,CREATE_HOUSE,EDIT_HOUSE,DELETE_HOUSE} from "~/apollo/batiment_gql";
 
 export const state = () => ({
     batiments:[]
@@ -6,9 +6,15 @@ export const state = () => ({
 
 export const mutations = {
     LOAD_BATIMENTS(state,data){
-        
         state.batiments=data
         console.log(state.batiments);
+    },
+    DELETE_BATIMENT(state,data){
+      console.log(data);
+     state.batiments= state.batiments.filter(doc=>doc.id!==data);
+    },
+    CREATE_BATIMENT(state,data){
+      state.batiments.push(data)
     }
 };
 
@@ -20,25 +26,33 @@ export const actions = {
       console.log(batiments);
       context.commit("LOAD_BATIMENTS",batiments);
     },
-  async createBatiment(_, data) {
+  async createBatiment({dispatch,commit}, data) {
     let client = this.app.apolloProvider.defaultClient;
     try {
       console.log(data);
       const res = await client
-        .mutate({ mutation: CREATE_HOUSE, variables: {data} })
+        .mutate({ mutation: CREATE_HOUSE, variables: {data} ,})
         .then(({ data }) => {
           //console.log(data);
           return data && data.createBatiment;
         });
 
-      console.log(res);
+        commit("CREATE_BATIMENT",res);
+        dispatch("pushNotification",{
+          type:"done",
+          message:"Batiment creer!"
+        },{root:true})
       return res;
     } catch (err) {
       console.log(err);
+      dispatch("pushNotification",{
+        type:"error",
+        message:"Erreur de creation de batiment!"
+      },{root:true})
     }
   },
 
-  async editBatiment(_, data) {
+  async editBatiment({dispatch}, data) {
     let client = this.app.apolloProvider.defaultClient;
     try {
       console.log(data);
@@ -49,17 +63,51 @@ export const actions = {
             data:data,
             id:data.id,
           }
-        } })
+        },
+        
+      
+      })
         .then(({ data }) => {
           //console.log(data);
           return data && data.updateBatiment;
         });
 
-      console.log(res);
+        dispatch("loadBatiment");
+        dispatch("pushNotification",{
+          type:"done",
+          message:"Modification reussi"
+        },{root:true})
       return res;
     } catch (err) {
       console.log(err);
+      dispatch("pushNotification",{
+        type:"error",
+        message:"Erreur de modification"
+      },{root:true})
     }
   },
+  async deleteBatiment({commit,dispatch},id){
+    console.log(commit);
+    let client=this.app.apolloProvider.defaultClient;
+    try {
+      const res= await client.mutate({
+        mutation: DELETE_HOUSE,
+        variables: {
+          id:id,
+        },
+      })
+      commit("DELETE_BATIMENT",id);
+      dispatch("pushNotification",{
+        type:"done",
+        message:"Batiment effacer !"
+      },{root:true})
+    } catch (e) {
+      dispatch("pushNotification",{
+        type:"error",
+        message:"Erreur d'effacer!"
+      },{root:true})
+      console.log(e);
+    }
+  }
  
 };

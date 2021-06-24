@@ -2,11 +2,12 @@
   <div class="flex px-2 pt-4 pb-8">
     <div class="w-3/4 pr-4">
       <div class="flex space-x-4">
-        <div class="w-1/4 bg-white h-72 rounded-md">
+        <div class="w-1/4 bg-white h-72 rounded-md" v-if="!hide">
           <circle-chart :data="chartDataCircle" :options="circleChartOptions" />
         </div>
-        <div class="w-3/4 bg-white h-72 rounded-md">
+        <div class="w-3/4 bg-white h-72 rounded-md" v-if="!hide">
           <my-line
+
             v-if="showLine"
             :data="barChartData"
             :options="barChartOptions"
@@ -81,34 +82,29 @@
                         </th>
                         <th
                           scope="col"
-                          class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          class="px-2 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
                         >
-                          Client
-                        </th>
-                        <th
-                          scope="col"
-                          class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                        >
-                          Chambre
+                          Montant($)
                         </th>
                         <th
                           scope="col"
                           class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
                         >
-                          Prix/mois
-                        </th>
-                        <th
-                          scope="col"
-                          class="px-2 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
-                        >
                           Durée
                         </th>
                         <th
                           scope="col"
+                          class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        >
+                          Date debut
+                        </th>
+                        <th
+                          scope="col"
                           class="px-2 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
                         >
-                          Montant versé
+                          Date fin
                         </th>
+                        
                         <th
                           scope="col"
                           class="text-center text-xs font-medium text-gray-500 uppercase tracking-wider px-6 py-3"
@@ -169,6 +165,7 @@ export default {
 
   data() {
     return {
+      hide:true,
       showLine: false,
       chartDataCircle: {
         labels: ["Entre", "Prevision", "Sortie"],

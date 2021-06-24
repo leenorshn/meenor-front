@@ -11,11 +11,18 @@ export const GET_PAYMENTS = gql`
       #   phone
       # }
       amount
+      garantie
       fromDate
       toDate
       createdAt
     }
   }
+`;
+
+export const DELETE_PAYMENT=gql`
+  mutation deletePay($id:ID!){
+  deletePayment(id:$id)
+}
 `;
 
 export const NEW_PAYMENT = gql`

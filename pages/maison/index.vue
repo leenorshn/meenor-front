@@ -75,22 +75,7 @@
                 <option  v-for="(city,i) in cities" :key="i" :value="city">{{city}}</option>
             </select>
         </div>
-        <div class="flex flex-col mx-4 my-3">
-            <label for="etage" class="text-sm text-gray-400">Par niveau</label>
-            <select class="text-sm shadow" name="" id="etage">
-                <option value="">Pas d'etage</option>
-                <option value="">1</option>
-                <option value="">2</option>
-                <option value="">3</option>
-                <option value="">4</option>
-                <option value="">5</option>
-                <option value="">6</option>
-                <option value="">7</option>
-                <option value="">8</option>
-                <option value="">9</option>
-                <option value="">plus</option>
-            </select>
-        </div>
+      
     </div>
   </div>
 </template>
@@ -101,7 +86,8 @@ export default {
   middleware:'isAuth',
     data(){
         return{
-           cities:[]
+           cities:[],
+           hire:true,
         }
     },
     mounted(){

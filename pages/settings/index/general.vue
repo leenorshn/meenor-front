@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-white p-4 rounded-md shadow">
     <div class="flex justify-between">
       <h2 class="text-xl font-bold text-blue-800">General</h2>
       <nuxt-link

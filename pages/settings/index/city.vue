@@ -5,7 +5,7 @@
     </div>
     <div class="flex space-x-6 ml-2">
         <input v-model="city_field" type="text" class="w-1/2" placeholder="Entrer une ville"/>
-        <button @click.prevent="addCity()" class="text-white bg-blue-700 rounded-md px-6 py-2">Ajouter ville</button>
+        <button @click.prevent="addCities()" class="text-white bg-blue-700 rounded-md px-6 py-2">Ajouter ville</button>
     </div>
     <div class="ml-2">
       <h2 class="my-4 font-semibold text-lg">List de ville</h2>
@@ -56,9 +56,9 @@ export default {
   },
 
     methods:{
-      ...mapActions({getCompany:"company/getCompany"}),
-        addCity(){
-            this.cities.unshift(this.city_field);
+      ...mapActions({getCompany:"company/getCompany",addCity:"company/addCity"}),
+        addCities(){
+            this.addCity([this.city_field]);
             this.city_field=""
         },
         deleteCity(i){

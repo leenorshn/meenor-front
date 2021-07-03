@@ -7,7 +7,7 @@
 </svg>
                 <h3 class="text-blue-50 font-semibold tracking-wide text-lg">Utilisateurs</h3>
             </div>
-            <nuxt-link to="/settings/users/newUser" class="text-white px-6 py-1 bg-blue-500 rounded-md">Nouveau</nuxt-link>
+            <nuxt-link to="/settings/users/new" class="text-white px-6 py-1 bg-blue-500 rounded-md">Nouveau</nuxt-link>
         </div>
         <div>
            <div class="overflow-hidden border-b border-gray-200 sm:rounded-b-lg">
@@ -88,7 +88,7 @@
 </template>
 
 <script>
-import UserItem from '../../../components/UserItem.vue'
+import UserItem from '../../../../components/UserItem.vue'
 import { mapActions } from "vuex";
 export default {
   components: { UserItem },

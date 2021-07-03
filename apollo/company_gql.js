@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
- 
-export  const COMPANY_QUERY = gql`
+
+export const COMPANY_QUERY = gql`
   query {
     company {
       id
@@ -24,6 +24,15 @@ export  const COMPANY_QUERY = gql`
       rccm
       id_nat
       description
+    }
+  }
+`;
+
+export const ADD_CITY = gql`
+  mutation addcity($data: CitiesInput!) {
+    addCity(data: $data) {
+      id
+      cities
     }
   }
 `;

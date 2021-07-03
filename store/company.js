@@ -1,5 +1,5 @@
 
-import {COMPANY_QUERY,ADD_CITY} from "~/apollo/company_gql";
+import {COMPANY_QUERY,ADD_CITY,DELETE_CITY} from "~/apollo/company_gql";
 
 export const state = () => ({
   company:{},
@@ -57,7 +57,7 @@ export const actions = {
     }
   },
  async deleteCity({dispatch},city){
-    console.log(data);
+    //console.log(data);
     let client =this.app.apolloProvider.defaultClient;
     try {
       const res= await client.mutate({mutation:DELETE_CITY,variables:{city:city}})

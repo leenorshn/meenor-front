@@ -34,12 +34,11 @@ export const actions = {
     }
   },
   async addCity({dispatch},data){
-    console.log(data);
+    
     let client =this.app.apolloProvider.defaultClient;
     try {
       const res= await client.mutate({mutation:ADD_CITY,variables:{data:{cities:data}}})
       .then(({data})=>{
-        //console.log(data);
         return data && data.company;
       });
       dispatch("getCompany");

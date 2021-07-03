@@ -3,6 +3,7 @@ import {COMPANY_QUERY,ADD_CITY,DELETE_CITY} from "~/apollo/company_gql";
 
 export const state = () => ({
   company:{},
+  cities:{}
 
 });
 
@@ -10,6 +11,12 @@ export const mutations = {
   SET_COMPANY(state,data){
     state.company=data;
   },
+  SET_CITY(state,data){
+    state.cities=data;
+  },
+  ADD_CITYS(state,data){
+    state.cities.unshift(data);
+  }
 
 };
 
@@ -25,6 +32,7 @@ export const actions = {
       });
       commit("SET_COMPANY",res);
       console.log(res);
+      commit("SET_CITY",res.cities)
     } catch (error) {
       dispatch("pushNotification",{
         type:"error",
@@ -33,7 +41,7 @@ export const actions = {
       console.error(error);
     }
   },
-  async addCity({dispatch},data){
+  async addCity({dispatch,commit},data){
     
     let client =this.app.apolloProvider.defaultClient;
     try {
@@ -46,7 +54,7 @@ export const actions = {
         type:"done",
         message:"Ville ajouter"
       },{root:true})
-      console.log(res);
+      commit("ADD_CITYS",res);
     } catch (error) {
       dispatch("pushNotification",{
         type:"error",

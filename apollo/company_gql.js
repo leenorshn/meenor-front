@@ -39,8 +39,6 @@ export const ADD_CITY = gql`
 
 export const DELETE_CITY = gql`
   mutation deleteC($city: String!) {
-    deleteCity(city: $city) {
-      id
-    }
+    deleteCity(city: $city) 
   }
 `;

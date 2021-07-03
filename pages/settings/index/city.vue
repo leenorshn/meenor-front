@@ -76,7 +76,7 @@ export default {
   },
   computed: {
     cities() {
-      return this.$store.state.company.company.cities;
+      return this.$store.state.company.cities;
     },
   },
   updated() {

@@ -16,6 +16,9 @@ export const mutations = {
   },
   ADD_CITYS(state,data){
     state.cities.unshift(data);
+  },
+  DELETE_C(state,ct){
+    state.cities=state.cities.filter((c)=>c!==ct)
   }
 
 };
@@ -77,7 +80,7 @@ export const actions = {
         type:"done",
         message:"Ville Effacer"
       },{root:true})
-      console.log(res);
+      commit("DELETE_C",res)
     } catch (error) {
       dispatch("pushNotification",{
         type:"error",

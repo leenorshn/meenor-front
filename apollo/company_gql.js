@@ -30,10 +30,7 @@ export const COMPANY_QUERY = gql`
 
 export const ADD_CITY = gql`
   mutation addcity($data: CitiesInput!) {
-    addCity(data: $data) {
-      id
-      cities
-    }
+    addCity(data: $data) 
   }
 `;
 

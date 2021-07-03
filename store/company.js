@@ -56,7 +56,7 @@ export const actions = {
       console.error(error);
     }
   },
-  deleteCity({dispatch},city){
+ async deleteCity({dispatch},city){
     console.log(data);
     let client =this.app.apolloProvider.defaultClient;
     try {

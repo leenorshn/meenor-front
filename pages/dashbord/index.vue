@@ -2,11 +2,12 @@
   <div class="flex px-2 pt-4 pb-8">
     <div class="w-3/4 pr-4">
       <div class="flex space-x-4">
-        <div class="w-1/4 bg-white h-72 rounded-md">
+        <div class="w-1/4 bg-white h-72 rounded-md" v-if="!hide">
           <circle-chart :data="chartDataCircle" :options="circleChartOptions" />
         </div>
-        <div class="w-3/4 bg-white h-72 rounded-md">
+        <div class="w-3/4 bg-white h-72 rounded-md" v-if="!hide">
           <my-line
+
             v-if="showLine"
             :data="barChartData"
             :options="barChartOptions"
@@ -81,34 +82,29 @@
                         </th>
                         <th
                           scope="col"
-                          class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          class="px-2 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
                         >
-                          Client
-                        </th>
-                        <th
-                          scope="col"
-                          class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                        >
-                          Chambre
+                          Montant($)
                         </th>
                         <th
                           scope="col"
                           class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
                         >
-                          Prix/mois
-                        </th>
-                        <th
-                          scope="col"
-                          class="px-2 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
-                        >
                           Durée
                         </th>
                         <th
                           scope="col"
+                          class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        >
+                          Date debut
+                        </th>
+                        <th
+                          scope="col"
                           class="px-2 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
                         >
-                          Montant versé
+                          Date fin
                         </th>
+                        
                         <th
                           scope="col"
                           class="text-center text-xs font-medium text-gray-500 uppercase tracking-wider px-6 py-3"
@@ -118,7 +114,7 @@
                       </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                      <payment-card v-for="(n, i) in 6" :key="i" :numero="i" />
+                      <payment-card v-for="(n, i) in payments" :key="i" :numero="i" :payment="n" />
                     </tbody>
                   </table>
                   <!-- <pre>{{user}}</pre> -->
@@ -143,13 +139,33 @@
 
 <script>
 import CalenderBlock from "../../components/CalenderBlock.vue";
+import { GET_PAYMENTS } from "~/apollo/payment_gql.js";
 
 export default {
   components: { CalenderBlock },
   middleware: "isAuth",
+   async asyncData({ app, params }) {
+    const res = await app.apolloProvider.defaultClient
+      .query({
+        query: GET_PAYMENTS,
+        variables: {
+          id: params.id,
+        },
+      })
+      .then(({ data }) => {
+        return data && data.payments;
+      });
+
+      //redirect(`/maison/${res.id}/room`)
+
+    return {
+      payments: res,
+    };
+  },
 
   data() {
     return {
+      hide:true,
       showLine: false,
       chartDataCircle: {
         labels: ["Entre", "Prevision", "Sortie"],

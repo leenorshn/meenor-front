@@ -2,25 +2,31 @@
   <tr>
     <td class="px-6 py-4 whitespace-nowrap">{{item.id.substring(0,6)}}</td>
     <td class="px-6 py-4 whitespace-nowrap">
-      <div class="text-sm text-gray-900">Entré</div>
+      <div class="text-sm text-gray-900 px-4 inline-block bg-green-100 rounded-md ">Entré</div>
     </td>
-    <td class="px-6 text-center py-4 whitespace-nowrap">{{item.amount}}</td>
+    <td class="px-6 text-center py-4 whitespace-nowrap">{{item.amount+" $"}}</td>
     <td
       class="px-4 py-4 text-center whitespace-nowrap text-sm text-gray-500"
     >
       Payment locatif
     </td>
     <td
+      class="px-4 py-4 text-center whitespace-nowrap text-sm text-gray-500"
+    >
+     {{item.garantie+" $"}}
+    </td>
+    <td
       class="px-4 py-4  text-center whitespace-nowrap text-sm text-gray-500"
     >
-      {{"Le "+$moment(item.createdAt).format("DD-MM-YYYY")}}
+      {{"Le "+$moment(item.createdAt).format("DD-MM-YYYY à HH:mm ")}}
     </td>
     <td
       class="px-6 py-2 text-gray-500 whitespace-nowrap text-right text-sm font-medium"
     >
       <div class="flex justify-center">
         <button
-          class="w-9 h-9 flex justify-center items-center rounded-full hover:bg-blue-200 hover:text-blue-600"
+        @click.prevent="deletePay()"
+          class="w-9 h-9 flex justify-center items-center rounded-full hover:bg-orange-200 hover:text-orange-600"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -37,13 +43,13 @@
             />
           </svg>
         </button>
-        <nuxt-link
+        <!-- <nuxt-link
           to="/"
           class="w-9 h-9 flex justify-center items-center rounded-full hover:bg-blue-200 hover:text-blue-600"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
+            class="h-5 w-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -61,15 +67,22 @@
               d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
             />
           </svg>
-        </nuxt-link>
+        </nuxt-link> -->
       </div>
     </td>
   </tr>
 </template>
 <script>
+import { mapActions } from "vuex";
 export default {
   props:{
     item:Object
+  },
+  methods:{
+    ...mapActions({deletePayment:"payment/deletePayment"}),
+    deletePay(){
+      this.deletePayment(this.item.id);
+    }
   }
 }
 </script>

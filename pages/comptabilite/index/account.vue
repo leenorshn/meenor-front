@@ -11,7 +11,7 @@
 <script>
 import { ACCOUNT_QUERY } from "~/apollo/payment_gql.js";
 export default {
-  layout: "account",
+  
   apollo:{
     accounts:{
       query:ACCOUNT_QUERY

@@ -2,11 +2,15 @@
   <div class="w-8/12 mx-auto">
     <div>
       <div class="space-y-6">
-        <h4 class="pt-4 font-semibold">
+        <div class="flex justify-between items-center">
+<h4 class="pt-4 font-semibold">
           Quelle type de location voulez-vous creer?
         </h4>
+        <nuxt-link :to="`/maison`" class="px-8 py-1 mt-2 rounded bg-black text-white">retour</nuxt-link>
+        </div>
+        
 
-        <div class="flex items-center justify-around w-1/2 group py-2">
+        <div class="flex items-center justify-around w-full group py-2">
           <div>
             <input
               type="radio"
@@ -26,6 +30,26 @@
               v-model="typeLocation"
             />
             <label for="isShop">C'est une boutique</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="isShop"
+              value="KIOSQUE"
+              class="rounded-full h-5 w-5 mr-4"
+              v-model="typeLocation"
+            />
+            <label for="isShop">C'est une kiosque</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="isShop"
+              value="ETALAGE"
+              class="rounded-full h-5 w-5 mr-4"
+              v-model="typeLocation"
+            />
+            <label for="isShop">C'est une etalage</label>
           </div>
         </div>
       </div>

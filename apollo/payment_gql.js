@@ -4,19 +4,14 @@ export const GET_PAYMENTS = gql`
   query getpayments{
     payments {
       id
-      locataire {
-        id
-        name
-        avatar
-        phone
-      }
-      room {
-        id
-        format
-        numero
-        price
-      }
+      # locataire {
+      #   id
+      #   name
+      #   avatar
+      #   phone
+      # }
       amount
+      garantie
       fromDate
       toDate
       createdAt
@@ -24,9 +19,15 @@ export const GET_PAYMENTS = gql`
   }
 `;
 
+export const DELETE_PAYMENT=gql`
+  mutation deletePay($id:ID!){
+  deletePayment(id:$id)
+}
+`;
+
 export const NEW_PAYMENT = gql`
-  mutation($data: TransactionCreateInput!) {
-    createTransaction(data: $data) {
+  mutation($data: PaymentCreateInput!) {
+    createPayment(data: $data) {
       id
     }
   }

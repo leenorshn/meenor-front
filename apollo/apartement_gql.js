@@ -1,12 +1,5 @@
 import gql from "graphql-tag";
 
-export const NEW_APARTEMENT = gql`
-  mutation createApartement($data: ApartementCreateInput!) {
-    createApartement(data: $data) {
-      id
-    }
-  }
-`;
 export const NEW_ROOM = gql`
   mutation createRoo($data: RoomCreateInput!) {
     createRoom(data: $data) {
@@ -24,12 +17,24 @@ export const NEW_NIVEAU = gql`
 `;
 
 export const GET_ROOM = gql`
-  query getHouse($id: ID!) {
+  query getRoom($id: ID!) {
     room(id: $id) {
       id
       format
-      niveau {
+      price
+      locataire{
+        id
         name
+        phone
+        avatar
+        payments{
+          id
+          amount
+          currency
+          fromDate
+          toDate
+          createdAt
+        }
       }
       numero
       hasPower

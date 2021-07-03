@@ -1,0 +1,29 @@
+import gql from "graphql-tag";
+ 
+export  const COMPANY_QUERY = gql`
+  query {
+    company {
+      id
+      name
+      address {
+        city
+        local
+      }
+      users {
+        id
+        name
+        avatar
+        role
+        phone
+      }
+      contacts {
+        email
+        phone
+      }
+      cities
+      rccm
+      id_nat
+      description
+    }
+  }
+`;

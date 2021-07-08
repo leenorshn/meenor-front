@@ -1,21 +1,6 @@
 <template>
   <div>
-    <!--
-  This example requires Tailwind CSS v2.0+ 
   
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ]
-  }
-  ```
--->
     <div>
       <div class="w-2/3 mx-auto">
         <div class="mt-5 md:mt-0 md:col-span-2">

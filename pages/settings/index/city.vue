@@ -48,7 +48,22 @@
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
+            class="h-5 w-5"/>
+        <h1>Disponible</h1>
+    </div>
+    <div class="flex space-x-6 ml-2">
+        <input v-model="city_field" type="text" class="w-1/2" placeholder="Entrer une ville"/>
+        <button @click.prevent="addCity()" class="text-white bg-blue-700 rounded-md px-6 py-2">Ajouter ville</button>
+    </div>
+    <div class="ml-2">
+      <h2 class="my-4 font-semibold text-lg">List de ville</h2>
+      <div v-for="(v,i) in cities" :key="i"
+      class="ml-1 bg-white shadow-sm px-4 py-2 rounded-md flex w-2/3 m-1 justify-between">
+        <h3>{{v}}</h3>
+        <button @click.prevent="deleteCity(v)" class="hover:bg-orange-200 p-1 rounded-md text-orange-600 hover:text-orange-800">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5   "
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

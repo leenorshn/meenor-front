@@ -3,7 +3,7 @@
     <div class="flex justify-between">
       <h2 class="text-xl font-bold text-blue-800">General</h2>
       <nuxt-link
-        to="/settings/general/editor"
+        to="/settings/general/create"
         class="rounded-md bg-blue-800 text-white px-5 py-2 hover:bg-blue-400"
       >
         <svg

@@ -1,8 +1,5 @@
 <template>
   <div>
-    
-
-
     <div class="mt-10 sm:mt-0">
       <div class="md:grid md:grid-cols-1 md:gap-6 px-12">
         <div class="mt-5 md:mt-0 md:col-span-2">

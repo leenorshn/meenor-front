@@ -44,7 +44,7 @@ export const actions = {
       console.error(error);
     }
   },
-  async getCity(){
+  async getCity({commit,dispatch}){
     
     let client =this.app.apolloProvider.defaultClient;
     try {
@@ -74,7 +74,7 @@ export const actions = {
       .then(({data})=>{
         return data && data.addCity;
       });
-     // dispatch("getCompany");
+     dispatch("getCity");
       dispatch("pushNotification",{
         type:"done",
         message:"Ville ajouter"

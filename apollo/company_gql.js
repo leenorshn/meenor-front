@@ -29,13 +29,17 @@ export const COMPANY_QUERY = gql`
 `;
 
 export const ADD_CITY = gql`
-  mutation addcity($data: CitiesInput!) {
-    addCity(data: $data) 
-  }
+  mutation createCity($city:String!){
+createCity(city:$city){
+  id
+  city
+}   
+  
+}
 `;
 
 export const DELETE_CITY = gql`
-  mutation deleteC($city: String!) {
-    deleteCity(city: $city) 
+  mutation deleteC($id: ID!) {
+    deleteCity(city: $id) 
   }
 `;

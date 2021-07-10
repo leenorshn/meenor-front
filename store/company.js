@@ -1,5 +1,5 @@
 
-import {COMPANY_QUERY,ADD_CITY,DELETE_CITY} from "~/apollo/company_gql";
+import {COMPANY_QUERY,ADD_CITY,DELETE_CITY,CITY_QUERY} from "~/apollo/company_gql";
 
 export const state = () => ({
   company:{},
@@ -35,7 +35,29 @@ export const actions = {
       });
       commit("SET_COMPANY",res);
       console.log(res);
-      commit("SET_CITY",res.cities)
+     
+    } catch (error) {
+      dispatch("pushNotification",{
+        type:"error",
+        message:"Erreur de chargement de locataire!"
+      },{root:true})
+      console.error(error);
+    }
+  },
+  async getCity(){
+    
+    let client =this.app.apolloProvider.defaultClient;
+    try {
+      const res= await client.query({query:CITY_QUERY})
+      .then(({data})=>{
+        return data && data.cities;
+      });
+     // dispatch("getCompany");
+      dispatch("pushNotification",{
+        type:"done",
+        message:"Ville ajouter"
+      },{root:true})
+      commit("SET_CITY",res)
     } catch (error) {
       dispatch("pushNotification",{
         type:"error",

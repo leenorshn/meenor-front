@@ -43,6 +43,14 @@ createCity(city:$city){
 
 export const DELETE_CITY = gql`
   mutation deleteC($id: ID!) {
-    deleteCity(city: $id) 
+    deleteCity(id: $id) 
   }
+`;
+export const CITY_QUERY=gql`
+  query{
+  cities{
+    id
+    city
+  }
+}
 `;

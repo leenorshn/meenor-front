@@ -53,13 +53,14 @@ export default {
   },
 
   mounted() {
-    this.getCompany();
+    this.getCity();
   },
 
   methods: {
     ...mapActions({
       getCompany: "company/getCompany",
       addCity: "company/addCity",
+      getCity: "company/getCity",
       deleteCity: "company/deleteCity",
     }),
     addCities() {

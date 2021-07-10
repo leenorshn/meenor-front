@@ -45,7 +45,7 @@ export const actions = {
     }
   },
   async addCity({dispatch,commit},data){
-    
+    console.log(data);
     let client =this.app.apolloProvider.defaultClient;
     try {
       const res= await client.mutate({mutation:ADD_CITY,variables:{city:data}})

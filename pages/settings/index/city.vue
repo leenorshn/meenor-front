@@ -48,9 +48,7 @@ export default {
       return this.$store.state.company.cities;
     },
   },
-  updated() {
-    this.getCompany();
-  },
+  
 
   mounted() {
     this.getCity();
@@ -58,7 +56,7 @@ export default {
 
   methods: {
     ...mapActions({
-      getCompany: "company/getCompany",
+     // getCompany: "company/getCompany",
       addCity: "company/addCity",
       getCity: "company/getCity",
       deleteCity: "company/deleteCity",

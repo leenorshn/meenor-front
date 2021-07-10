@@ -16,9 +16,6 @@ export const mutations = {
   },
   ADD_CITYS(state,data){
     state.cities.unshift(data);
-  },
-  DELETE_C(state,ct){
-    state.cities=state.cities.filter((c)=>c!==ct)
   }
 
 };
@@ -53,10 +50,6 @@ export const actions = {
         return data && data.cities;
       });
      // dispatch("getCompany");
-      dispatch("pushNotification",{
-        type:"done",
-        message:"Ville ajouter"
-      },{root:true})
       commit("SET_CITY",res)
     } catch (error) {
       dispatch("pushNotification",{
@@ -67,19 +60,21 @@ export const actions = {
     }
   },
   async addCity({dispatch,commit},data){
-    console.log(data);
+    //console.log(data);
     let client =this.app.apolloProvider.defaultClient;
     try {
       const res= await client.mutate({mutation:ADD_CITY,variables:{city:data}})
       .then(({data})=>{
-        return data && data.addCity;
+        return data && data.createCity;
       });
-     dispatch("getCity");
+      console.log(res);
+      commit("ADD_CITYS",res);
+     
       dispatch("pushNotification",{
         type:"done",
         message:"Ville ajouter"
       },{root:true})
-      commit("ADD_CITYS",res);
+      //dispatch("getCity");
     } catch (error) {
       dispatch("pushNotification",{
         type:"error",
@@ -94,11 +89,10 @@ export const actions = {
     try {
       const res= await client.mutate({mutation:DELETE_CITY,variables:{id:city}})
       .then(({data})=>{
-        //console.log(data);
         return data && data.deleteCity;
       });
-      commit("DELETE_C",res)
-      dispatch("getCompany");
+      
+      dispatch("getCity");
       dispatch("pushNotification",{
         type:"done",
         message:"Ville Effacer"

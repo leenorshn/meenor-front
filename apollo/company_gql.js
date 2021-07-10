@@ -20,7 +20,10 @@ export const COMPANY_QUERY = gql`
         email
         phone
       }
-      cities
+      cities{
+        id
+        city
+      }
       rccm
       id_nat
       description

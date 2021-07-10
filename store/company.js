@@ -67,7 +67,7 @@ export const actions = {
     }
   },
  async deleteCity({dispatch,commit},city){
-    //console.log(data);
+    console.log(city);
     let client =this.app.apolloProvider.defaultClient;
     try {
       const res= await client.mutate({mutation:DELETE_CITY,variables:{id:city}})

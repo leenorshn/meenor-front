@@ -13,7 +13,7 @@
       <div v-for="(v,i) in cities" :key="i"
       class="ml-1 bg-white shadow-sm px-4 py-2 rounded-md flex w-2/3 m-1 justify-between">
         <h3>{{v.city}}</h3>
-        <button @click.prevent="deleteCity(v)" class="hover:bg-orange-200 p-1 rounded-md text-orange-600 hover:text-orange-800">
+        <button @click.prevent="deleteC(v.id)" class="hover:bg-orange-200 p-1 rounded-md text-orange-600 hover:text-orange-800">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5   "

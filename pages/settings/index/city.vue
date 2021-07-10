@@ -63,7 +63,7 @@ export default {
       deleteCity: "company/deleteCity",
     }),
     addCities() {
-      this.addCity([this.city_field]);
+      this.addCity(this.city_field);
       this.city_field = "";
     },
     deleteC(i) {

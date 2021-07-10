@@ -48,7 +48,7 @@ export const actions = {
     
     let client =this.app.apolloProvider.defaultClient;
     try {
-      const res= await client.mutate({mutation:ADD_CITY,variables:{data:{cities:data}}})
+      const res= await client.mutate({mutation:ADD_CITY,variables:{city:data}})
       .then(({data})=>{
         return data && data.addCity;
       });
@@ -70,7 +70,7 @@ export const actions = {
     //console.log(data);
     let client =this.app.apolloProvider.defaultClient;
     try {
-      const res= await client.mutate({mutation:DELETE_CITY,variables:{city:city}})
+      const res= await client.mutate({mutation:DELETE_CITY,variables:{id:city}})
       .then(({data})=>{
         //console.log(data);
         return data && data.deleteCity;

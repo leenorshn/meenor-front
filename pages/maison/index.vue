@@ -20,7 +20,7 @@
                 <h3 class="text-white text-2xl font-semibold">Mes maisons</h3>
                 <div>
                   <nuxt-link
-                    to="/maison/creator"
+                    to="/maison/new"
                     class="px-4 text-blue-50 py-1 bg-blue-400 rounded"
                     >Nouveau</nuxt-link
                   >
@@ -32,6 +32,7 @@
                     v-for="(bat, i) in batiments"
                     :batiment="bat"
                     :key="i"
+                    @click="batt(bat)"
                   />
 
                   <!-- More people... -->
@@ -108,6 +109,10 @@ export default {
   },
   methods: {
     ...mapActions({ loadBatiment: "batiment/loadBatiment" }),
+    batt(t){
+      console.log("Cliqued");
+      this.batiment=t;
+    }
   },
 };
 </script>

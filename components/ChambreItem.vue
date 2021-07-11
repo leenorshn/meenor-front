@@ -1,6 +1,6 @@
 <template>
   <tr>
-    <td class="pl-3 whitespace-nowrap">
+    <td class="pl-4 py-6 whitespace-nowrap">
       <div class="text-sm text-gray-700">{{ chambre.numero }}</div>
     </td>
     <td class="whitespace-nowrap">
@@ -51,13 +51,13 @@
         }`"
         class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full"
       >
-        {{ chambre.isAvalaible ? "Oui" : "Non" }}
+        {{ chambre.isAvalaible ? "Disponible" : "Non-disponible" }}
       </span>
     </td>
     <td
       class="
         px-2
-        py-1
+        py-4
         whitespace-nowrap
         flex
         items-center

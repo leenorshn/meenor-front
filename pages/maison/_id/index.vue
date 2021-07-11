@@ -1,9 +1,14 @@
 <template>
   <div>
-    <div class="flex my-2 bg-white rounded-md shadow overflow-auto relative">
-      <div class="h-32 w-32 flex-shrink-0">
+    <div class="flex w-full min-h-screen space-x-4">
+      <div class="w-1/3 h-screen bg-green-300">
+        <h3>Vote</h3>
+      </div>
+      <div class="w-3/4">
+        <div class="flex  bg-white  shadow overflow-auto relative">
+      <div class="h-20 w-20 flex-shrink-0">
         <img
-          class="h-full w-32"
+          class="h-full w-20"
           src="/../ndako.svg"
           alt=""
         />
@@ -12,34 +17,21 @@
         <h2 class="text-2xl text-blue-800 font-bold tracking-wide">
           {{ batiment.name }}
         </h2>
-        <h5 class="text-xs text-gray-400">Adresse</h5>
+        
+      </div>
+      <div
+        class="p-4 flex  items-center space-x-4 w-1/3"
+      >
+        <div>
+          <h5 class="text-xs text-gray-400">Adresse</h5>
         <h5 class="text-base text-gray-600 font-semibold">
           {{ batiment.address.city }}/{{ batiment.address.local }}
         </h5>
+        </div>
+        
+        
       </div>
-      <div
-        class="p-4 flex justify-around items-center space-x-4 w-1/3 border-l-2 border-r-2 border-gray-100"
-      >
-        <div>
-          <h5 class="text-xs text-gray-400">Niveau</h5>
-          <h2 class="text-2xl text-blue-800 font-semibold tracking-wide">
-            {{ batiment.totaleNiveaux }}
-          </h2>
-        </div>
-        <div>
-          <h5 class="text-xs text-gray-400">Boutique</h5>
-          <h2 class="text-2xl text-blue-800 font-semibold tracking-wide">
-            {{ batiment.totalKiosques }}
-          </h2>
-        </div>
-        <div>
-          <h5 class="text-xs text-gray-400">Apartement</h5>
-          <h2 class="text-2xl text-blue-800 font-semibold tracking-wide">
-            {{ batiment.totalApartements }}
-          </h2>
-        </div>
-      </div>
-      <div class="p-4 flex flex-col justify-around w-1/3">
+      <!-- <div class="p-4 flex flex-col justify-around w-1/3">
         <div class="flex justify-between items-center w-full">
           <h2 class="text-sm text-blue-800 font-semibold tracking-wide">
             Actions
@@ -81,7 +73,7 @@
           </div>
          
         </div>
-      </div>
+      </div> -->
     </div>
     <div v-if="batiment.totaleNiveaux == 0">
       <div
@@ -122,7 +114,7 @@
     </div>
     <div v-for="(n, i) in batiment.niveaux" :key="i">
     <!-- <pre>{{batiment.niveaux[i].rooms}}</pre> -->
-      <h3 class="text-blue-600 text-lg mb-1">Niveau ({{ i }})</h3>
+      <h3 class="text-blue-600 text-sm mb-1">Niveau ({{ i }})</h3>
       <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div
@@ -132,7 +124,7 @@
               class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
             >
               <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
+                <!-- <thead class="bg-gray-50">
                   <tr>
                     <th
                       scope="col"
@@ -172,7 +164,7 @@
                       Actions
                     </th>
                   </tr>
-                </thead>
+                </thead> -->
                     <tbody class="bg-white divide-y divide-gray-200">
                     <chambre-item
                       v-for="(m, f) in batiment.niveaux[i].rooms"
@@ -194,6 +186,10 @@
         >
       </div>
     </div>
+      </div>
+
+    </div>
+    
     <div class="h-24"></div>
   </div>
 </template>

@@ -74,6 +74,29 @@
             />
           </div>
 
+          <div class="w-32">
+            <label for="house_name" class="block text-sm text-gray-500"
+              >Nombre de niveau:</label
+            >
+            <input
+              type="number"
+              v-model.number="newHouse.niveauNumber"
+              id="house_name"
+              placeholder="Ex: 3"
+              class="
+                mt-1
+                focus:ring-indigo-500
+                focus:border-indigo-500
+                block
+                w-full
+                shadow-sm
+                sm:text-sm
+                border-gray-300
+                rounded-md
+              "
+            />
+          </div>
+
 
              <div class="w-64">
             <label for="city" class="block mb-1 text-sm text-gray-500">Isage de l'immobilier:</label>

@@ -52,39 +52,24 @@
         v-else
         class="
           flex flex-col
-          p-12
+          px-8
+          py-8
           items-center
-          space-y-6
+          space-y-3
           justify-center
           bg-white
           shadow
           rounded-md
         "
       >
-        <h2 class="text-4xl text-blue-700 font-bold">
-          Aucune maison selectionné
+        <h2 class="text-3xl text-blue-700 font-semibold">
+          Aucune selection
         </h2>
         <div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-32 w-32 text-blue-400"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-            />
-          </svg>
+          <img src="/../ndako.svg" class="w-32 h-32" alt="">
         </div>
         <p class="text-xl text-gray-500">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam eum
-          dolore officiis, quis vero dolor inventore obcaecati aut tempore rerum
-          voluptatum iusto commodi incidunt esse nulla laboriosam ut qui?
-          Temporibus.
+          Le detail de la maison selectionnée sera ici 
         </p>
       </div>
     </div>

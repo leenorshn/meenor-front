@@ -5,7 +5,7 @@
         class="
           bg-black
           text-white
-          py-2
+          py-3
           px-4
           w-full
           flex
@@ -13,15 +13,15 @@
           justify-between
         "
       >
-        <h2 class="font-bold tracking-wide">Nouveau</h2>
+        <h2 class="font-semibold tracking-wide text-xl">Creer un immeuble</h2>
         <nuxt-link
-          class="bg-blue-100 text-blue-800 px-8 py-1 rounded-md"
+          class="bg-white text-blue-800 px-8 py-2 font-semibold rounded-md"
           to="/maison"
           >Retour</nuxt-link
         >
       </div>
-      <div class="grid grid-cols-2 p-8 gap-x-12">
-        <div class="flex flex-col justify-center bg-gray-50 items-center border-2 border-dashed border-gray-400 rounded-md">
+      <div class="flex p-8 space-x-16">
+        <div class="flex flex-col justify-center h-80 w-96 items-center border-2 border-dashed border-gray-400 rounded-md">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-16 w-16 text-gray-500"
@@ -37,16 +37,19 @@
             />
           </svg>
           <div class="text-center">
-            <h2>Drop file to upload</h2>
+            <h2 class="text-xl text-gray-600 font-sans font-semibold">Drop file to upload</h2>
             <p>Or</p>
-            <label for="">
+            <label for="" class="bg-white text-blue-600 h-9 px-6 inline-flex 
+            items-center rounded
+            border border-gray-400
+            ">
               Select files
               <input type="file" name="file" class="sr-only">
             </label>
-            <p>Maximum upload file size: 5Mb</p>
+            <p class="text-sm text-gray-400 mt-4">Maximum upload file size: 5Mb</p>
           </div>
         </div>
-        <div>
+        <div class="flex-grow space-y-4">
           <div class="flex space-x-4 w-full">
             <div class="flex-1">
             <label for="house_name" class="block text-sm text-gray-500"
@@ -72,8 +75,8 @@
           </div>
 
 
-             <div class="w-48">
-            <label for="city" class="block text-sm text-gray-500">Isage de l'immobilier:</label>
+             <div class="w-64">
+            <label for="city" class="block mb-1 text-sm text-gray-500">Isage de l'immobilier:</label>
                 <select name="" id="" class="shadow-sm">
                   <option value="">Choisir la categorie</option>
                   <option value="gallerie">Gallerie et Commerce</option>
@@ -84,10 +87,10 @@
           </div>
           
           <div class="">
-            <label for="city" class="block text-sm text-gray-500">Ville:</label>
+            <label for="city" class="block mb-1 text-sm text-gray-500">Ville:</label>
                 <select name="" id="">
                   <option value="">Choisir ville</option>
-                  <option v-for="v in cities" :key="v.id" :value="v.city">{{v.city}}</option>
+                  <option v-for="v in cities" :key="v.id" :value="v.id">{{v.city}}</option>
                 </select>
           </div>
           
@@ -120,13 +123,13 @@
         <div class="flex py-2 w-full space-x-6 justify-end">
           <button
             @click.prevent="annuler()"
-            class="w-64 px-8 py-2 rounded bg-orange-600 text-white"
+            class="w-64 px-8 py-3 rounded font-semibold tracking-wider bg-orange-600 text-white"
           >
             Annuler
           </button>
           <button
             @click.prevent="createBatiment()"
-            class="w-64 px-8 py-2 rounded bg-blue-600 text-white"
+            class="w-64 px-8 py-3 rounded font-semibold bg-blue-600 text-white"
           >
             Enregistrer
           </button>

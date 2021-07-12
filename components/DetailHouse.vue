@@ -26,6 +26,18 @@
         
         
       </div>
+      <div
+        class="p-4 flex  items-center space-x-4 w-1/3"
+      >
+        <div>
+          <h5 class="text-xs text-gray-400">Adresse</h5>
+        <h5 class="text-base text-gray-600 font-semibold">
+          {{ batiment.address.city }}/{{ batiment.address.local }}
+        </h5>
+        </div>
+        
+        
+      </div>
       
     </div>
     <div v-if="batiment.totaleNiveaux == 0">

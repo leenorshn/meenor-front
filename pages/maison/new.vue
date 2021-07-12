@@ -20,8 +20,8 @@
           >Retour</nuxt-link
         >
       </div>
-      <div class="grid grid-cols-2 p-8">
-        <div>
+      <div class="grid grid-cols-2 p-8 gap-x-12">
+        <div class="flex flex-col justify-center bg-gray-50 items-center border-2 border-dashed border-gray-400 rounded-md">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-16 w-16 text-gray-500"
@@ -36,7 +36,7 @@
               d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
             />
           </svg>
-          <div>
+          <div class="text-center">
             <h2>Drop file to upload</h2>
             <p>Or</p>
             <label for="">
@@ -47,7 +47,8 @@
           </div>
         </div>
         <div>
-          <div class="">
+          <div class="flex space-x-4 w-full">
+            <div class="flex-1">
             <label for="house_name" class="block text-sm text-gray-500"
               >Nom du batiment:</label
             >
@@ -69,26 +70,25 @@
               "
             />
           </div>
+
+
+             <div class="w-48">
+            <label for="city" class="block text-sm text-gray-500">Isage de l'immobilier:</label>
+                <select name="" id="" class="shadow-sm">
+                  <option value="">Choisir ville</option>
+                  <option v-for="v in cities" :key="v.id" :value="v.city">{{v.city}}</option>
+                </select>
+          </div>
+          </div>
+          
           <div class="">
             <label for="city" class="block text-sm text-gray-500">Ville:</label>
-            <input
-              type="text"
-              v-model="address.city"
-              id="city"
-              placeholder="Ex: Goma"
-              class="
-                mt-1
-                focus:ring-indigo-500
-                focus:border-indigo-500
-                block
-                w-full
-                shadow-sm
-                sm:text-sm
-                border-gray-300
-                rounded-md
-              "
-            />
+                <select name="" id="">
+                  <option value="">Choisir ville</option>
+                  <option v-for="v in cities" :key="v.id" :value="v.city">{{v.city}}</option>
+                </select>
           </div>
+          
           <div class="">
             <label for="first_name" class="block text-sm text-gray-500"
               >Adresse locale:</label
@@ -97,7 +97,7 @@
               type="text"
               v-model="address.local"
               id="first_name"
-              placeholder="Ex: Com. Xx , Av. Yy n-Z"
+              placeholder="Rue/Avenue & numero"
               class="
                 mt-1
                 focus:ring-indigo-500
@@ -113,39 +113,47 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="">
-      <div class="w-2/3 mx-auto h-96 py-5 px-16 space-y-3">
-        <div class="flex py-2 w-full space-x-6 mt-28">
+      <div class="">
+      <div class="mx-auto py-5 px-16 space-y-3">
+        <div class="flex py-2 w-full space-x-6 justify-end">
           <button
             @click.prevent="annuler()"
-            class="px-8 py-2 rounded bg-orange-600 text-white"
+            class="w-64 px-8 py-2 rounded bg-orange-600 text-white"
           >
             Annuler
           </button>
           <button
             @click.prevent="createBatiment()"
-            class="px-8 py-2 rounded bg-blue-600 text-white"
+            class="w-64 px-8 py-2 rounded bg-blue-600 text-white"
           >
             Enregistrer
           </button>
         </div>
       </div>
     </div>
+    </div>
+
+    
   </div>
 </template>
 <script>
 import { mapActions } from "vuex";
+import { CITY_QUERY } from "~/apollo/company_gql";
 export default {
   data() {
     return {
       newHouse: {},
-      address: {
-        city: "",
-        local: "",
-      },
+      address:{
+        city:"",
+        local:""
+      }
     };
+  },
+  apollo:{
+    cities:{
+      query:CITY_QUERY
+      }
+    
   },
   methods: {
     ...mapActions({ createHouse: "batiment/createBatiment" }),

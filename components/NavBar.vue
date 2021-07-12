@@ -1,5 +1,8 @@
 <template>
-  <div class="w-full flex bg-white justify-between">
+  <div class="w-full  bg-white ">
+    <div class="container mx-auto flex justify-between">
+
+    
     <div class="h-14 pl-4  flex justify-center items-center">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -38,6 +41,7 @@
           logout
         </button>
       </div>
+    </div>
     </div>
   </div>
 </template>

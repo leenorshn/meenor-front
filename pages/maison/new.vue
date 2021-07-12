@@ -75,8 +75,10 @@
              <div class="w-48">
             <label for="city" class="block text-sm text-gray-500">Isage de l'immobilier:</label>
                 <select name="" id="" class="shadow-sm">
-                  <option value="">Choisir ville</option>
-                  <option v-for="v in cities" :key="v.id" :value="v.city">{{v.city}}</option>
+                  <option value="">Choisir la categorie</option>
+                  <option value="gallerie">Gallerie et Commerce</option>
+                  <option value="Habitation">Habitation</option>
+                  <option value="Hotellerie">Hotellerie</option>
                 </select>
           </div>
           </div>

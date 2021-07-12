@@ -28,14 +28,17 @@
               </div>
               <table class="min-w-full divide-y divide-gray-200">
                 <tbody class="bg-white divide-y divide-gray-200">
+                  <!-- <button  v-for="(bat, i) in batiments" :key="i" @click="batt(bat)"> -->
                   <batiment-card
-                    v-for="(bat, i) in batiments"
+                   
                     :batiment="bat"
-                    :key="i"
-                    @click="batt(bat)"
-                  />
-
-                  <!-- More people... -->
+                    v-for="(bat, i) in batiments" 
+                    :key="i" 
+                   @selected="batt"
+                    
+>
+                 
+                 </batiment-card>
                 </tbody>
               </table>
             </div>

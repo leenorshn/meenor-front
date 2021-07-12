@@ -13,7 +13,7 @@ export const mutations = {
 };
 
 export const actions = {
-  async createRoom(_, data) {
+  async createRoom({dispatch}, data) {
     let client = this.app.apolloProvider.defaultClient;
     try {
      // console.log(data);
@@ -37,7 +37,7 @@ export const actions = {
       },{root:true})
     }
   },
-  async editerRoom(){
+  async editerRoom({dispatch}){
     let client = this.app.apolloProvider.defaultClient;
     try {
      // console.log(data);
@@ -86,7 +86,7 @@ export const actions = {
     }
   },
  
-  async createNiveau(_,data){
+  async createNiveau({dispatch},data){
     let client = this.app.apolloProvider.defaultClient; 
     try {
         //console.log(data);

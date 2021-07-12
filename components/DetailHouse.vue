@@ -61,7 +61,7 @@
           >Creer un niveau</button>
         <div v-else>
           <input type="text" v-model="niveau" placeholder="niveau">
-          <button class="text-blue-600 text-lg block border-b-2 border-transparent hover:border-blue-500">Save</button>
+          <button @click.prevent="saveNiveau()" class="my-2 text-blue-600 text-lg block border-b-2 border-transparent hover:border-blue-500">Save</button>
         </div>
       </div>
     </div>
@@ -94,7 +94,7 @@
       <div class="w-full flex justify-end">
         <nuxt-link
           class="w-48 mt-1 text-blue-600 text-lg inline border-b-2 border-transparent hover:border-blue-500"
-          :to="`/maison/${n.id}/newRoom`"
+          :to="`/maison/${n.id}/room/newRoom`"
           >Ajouter une chambre</nuxt-link
         >
       </div>
@@ -103,7 +103,29 @@
 </template>
 
 <script>
+import {mapActions} from "vuex"
 export default {
-    props:["batiment"]
+    props:["batiment"],
+    data(){
+      return{
+        isNiveauEdit:false,
+        niveau:''
+      }
+    },
+    methods:{
+     ...mapActions({createNiveau:"house/createNiveau"}),
+    showCreateNiveau(){
+      this.isNiveauEdit=true;
+      console.log("Mala");
+    },
+    saveNiveau(){
+      this.createNiveau({
+        batiment:this.batiment.id,
+        name:this.niveau
+      })
+      this.isNiveauEdit=false;
+    }
+    }
 }
+
 </script>

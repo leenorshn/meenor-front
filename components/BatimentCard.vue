@@ -45,7 +45,7 @@
           hover:text-blue-700
           rounded-full
         "
-       
+       @click="selected"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -77,6 +77,9 @@ export default {
     async deleteHouse() {
       this.deleteBatiment(this.batiment.id);
     },
+    selected(){
+      this.$emit('selected',this.batiment)
+    }
   },
 };
 </script>

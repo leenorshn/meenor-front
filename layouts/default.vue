@@ -1,7 +1,7 @@
 <template>
   <div class="bg-gray-100 min-h-screen relative">
     <nav-bar/>
-    <div class="w-11/12 mx-auto ">
+    <div class="container mx-auto ">
       <Nuxt />
     </div>
     <notif-list class="absolute right-6 bottom-1"/>

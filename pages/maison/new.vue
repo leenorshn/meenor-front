@@ -100,7 +100,7 @@
 
              <div class="w-64">
             <label for="city" class="block mb-1 text-sm text-gray-500">Isage de l'immobilier:</label>
-                <select name="" id="" class="shadow-sm">
+                <select v-model="newHouse.usage" id="" class="shadow-sm">
                   <option value="">Choisir la categorie</option>
                   <option value="gallerie">Gallerie et Commerce</option>
                   <option value="Habitation">Habitation</option>
@@ -111,9 +111,9 @@
           
           <div class="">
             <label for="city" class="block mb-1 text-sm text-gray-500">Ville:</label>
-                <select name="" id="">
+                <select v-model="address.city" id="">
                   <option value="">Choisir ville</option>
-                  <option v-for="v in cities" :key="v.id" :value="v.id">{{v.city}}</option>
+                  <option v-for="v in cities" :key="v.city" :value="v.id">{{v.city}}</option>
                 </select>
           </div>
           

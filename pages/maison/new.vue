@@ -113,7 +113,7 @@
             <label for="city" class="block mb-1 text-sm text-gray-500">Ville:</label>
                 <select v-model="address.city" id="">
                   <option value="">Choisir ville</option>
-                  <option v-for="v in cities" :key="v.city" :value="v.id">{{v.city}}</option>
+                  <option v-for="v in cities" :key="v.city" :value="v.city">{{v.city}}</option>
                 </select>
           </div>
           

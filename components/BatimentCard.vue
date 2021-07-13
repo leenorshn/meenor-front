@@ -44,6 +44,9 @@
           text-gray-400
           hover:text-blue-700
           rounded-full
+          focus:outline-none
+          focus:ring-2
+          focus:ring-blue-700
         "
        @click="selected"
       >

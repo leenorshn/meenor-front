@@ -11,7 +11,7 @@
 //import { mapState } from "vuex";
 //import { GET_CURRENT_USER } from "~/apollo/user_gql";
 export default {
-  
+ 
 }
 </script>
 

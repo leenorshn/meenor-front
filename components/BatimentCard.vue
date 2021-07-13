@@ -1,5 +1,5 @@
 <template>
-  <tr>
+  <tr class="">
     <td class="whitespace-nowrap">
       <div class="flex items-center">
         <div class="flex-shrink-0 h-20 w-20 py-0">
@@ -46,8 +46,12 @@
           rounded-full
           focus:outline-none
           focus:ring-2
+          inset-0
           focus:ring-blue-700
+          
+        
         "
+        aria-hidden="true"
        @click="selected"
       >
         <svg

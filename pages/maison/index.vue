@@ -1,6 +1,6 @@
 <template>
   <div class="pt-4 flex space-x-3">
-    <div class="w-1/4 mb-24">
+    <div class="w-1/3 mb-24">
       <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div

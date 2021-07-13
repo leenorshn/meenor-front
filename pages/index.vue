@@ -10,7 +10,9 @@
 
 export default {
   middleware: 'isAuth',
-  
+  fetch ({ params, redirect }) {
+    redirect(301, `/dashbord`)
+  }
 }
 </script>
 

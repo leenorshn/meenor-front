@@ -6,7 +6,8 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "deploy":"gcloud builds submit --tag gcr.io/faash-business/meenor-front"
   },
   "dependencies": {
     "@nuxtjs/apollo": "^4.0.1-rc.5",

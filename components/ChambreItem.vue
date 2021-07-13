@@ -20,8 +20,8 @@
         </div>
       </div>
       <div v-else class="flex items-center">
-        <button @click="userModalIsShown=true" class="border border-gray-300 px-4 py-2 rounded-md bg-white text-blue-700 font-semibold">Ajouter locataire</button>
-     
+        <button v-on:my-event="showModel" class="border border-gray-300 px-4 py-2 rounded-md bg-white text-blue-700 font-semibold">Ajouter locataire</button>
+          <RoomToUseModal v-if="userModalIsShown" :userModalIsShown="userModalIsShown"/>
         
       </div>
     </td>
@@ -155,7 +155,11 @@
 </template>
 
 <script>
+import RoomToUseModal from "./RoomToUseModal.vue";
 export default {
+  components:{
+RoomToUseModal
+  },
   props: {
     numero: Number,
     chambre: Object,
@@ -169,6 +173,10 @@ export default {
     deleteOneRoom() {
       //this.alert(`chambre:${this.chambre.id}`)
     },
+
+    closeModel(){
+      this.$emit('showModel',false)
+    }
   },
 };
 </script>

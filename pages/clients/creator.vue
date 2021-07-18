@@ -260,6 +260,7 @@ export default {
 
     annuler() {
       this.locataire = {};
+      this.url=null;
     },
 
     onPickFile() {

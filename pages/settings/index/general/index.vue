@@ -3,7 +3,7 @@
     <div class="flex justify-between">
       <h2 class="text-xl font-bold text-blue-800">General</h2>
       <nuxt-link
-        to="/settings/general/create"
+        to="/settings/general/editor"
         class="rounded-md bg-blue-800 text-white px-5 py-2 hover:bg-blue-400"
       >
         <svg
@@ -48,7 +48,7 @@
             Email:   <span class="ml-4 text-sm font-normal text-gray-600">{{company.contacts.email}}</span>
           </h2>
           <h2 class="font-semibold text-gray-700 text-lg">
-            Phone: <span class="ml-2 text-sm font-normal text-gray-600">{{company.contacts.email}}</span>
+            Phone: <span class="ml-2 text-sm font-normal text-gray-600">{{company.contacts.phone}}</span>
           </h2>
         </div>
        
@@ -62,18 +62,43 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import gql from "graphql-tag";
 export default {
-  computed:{
-    company(){
-      return this.$store.state.company.company;
-    }
+ async asyncData({ app }) {
+    let client = app.apolloProvider.defaultClient;
+
+    const res = await client
+      .query({
+        query: gql`
+          {
+            company {
+              id
+              name
+              description
+              contacts {
+                email
+                phone
+              }
+              rccm
+              id_nat
+              address {
+                city
+                local
+              }
+            }
+          }
+        `,
+      })
+      .then(({ data }) => {
+        //console.log(data);
+        return data && data.company;
+      });
+
+    console.log(res);
+
+    return {
+      company: res,
+    };
   },
-  methods:{
-    ...mapActions({getCompany:"company/getCompany"})
-  },
-  mounted(){
-    this.getCompany()
-  }
 }
 </script>

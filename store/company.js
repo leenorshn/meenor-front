@@ -1,5 +1,6 @@
 
-import {COMPANY_QUERY,ADD_CITY,DELETE_CITY,CITY_QUERY} from "~/apollo/company_gql";
+import gql from "graphql-tag";
+import {COMPANY_QUERY,ADD_CITY,DELETE_CITY,CITY_QUERY,COMPANY_UPDATE} from "~/apollo/company_gql";
 
 export const state = () => ({
   company:{},
@@ -11,6 +12,7 @@ export const mutations = {
   SET_COMPANY(state,data){
     state.company=data;
   },
+  
   SET_CITY(state,data){
     state.cities=data;
   },
@@ -36,7 +38,29 @@ export const actions = {
     } catch (error) {
       dispatch("pushNotification",{
         type:"error",
-        message:"Erreur de chargement de locataire!"
+        message:"Erreur de chargement de company!"
+      },{root:true})
+      console.error(error);
+    }
+  },
+  async updateCompany({commit,dispatch},company){
+    let client =this.app.apolloProvider.defaultClient;
+    console.log(company);
+    try {
+      const res= await client.mutate({mutation:COMPANY_UPDATE,variables: {data:company} })
+      .then(({data})=>{
+        //console.log(data);
+        return data && data.updateCompany;
+      });
+      dispatch("pushNotification",{
+        type:"done",
+        message:"Company data updated!"
+      },{root:true})
+     
+    } catch (error) {
+      dispatch("pushNotification",{
+        type:"error",
+        message:"Erreur de chargement de company!"
       },{root:true})
       console.error(error);
     }
@@ -50,7 +74,7 @@ export const actions = {
         return data && data.cities;
       });
      // dispatch("getCompany");
-      commit("SET_CITY",res)
+     dispatch("getCompany")
     } catch (error) {
       dispatch("pushNotification",{
         type:"error",

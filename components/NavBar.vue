@@ -76,7 +76,7 @@ export default {
         },
         {
           menu: "Parametre",
-          route: "/settings",
+          route: "/settings/general",
           id: "settings",
         },
       ],

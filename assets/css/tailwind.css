@@ -18,7 +18,7 @@
       [multiple],
       textarea,
       select{
-        @apply w-full rounded-md  py-3 px-4 shadow  focus:ring focus:ring-indigo-400 border border-gray-100 outline-none
+        @apply w-full rounded-md  py-3 px-4 shadow placeholder-gray-400 font-semibold text-blue-600  focus:ring focus:ring-indigo-400 border border-gray-100 outline-none
     }
     [type='checkbox'],
     [type='radio']{

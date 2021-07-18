@@ -1,4 +1,4 @@
-import { CREATE_USER,GET_USERS } from "../apollo/user_gql";
+import { CREATE_USER,GET_USERS,DELETE_USER } from "../apollo/user_gql";
 
 export const state = () => ({
   users: []

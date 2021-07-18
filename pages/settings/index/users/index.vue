@@ -101,22 +101,28 @@
 
 <script>
 import UserItem from "../../../../components/UserItem.vue";
-import { mapActions } from "vuex";
+// import { mapActions } from "vuex";
+import {GET_USERS} from "~/apollo/user_gql"
 export default {
   components: { UserItem },
-  data() {
-    return {};
+  async asyncData({ app }) {
+    let client = app.apolloProvider.defaultClient;
+
+    const res = await client
+      .query({
+        query: GET_USERS,
+      })
+      .then(({ data }) => {
+        //console.log(data);
+        return data && data.users;
+      });
+
+    console.log(res);
+
+    return {
+      users: res,
+    };
   },
-  computed: {
-    users() {
-      return this.$store.state.company.company.users;
-    },
-  },
-  methods: {
-    ...mapActions({ getCompany: "company/getCompany" }),
-  },
-  mounted() {
-    this.getCompany();
-  },
+
 };
 </script>

@@ -204,6 +204,7 @@
 </template>
 
 <script>
+import { IMAGE_UPLOAD_QUERY } from "~/apollo/image_gql";
 import { mapActions } from "vuex";
 export default {
   data(){

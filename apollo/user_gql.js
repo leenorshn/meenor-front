@@ -14,11 +14,12 @@ export const GET_CURRENT_USER = gql`
 
 
 export const GET_USERS = gql`
-  query getCurrentUser($id: ID!) {
-    user(id: $id) {
+  query{
+    users {
       id
       name
       role
+      avatar
       phone
       createdAt
     }
@@ -36,5 +37,12 @@ export const CREATE_USER = gql`
 export const DELETE_USER=gql`
   mutation deleteUser($id:ID!){
   deleteUser(id:$id)
+}
+`;
+export const CHANGE_PASS=gql`
+  mutation ($password:String!){
+  changePassword(password:$password){
+    id
+  }
 }
 `;

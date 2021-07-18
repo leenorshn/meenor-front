@@ -120,6 +120,7 @@ export const actions = {
        // console.log(data);
         return data && data.createLocataire;
       });
+      dispatch('getLocataire')
       dispatch("pushNotification",{
         type:"done",
         message:"Locataire creer!"

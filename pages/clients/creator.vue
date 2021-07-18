@@ -267,8 +267,8 @@ export default {
     },
     async onFilePicked(event) {
       const files = event.target.files;
-      if(files.length==0) return
-      console.log(filesS);
+      if(!files) return;
+      console.log(files);
 
       const { data } = await this.$apollo.mutate({
         mutation: IMAGE_UPLOAD_QUERY,

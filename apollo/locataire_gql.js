@@ -14,6 +14,7 @@ export const QUERY_LOCATAIRES = gql`
       id
       name
       phone
+      avatar
       room {
         id
         numero

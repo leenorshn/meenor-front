@@ -12,9 +12,10 @@
       </div>
     </td>
     <td class="px-6 py-4 whitespace-nowrap">
-      <div class="text-sm text-gray-900">
+      <div v-if="client.room" class="text-sm text-gray-900">
         Chambre n-{{ client.room ? client.room.numero : "" }}
       </div>
+      <nuxt-link class="bg-gray-100 border border-gray-200 text-blue-700 font-semibold px-5 p-2 rounded-md" :to="`/client/${client.id}/affectator`">Associer chambre</nuxt-link>
     </td>
     <td class="px-6 py-4 whitespace-nowrap">
       <span

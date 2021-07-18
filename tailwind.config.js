@@ -23,7 +23,10 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      borderWidth: ['hover', 'focus'],
+      ringWidth: ['hover', 'active'],
+    },
   },
   plugins: [
     require("@tailwindcss/forms")

@@ -14,20 +14,7 @@
       class="ml-1 bg-white shadow-sm px-4 py-2 rounded-md flex w-2/3 m-1 justify-between">
         <h3>{{v.city}}</h3>
         <button @click="deleteC(v.id)" class="hover:bg-orange-200 p-1 rounded-md text-orange-600 hover:text-orange-800">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5   "
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
+          <Icon :iconName="`delete`"/>
         </button>
       </div>
     </div>

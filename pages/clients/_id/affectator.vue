@@ -143,7 +143,9 @@ export default {
         },
         awaitRefetchQueries: true,
       });
-      console.log(data);
+      if(data){
+          this.$route.redirect('/')
+      }
     },
   },
 };

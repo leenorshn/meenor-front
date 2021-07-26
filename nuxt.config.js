@@ -46,8 +46,8 @@ export default {
       // Sets up the apollo client endpoints
       clientConfigs: {
         default:{
-          httpEndpoint:'http://localhost:8080/graphql',
-         // httpEndpoint: "https://meenor-u3esd5yulq-lz.a.run.app",//,
+         // httpEndpoint:'http://localhost:8080/graphql',
+          httpEndpoint: "https://meenor-u3esd5yulq-lz.a.run.app",//,
          // wsEndpoint: 'ws://localhost:4000'
         }
         

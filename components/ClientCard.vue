@@ -15,7 +15,7 @@
       <div v-if="client.room" class="text-sm text-gray-900">
         Chambre n-{{ client.room.numero }}
       </div>
-      <nuxt-link class="hover:bg-gray-100 inline-flex items-center  hover:ring-2 hover:ring-blue-500 text-blue-700 font-semibold px-5 p-2 rounded-md" :to="`/clients/${client.id}/affectator`">
+      <nuxt-link v-else class="hover:bg-gray-100 inline-flex items-center  hover:ring-2 hover:ring-blue-500 text-blue-700 font-semibold px-5 p-2 rounded-md" :to="`/clients/${client.id}/affectator`">
       <Icon :iconName="`pencil`"/>
       <span>Associer</span></nuxt-link>
     </td>

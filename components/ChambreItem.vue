@@ -20,8 +20,8 @@
         </div>
       </div>
       <div v-else class="flex items-center">
-        <button @click="userModalIsShown=true" v-on:showModel="userModalIsShown" class="border border-gray-300 px-4 py-2 rounded-md bg-white text-blue-700 font-semibold">Ajouter locataire</button>
-          <RoomToUseModal v-if="userModalIsShown" :userModalIsShown="userModalIsShown"/>
+        <nuxt-link to="/clients" class="border border-gray-300 px-4 py-2 rounded-md bg-white text-blue-700 font-semibold">Ajouter locataire</nuxt-link>
+          
         
       </div>
     </td>

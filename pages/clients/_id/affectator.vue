@@ -129,22 +129,17 @@ export default {
             affectRoom(id: $id, room: $room) {
               id
               name
-              room {
-                id
-              }
             }
           }
         `,
-        variables() {
-          return {
+        variables: {
             room: roomId,
             id: this.$route.params.id,
-          };
         },
         awaitRefetchQueries: true,
       });
       if(data){
-          this.$route.redirect('/')
+          this.$route.push('/clients')
       }
     },
   },

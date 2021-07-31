@@ -160,7 +160,7 @@
           <select class="text-sm shadow" name="" id="city">
             <option value="">Toutes</option>
             <option v-for="(city, i) in cities" :key="i" :value="city">
-              {{ city }}
+              {{ city.city }}
             </option>
           </select>
         </div>
@@ -169,8 +169,29 @@
   </div>
 </template>
 <script>
+import gql from 'graphql-tag';
 import { mapActions } from "vuex";
 export default {
+  apollo:{
+    cities:{
+      query:gql`
+        query{
+          cities{
+            id
+            city
+          }
+        }
+      `
+    },
+    // batiments:{
+    //   query:gql`
+    //     batiments{
+    //       id
+    //       name
+    //     }
+    //   `
+    // }
+  },
   mounted(){
     this.getLocataire()
   },
@@ -182,19 +203,6 @@ export default {
  methods:{
    ...mapActions({getLocataire:"house/getLocataire"})
  },
-  data() {
-    return {
-      cities: [
-        "Butembo",
-        "Beni",
-        "Bunia",
-        "Kasindi",
-        "Goma",
-        "Kisangani",
-        "Kinshasa",
-      ],
-      houses: ["Galerie GTB-BUBO", "Galerie GTB-Beni", "Galerie GTB Bunia"],
-    };
-  },
+  
 };
 </script>

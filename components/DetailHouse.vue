@@ -15,7 +15,7 @@
         
       </div>
       <div
-        class="p-4 flex  items-center space-x-4 w-1/3"
+        class="p-4 flex  items-center space-x-4 flex-1"
       >
         <div>
           <h5 class="text-xs text-gray-400">Adresse</h5>
@@ -27,12 +27,20 @@
         
       </div>
       <div
-        class="p-4 flex  items-center space-x-4 w-1/3"
+        class="p-4 flex  items-center space-x-4"
       >
-        <div>
-          <h5 class="text-xs text-gray-400">Adresse</h5>
+        <div >
+          <h5 class="text-xs text-gray-400">actions</h5>
         <h5 class="text-base text-gray-600 font-semibold">
-          {{ batiment.address.city }}/{{ batiment.address.local }}
+          
+          <div class="flex items-center justify-between space-x-4 w-full">
+            <nuxt-link :to="`/maison/${batiment.id}/edit`" class="p-2 rounded-full hover:bg-blue-200 text-blue-700">
+            <Icon :iconName="`pencil`"/>
+            </nuxt-link>
+          <button class="p-2 rounded-full hover:bg-orange-200 text-orange-700">
+            <Icon :iconName="`delete`"/>
+          </button>
+          </div>
         </h5>
         </div>
         

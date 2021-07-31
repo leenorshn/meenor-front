@@ -6,9 +6,13 @@ export const state = () => ({
 
 });
 
+
 export const mutations = {
   SET_LOCATAIRES(state,data){
     state.locataires=data;
+  },
+  ADD_LOC(state,data){
+    state.locataires.unshift(data)
   }
 };
 
@@ -111,7 +115,7 @@ export const actions = {
       }
   },
 
-  async createLocataire({dispatch},data){
+  async createLocataire({dispatch,commit},data){
     let client =this.app.apolloProvider.defaultClient;
     try {
       //console.log(data);
@@ -120,7 +124,7 @@ export const actions = {
        // console.log(data);
         return data && data.createLocataire;
       });
-      dispatch('getLocataire')
+      commit('ADD_LOC',res)
       dispatch("pushNotification",{
         type:"done",
         message:"Locataire creer!"

@@ -4,7 +4,7 @@ import {COMPANY_QUERY,ADD_CITY,DELETE_CITY,CITY_QUERY,COMPANY_UPDATE} from "~/ap
 
 export const state = () => ({
   company:{},
-  cities:{}
+  cities:[]
 
 });
 
@@ -18,6 +18,9 @@ export const mutations = {
   },
   ADD_CITYS(state,data){
     state.cities.unshift(data);
+  },
+  DELETE_CT(state,id){
+    state.cities=state.cities.filter(c=>c.id!=id);
   }
 
 };
@@ -74,7 +77,7 @@ export const actions = {
         return data && data.cities;
       });
      // dispatch("getCompany");
-     dispatch("getCompany")
+     commit("SET_CITY",res)
     } catch (error) {
       dispatch("pushNotification",{
         type:"error",
@@ -116,7 +119,7 @@ export const actions = {
         return data && data.deleteCity;
       });
       
-      dispatch("getCity");
+      commit("DELETE_CT",city);
       dispatch("pushNotification",{
         type:"done",
         message:"Ville Effacer"

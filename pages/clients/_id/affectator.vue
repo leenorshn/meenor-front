@@ -139,7 +139,7 @@ export default {
         awaitRefetchQueries: true,
       });
       if(data){
-          this.$route.push('/clients')
+          this.$nuxt.context.redirect('/clients')
       }
     },
   },

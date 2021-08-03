@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
+    "build":"nuxt build",
     "start": "nuxt start",
-    "build": "nuxt generate",
+    "generate": "nuxt generate",
     "deploy": "gcloud builds submit --tag gcr.io/faash-business/meenor-front"
   },
   "dependencies": {

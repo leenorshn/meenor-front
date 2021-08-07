@@ -11,7 +11,7 @@ export const GET_PAYMENTS = gql`
       #   phone
       # }
       amount
-      garantie
+      typePayment
       fromDate
       toDate
       createdAt

@@ -16,18 +16,24 @@ export const NEW_NIVEAU = gql`
   }
 `;
 
+export const DELETE_NIVEAU = gql`
+  mutation deleteNi($id: ID!) {
+    deleteNiveau(id: $id)
+  }
+`;
+
 export const GET_ROOM = gql`
   query getRoom($id: ID!) {
     room(id: $id) {
       id
       format
       price
-      locataire{
+      locataire {
         id
         name
         phone
         avatar
-        payments{
+        payments {
           id
           amount
           currency

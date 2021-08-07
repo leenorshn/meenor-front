@@ -1,13 +1,13 @@
 <template>
   <tr>
-    <td class="pl-4 py-6 whitespace-nowrap">
+    <td class="py-6 pl-4 whitespace-nowrap">
       <div class="text-sm text-gray-700">{{ chambre.numero }}</div>
     </td>
     <td class="whitespace-nowrap">
       <div v-if="chambre.locataire" class="flex items-center">
-        <div class="flex-shrink-0 h-9 w-9 -m-1 py-1">
+        <div class="flex-shrink-0 py-1 -m-1 h-9 w-9">
           <img
-            class="h-9 w-9 rounded-full object-cover object-center"
+            class="object-cover object-center rounded-full h-9 w-9"
             src="/profile.png"
             alt=""
           />
@@ -20,7 +20,7 @@
         </div>
       </div>
       <div v-else class="flex items-center">
-        <nuxt-link to="/clients" class="border border-gray-300 px-4 py-2 rounded-md bg-white text-blue-700 font-semibold">Ajouter locataire</nuxt-link>
+        <nuxt-link to="/clients" class="px-4 py-2 font-semibold text-blue-700 bg-white border border-gray-300 rounded-md">Ajouter locataire</nuxt-link>
           
         
       </div>
@@ -28,59 +28,35 @@
     <td class="px-2 whitespace-nowrap">
       <div class="text-xs text-gray-400">{{ chambre.category }}</div>
     </td>
-    <td class="px-2 text-left py-4 whitespace-nowrap text-sm text-gray-500">
+    <td class="px-2 py-4 text-sm text-left text-gray-500 whitespace-nowrap">
       <span
-        class="
-          px-3
-          inline-flex
-          text-xs
-          leading-5
-          font-semibold
-          rounded-full
-          bg-orange-100
-          text-green-800
-        "
+        class="inline-flex px-3 text-xs font-semibold leading-5 text-green-800 bg-orange-100 rounded-full "
       >
         {{ chambre.price + " USD" }}
       </span>
     </td>
-    <td class="px-2 text-center py-4 whitespace-nowrap text-sm text-gray-500">
+    <td class="px-2 py-4 text-sm text-center text-gray-500 whitespace-nowrap">
       <span
         :class="`${
-          chambre.isAvalaible
+          !chambre.isAvalaible
             ? 'bg-green-100 text-green-800'
             : 'bg-red-200 text-red-900'
         }`"
-        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full"
+        class="inline-flex px-2 text-xs font-semibold leading-5 rounded-full"
       >
-        {{ chambre.isAvalaible ? "Disponible" : "Non-disponible" }}
+        {{ !chambre.isAvalaible ? "Disponible" : "Occupée" }}
       </span>
     </td>
     <td
-      class="
-        px-2
-        py-4
-        whitespace-nowrap
-        flex
-        items-center
-        justify-center
-        text-sm
-        font-medium
-      "
+      class="flex items-center justify-center px-2 py-4 text-sm font-medium whitespace-nowrap"
     >
       <nuxt-link
-        class="
-          p-2
-          hover:bg-blue-300
-          text-gray-400
-          hover:text-blue-700
-          rounded-full
-        "
+        class="p-2 text-gray-400 rounded-full hover:bg-blue-300 hover:text-blue-700"
         to=""
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5 "
+          class="w-5 h-5 "
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -94,18 +70,12 @@
         </svg>
       </nuxt-link>
       <nuxt-link
-        class="
-          p-2
-          hover:bg-blue-300
-          text-gray-400
-          hover:text-blue-700
-          rounded-full
-        "
+        class="hidden p-2 text-gray-400 rounded-full md:flex hover:bg-blue-300 hover:text-blue-700"
         :to="`/maison/${chambre.id}/room`"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5"
+          class="w-5 h-5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -125,19 +95,11 @@
         </svg>
       </nuxt-link>
       <button
-        class="
-          p-2
-          hover:bg-red-300
-          text-gray-400
-          hover:text-red-700
-          rounded-full
-          focus:ring-0
-          ring-0
-        "
+        class="p-2 text-gray-400 rounded-full hover:bg-red-300 hover:text-red-700 focus:ring-0 ring-0"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5 text-gray-400"
+          class="w-5 h-5 text-gray-400"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

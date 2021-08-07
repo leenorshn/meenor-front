@@ -1,27 +1,22 @@
 <template>
-  <div class="pt-4 flex space-x-3">
-    <div class="w-1/3 mb-24">
+  <div class="flex pt-4 mx-4 space-x-3">
+    <div class="mb-24">
       <div class="flex flex-col">
-        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="-my-2 overflow-x-auto ">
           <div
-            class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8"
+            class="inline-block min-w-full py-2 align-middle "
           >
             <div
-              class="
-                shadow
-                overflow-hidden
-                border-b border-gray-200
-                sm:rounded-lg
-              "
+              class="container mx-auto overflow-hidden border-b border-gray-200 shadow sm:rounded-lg"
             >
               <div
-                class="h-16 bg-blue-900 px-3 flex justify-between items-center"
+                class="flex items-center justify-between h-16 px-3 bg-blue-900"
               >
-                <h3 class="text-white text-2xl font-semibold">Mes maisons</h3>
+                <h3 class="text-xl font-semibold text-white">Mes maisons</h3>
                 <div>
                   <nuxt-link
                     to="/maison/new"
-                    class="px-4 text-blue-50 py-1 bg-blue-400 rounded"
+                    class="px-4 py-1 bg-blue-400 rounded text-blue-50"
                     >Nouveau</nuxt-link
                   >
                 </div>
@@ -50,19 +45,9 @@
       <DetailHouse v-if="batiment" :batiment="batiment" />
       <div
         v-else
-        class="
-          flex flex-col
-          px-8
-          py-8
-          items-center
-          space-y-3
-          justify-center
-          bg-white
-          shadow
-          rounded-md
-        "
+        class="flex flex-col items-center justify-center px-8 py-8 space-y-3 bg-white rounded-md shadow "
       >
-        <h2 class="text-3xl text-blue-700 font-semibold">
+        <h2 class="text-3xl font-semibold text-blue-700">
           Aucune selection
         </h2>
         <div>

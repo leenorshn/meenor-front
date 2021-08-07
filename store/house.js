@@ -1,4 +1,4 @@
-import { NEW_ROOM,NEW_NIVEAU} from "~/apollo/apartement_gql";
+import { NEW_ROOM,NEW_NIVEAU,DELETE_NIVEAU} from "~/apollo/apartement_gql";
 import { NEW_LOCATAIRE,QUERY_LOCATAIRES} from "~/apollo/locataire_gql";
 
 export const state = () => ({
@@ -105,6 +105,31 @@ export const actions = {
         dispatch("pushNotification",{
           type:"done",
           message:"Niveau creer!"
+        },{root:true})
+      } catch (error) {
+        dispatch("pushNotification",{
+          type:"error",
+          message:"Erreur de niveau!"
+        },{root:true})
+        console.error(error);
+      }
+  },
+
+  async deleteNiveau({dispatch},data){
+    let client = this.app.apolloProvider.defaultClient; 
+    try {
+        //console.log(data);
+        const res = await client
+          .mutate({ mutation: DELETE_NIVEAU, variables: data })
+          .then(({ data }) => {
+            //console.log(data);
+            return data && data.deleteNiveau;
+          });
+  
+        //console.log(res);
+        dispatch("pushNotification",{
+          type:"done",
+          message:"Niveau effacer!"
         },{root:true})
       } catch (error) {
         dispatch("pushNotification",{

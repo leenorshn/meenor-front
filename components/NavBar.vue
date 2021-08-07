@@ -1,12 +1,12 @@
 <template>
-  <div class="w-full  bg-white ">
-    <div class="container mx-auto flex justify-between">
+  <div class="w-full bg-white ">
+    <div class="container flex justify-between mx-auto">
 
     
-    <div class="h-14 pl-4  flex justify-center items-center">
+    <div class="flex items-center justify-center pl-4 h-14">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="h-8 w-8 text-blue-700"
+        class="w-8 h-8 text-blue-700"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -18,7 +18,7 @@
           d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"
         />
       </svg>
-      <h3 class="text-blue-800 px-3 font-bold text-xl">{{company?company:''}}</h3>
+      <h3 class="px-3 text-xl font-bold text-blue-800">{{company?company:''}}</h3>
     </div>
     <div class="flex items-center">
       <nuxt-link
@@ -34,10 +34,10 @@
           </span></nuxt-link
       >
     </div>
-    <div class="flex items-start space-x-2 pt-2 pr-4">
-      <div class="w-10 h-10 rounded-full bg-blue-300"></div>
+    <div class="flex items-start pt-2 pr-4 space-x-2">
+      <div class="w-10 h-10 bg-blue-300 rounded-full"></div>
       <div class="">
-        <button @click.prevent="onLogout()" class="bg-blue-900 py-2 px-8 text-blue-50 rounded">
+        <button @click.prevent="onLogout()" class="px-8 py-2 bg-blue-900 rounded text-blue-50">
           logout
         </button>
       </div>
@@ -65,7 +65,7 @@ export default {
           id: "maison",
         },
         {
-          menu: "Comptabilite",
+          menu: "Paiement",
           route: "/comptabilite/general",
           id: "compte",
         },

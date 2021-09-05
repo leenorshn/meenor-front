@@ -28,7 +28,7 @@ export const GET_ROOM = gql`
       id
       format
       price
-      locataire {
+      locataires {
         id
         name
         phone
@@ -36,7 +36,6 @@ export const GET_ROOM = gql`
         payments {
           id
           amount
-          currency
           fromDate
           toDate
           createdAt

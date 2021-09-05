@@ -1,11 +1,11 @@
 <template>
   <tr>
-    <td class="py-6 pl-4 whitespace-nowrap">
-      <div class="text-sm text-gray-700">{{ chambre.numero }}</div>
+    <td class="px-2 py-6 bg-greenP whitespace-nowrap">
+      <div class="text-sm font-bold text-white">{{"chambre "+ chambre.numero }}</div>
     </td>
     <td class="whitespace-nowrap">
       <div v-if="chambre.locataire" class="flex items-center">
-        <div class="flex-shrink-0 py-1 -m-1 h-9 w-9">
+        <div class="flex-shrink-0 py-1 m-1 h-9 w-9">
           <img
             class="object-cover object-center rounded-full h-9 w-9"
             src="/profile.png"
@@ -29,22 +29,25 @@
       <div class="text-xs text-gray-400">{{ chambre.category }}</div>
     </td>
     <td class="px-2 py-4 text-sm text-left text-gray-500 whitespace-nowrap">
+      <span class="text-xs font-normal text-gray-400">taux</span>
       <span
         class="inline-flex px-3 text-xs font-semibold leading-5 text-green-800 bg-orange-100 rounded-full "
       >
         {{ chambre.price + " USD" }}
+
       </span>
+      
     </td>
     <td class="px-2 py-4 text-sm text-center text-gray-500 whitespace-nowrap">
       <span
         :class="`${
-          !chambre.isAvalaible
+          chambre.isAvalaible
             ? 'bg-green-100 text-green-800'
             : 'bg-red-200 text-red-900'
         }`"
         class="inline-flex px-2 text-xs font-semibold leading-5 rounded-full"
       >
-        {{ !chambre.isAvalaible ? "Disponible" : "Occupée" }}
+        {{ chambre.isAvalaible ? "Disponible" : "Occupée" }}
       </span>
     </td>
     <td
@@ -71,7 +74,7 @@
       </nuxt-link>
       <nuxt-link
         class="hidden p-2 text-gray-400 rounded-full md:flex hover:bg-blue-300 hover:text-blue-700"
-        :to="`/maison/${chambre.id}/room`"
+        :to="`/maison/${batimentId}/room/${chambre.id}`"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -124,6 +127,7 @@ RoomToUseModal
   },
   props: {
     numero: Number,
+    batimentId:String,
     chambre: Object,
   },
   data() {

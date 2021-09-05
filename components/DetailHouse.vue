@@ -116,6 +116,7 @@
                       :key="f"
                       :numero="f"
                       :chambre="m"
+                      :batimentId="batiment.id"
                     />
                     </tbody>
               </table>

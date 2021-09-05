@@ -56,7 +56,7 @@ export const BATIMENT_ONE_QUERY = gql`
           id
           format
           price
-          locataire{
+          locataires{
             id
             name
             phone

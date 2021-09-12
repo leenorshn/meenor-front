@@ -1,46 +1,37 @@
 <template>
-  <div class="">
-    <div class="whitespace-nowrap">
-      <div class="flex items-center justify-between">
-        <div class="flex-shrink-0 w-20 h-20 py-0">
-          <img
-            class="object-cover object-center w-20 h-20"
-            src="ndako.svg"
-            alt=""
-          />
-        </div>
-        <div class="ml-4">
-          <div class="text-sm font-semibold text-gray-900">
-            {{ batiment.name }}
-          </div>
-          <div class="text-xs text-gray-500">
-            {{ batiment.address.city }}
-          </div>
-        </div>
-        <button
-        class="inset-0 p-2 text-gray-400 rounded-full hover:bg-blue-300 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700"
-        aria-hidden="true"
-       @click="selected"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-6 h-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M9 5l7 7-7 7"
-          />
-        </svg>
-      </button>
-      </div>
-    </div>
-    
-  </div>
+  
+                <li  class="flex ">
+                        <div class="flex-shrink-0 w-24 h-24 overflow-hidden border border-gray-200 rounded-md">
+                            <!-- <img :src="product.imageSrc" :alt="product.imageAlt" class="object-cover object-center w-full h-full" /> -->
+                          </div>
+
+                          <div class="flex flex-col flex-1 py-2 ml-4">
+                            <div>
+                              <div class="flex justify-between text-base font-medium text-gray-900">
+                                <h3>
+                                  <a :href="batiment.id">
+                                    {{ batiment.name }}
+                                  </a>
+                                </h3>
+                                
+                              </div>
+                              <p class="mt-1 text-sm text-gray-500">
+                                {{ batiment.address.city }}/{{ batiment.address.local }}
+                              </p>
+                            </div>
+                            <div class="flex items-end justify-between flex-1 text-sm">
+                              <p class="text-gray-500">Etage{{batiment.totaleNiveaux>1?"s":""}} <span class="font-semibold text-black">{{ batiment.totaleNiveaux }}</span> -- Chambre{{batiment.totalRooms>1?"s":""}} <span class="font-semibold text-black">{{ batiment.totalRooms }}</span></p>
+
+                              <div class="flex">
+                                <button type="button" class="mr-5 font-medium text-indigo-600 hover:text-indigo-500">voir</button>
+                                <button type="button" class="mr-5 font-medium text-orange-600 hover:text-orange-500">Remove</button>
+                              </div>
+                              
+                            </div>
+                          </div>
+                        </li>
+                     
+
 </template>
 
 <script>

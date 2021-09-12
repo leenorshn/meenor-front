@@ -2,21 +2,21 @@
   <div class="w-8/12 mx-auto">
     <div>
       <div class="space-y-6">
-        <div class="flex justify-between items-center">
+        <div class="flex items-center justify-between">
 <h4 class="pt-4 font-semibold">
           Quelle type de location voulez-vous creer?
         </h4>
-        <nuxt-link :to="`/maison`" class="px-8 py-1 mt-2 rounded bg-black text-white">retour</nuxt-link>
+        <nuxt-link :to="`/maison`" class="px-8 py-1 mt-2 text-white bg-black rounded">retour</nuxt-link>
         </div>
         
 
-        <div class="flex items-center justify-around w-full group py-2">
+        <div class="flex items-center justify-around w-full py-2 group">
           <div>
             <input
               type="radio"
               id="isLivingRoom"
               value="APARTEMENT"
-              class="rounded-full h-5 w-5 mr-4"
+              class="w-5 h-5 mr-4 rounded-full"
               v-model="typeLocation"
             />
             <label for="isLivingRoom">C'est un apartement</label>
@@ -26,7 +26,7 @@
               type="radio"
               id="isShop"
               value="BOUTIQUE"
-              class="rounded-full h-5 w-5 mr-4"
+              class="w-5 h-5 mr-4 rounded-full"
               v-model="typeLocation"
             />
             <label for="isShop">C'est une boutique</label>
@@ -36,7 +36,7 @@
               type="radio"
               id="isShop"
               value="KIOSQUE"
-              class="rounded-full h-5 w-5 mr-4"
+              class="w-5 h-5 mr-4 rounded-full"
               v-model="typeLocation"
             />
             <label for="isShop">C'est une kiosque</label>
@@ -46,7 +46,7 @@
               type="radio"
               id="isShop"
               value="ETALAGE"
-              class="rounded-full h-5 w-5 mr-4"
+              class="w-5 h-5 mr-4 rounded-full"
               v-model="typeLocation"
             />
             <label for="isShop">C'est une etalage</label>
@@ -59,7 +59,7 @@
         </div>
       </div>
       <div class="w-full">
-        <div class="flex space-x-4 items-center w-full">
+        <div class="flex items-center w-full space-x-4">
           <div class="flex flex-col w-1/3">
             <label class="my-2" for="numero">Numero</label>
             <input
@@ -92,7 +92,7 @@
           <div>
             <input
               v-model="hasPower"
-              class="rounded h-4 w-4 mr-4"
+              class="w-4 h-4 mr-4 rounded"
               :value="true"
               type="checkbox"
             />
@@ -101,7 +101,7 @@
           <div>
             <input
               v-model="hasWater"
-              class="rounded h-4 w-4 mr-4"
+              class="w-4 h-4 mr-4 rounded"
               :value="true"
               type="checkbox"
             />
@@ -110,7 +110,7 @@
           <div>
             <input
               v-model="isAvalaible"
-              class="rounded h-4 w-4 mr-4"
+              class="w-4 h-4 mr-4 rounded"
               :value="true"
               type="checkbox"
             />
@@ -125,16 +125,16 @@
         <div class="flex justify-end space-x-5">
           <button
             @click.prevent="annuler()"
-            class="px-8 py-2 bg-orange-600 rounded-md text-white"
+            class="px-8 py-2 text-white bg-orange-600 rounded-md"
           >
             Annulez
           </button>
 
           <button
             @click.prevent="enregisterApartement()"
-            class="px-8 py-2 bg-blue-600 rounded-md text-white"
+            class="px-8 py-2 text-white bg-blue-600 rounded-md"
           >
-            Enregistrer Apartement
+            Enregistrer 
           </button>
           
         </div>

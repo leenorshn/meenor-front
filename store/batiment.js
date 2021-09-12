@@ -15,7 +15,8 @@ export const mutations = {
     },
     CREATE_BATIMENT(state,data){
       state.batiments.push(data)
-    }
+    },
+    
 };
 
 export const actions = {

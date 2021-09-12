@@ -54,7 +54,7 @@
       class="flex items-center justify-center px-2 py-4 text-sm font-medium whitespace-nowrap"
     >
       <nuxt-link
-        class="p-2 text-gray-400 rounded-full hover:bg-blue-300 hover:text-blue-700"
+        class="hidden p-2 text-gray-400 rounded-full hover:bg-blue-300 hover:text-blue-700"
         to=""
       >
         <svg

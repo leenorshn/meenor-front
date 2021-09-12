@@ -20,7 +20,7 @@ export const BATIMENT_QUERY = gql`
           format
           category
           price
-          locataire{
+          locataires{
             id
             name
             phone

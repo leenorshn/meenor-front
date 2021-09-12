@@ -1,107 +1,72 @@
 <template>
-  <div>
-    <div
-      class="flex items-center justify-between h-12 px-6 bg-blue-500 border-t border-gray-300 "
-    >
-      <h3 class="text-sm capitalize text-gray-50">Detail chambre</h3>
+  <div class="flex flex-col max-w-5xl mx-auto mt-4 bg-white rounded-md shadow">
+    <div class="flex items-center justify-between px-8 py-2">
+      <h2>{{`chambre numero: ${room.numero}`}}</h2>
+      
       <div>
-        
-      <nuxt-link
-        class="px-5 py-2 text-sm font-bold text-white bg-black rounded-md"
-        :to="`/maison/`"
-        >retour</nuxt-link
-      >
+        <nuxt-link 
+        :to="`/maison/${getUrl}`"
+         class="px-6 py-2 text-white bg-blue-500 rounded-md">Retour</nuxt-link>
       </div>
     </div>
-    <div class="flex w-screen">
-    <!-- client list -->
-    <div class="w-2/6">
-      <div>List de client</div>
-      <div class="list">
-        
-        <div v-for="(client,i) in room.locataires"
-        :key="i"
-        class="flex px-4 py-2 mx-4 mt-1 bg-white rounded shadow-sm">
-          <div class="">
-
-          </div>
-          <div class="">
-            <h2 class="text-xl font-bold text-gray-900">{{client.name}}</h2>
-           <h3 class="text-xs text-gray-500">{{client.phone}}</h3>
-            </div> 
-        </div>
-      </div>
-    </div>
-   
-      <div class="flex-grow w-4/6 px-1 py-2 mt-2">
-        <h3 class="w-full text-sm font-semibold text-blue-800">Payment du client</h3>
-        <div class="min-w-full">
-          <div class="inline-block py-2 align-middle">
-            <div
-              class="overflow-hidden border-b border-orange-200 shadow sm:rounded-lg"
-            >
-              <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-200">
-                  <tr>
-                    <th
-                      scope="col"
-                      class="flex justify-center px-4 py-3 text-xs font-medium tracking-wider text-gray-500 uppercase"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="w-6 h-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"
-                        />
-                      </svg>
-                    </th>
-                    <th
-                      scope="col"
-                      class="px-2 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
-                    >
-                      Montant
-                    </th>
-                    
-                    <th
-                      scope="col"
-                      class="px-3 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
-                    >
-                      Debut
-                    </th>
-                    <th
-                      scope="col"
-                      class="px-2 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
-                    >
-                      Fin
-                    </th>
-                    <th
-                      scope="col"
-                      class="px-2 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
-                    >
-                      Duree
-                    </th>
-                    <th
-                      scope="col"
-                      class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
-                    >
-                      Date
-                    </th>
-                  </tr>
-                </thead>
-                <tbody v-if="room.locataire" class="bg-white divide-y divide-gray-200">
-                  <payment-card  v-for="(n, i) in room.locataire.payments" :key="i" :numero="i" :payment="n" />
-                </tbody>
-              </table>
-              <!-- <pre>{{user}}</pre> -->
-            </div>
-          </div>
+    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+        <div class="overflow-hidden border-b border-gray-200 sm:rounded-lg">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                  client
+                </th>
+                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                  montant
+                </th>
+                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                  type
+                </th>
+                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                  date
+                </th>
+                <th scope="col" class="relative px-6 py-3">
+                  <span class="sr-only">Edit</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+              <tr v-for="pay in room.payments" :key="pay.id">
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 w-10 h-10">
+                      <img class="w-10 h-10 rounded-full" :src="pay" alt="" />
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium text-gray-900">
+                        victor
+                      </div>
+                      <div class="text-sm text-gray-500">
+                        0978254387
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-900">{{ pay.amount }}</div>
+                  <div class="text-sm text-gray-500">{{ pay.typePayment }}</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+                    {{pay.currency}}
+                  </span>
+                </td>
+                <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                  {{ pay.createdAt }}
+                </td>
+                <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -120,13 +85,20 @@ export default {
       })
       .then(({ data }) => {
         return data && data.room;
-      });
+      }).catch(err=>console.log(err));
 
-      //redirect(`/maison/${res.id}/room`)
 
     return {
       room: res,
     };
   },
+  computed:{
+    getUrl(){
+     let a= this.$route.path.split('/room/')[0];
+     let b=a.split('/maison/')[1];
+     console.log(b);
+     return b;
+    }
+  }
 };
 </script>

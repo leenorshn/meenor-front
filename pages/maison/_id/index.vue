@@ -1,63 +1,191 @@
 <template>
-  <div>
-    <div class="flex w-full min-h-screen space-x-4">
-      <div class="w-1/3 h-screen bg-green-300">
-        <h3>Vote</h3>
+  <div class="max-w-5xl mx-auto mt-4">
+    <div
+      class="relative flex justify-between overflow-auto bg-white shadow rounded-t-md"
+    >
+      <div class="flex-shrink-0 w-20 h-20">
+        <img class="w-20 h-full" src="/../ndako.svg" alt="" />
       </div>
-      
+      <div class="p-4">
+        <h2 class="text-2xl font-bold tracking-wide text-blue-800">
+          {{ batiment.name }}
+        </h2>
+        <h5 class="text-base font-semibold text-gray-600">
+          {{ batiment.address.city }}/{{ batiment.address.local }}
+        </h5>
+      </div>
 
+      <div class="flex items-center p-4 space-x-4">
+        <div>
+          <h5 class="text-xs text-gray-400">actions</h5>
+          <h5 class="text-base font-semibold text-gray-600">
+            <div class="flex items-center justify-between w-full space-x-4">
+              <nuxt-link
+                :to="`/maison/${batiment.id}/edit`"
+                class="p-2 text-blue-700 rounded-full hover:bg-blue-200"
+              >
+                <Icon :iconName="`pencil`" />
+              </nuxt-link>
+              <button
+                class="p-2 text-orange-700 rounded-full hover:bg-orange-200"
+              >
+                <Icon :iconName="`delete`" />
+              </button>
+            </div>
+          </h5>
+        </div>
+        <button
+          v-if="!isNiveauEdit"
+          class="block w-32 text-lg text-blue-600 border-b-2 border-transparent hover:border-blue-500"
+          @click.prevent="showCreateNiveau()"
+        >
+          Creer un niveau
+        </button>
+        <div v-else>
+          <input type="text" v-model="niveau" placeholder="niveau" />
+          <div class="flex items-center">
+            <button
+              @click.prevent="saveNiveau()"
+              class="block my-2 text-lg text-blue-600 border-b-2 border-transparent hover:border-blue-500"
+            >
+              Save
+            </button>
+            <button
+              @click.prevent="annulNiveau()"
+              class="block my-2 text-lg text-orange-600 border-b-2 border-transparent hover:border-orange-500"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    
-    
+    <div v-if="batiment.totaleNiveaux == 0">
+      <div class="p-4 mx-auto mt-16 space-y-3 bg-white rounded-md shadow-md">
+        <h3 class="text-2xl font-semibold text-gray-600">Information</h3>
+        <div class="flex items-center space-x-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-16 h-16 text-gray-700"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"
+            />
+          </svg>
+          <p class="text-sm text-gray-500">
+            Ce batiment ne contient pas encore un niveau, veillez le creer pour
+            mieux gerer votre batiment.
+          </p>
+        </div>
+        <button
+          v-if="!isNiveauEdit"
+          class="block w-32 text-lg text-blue-600 border-b-2 border-transparent hover:border-blue-500"
+          @click.prevent="showCreateNiveau()"
+        >
+          Creer un niveau
+        </button>
+        <div v-else class="flex items-center">
+          <input type="text" v-model="niveau" placeholder="niveau" />
+          <button
+            @click.prevent="saveNiveau()"
+            class="block my-2 text-lg text-blue-600 border-b-2 border-transparent hover:border-blue-500"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center justify-end"></div>
+    <div v-for="(n, i) in batiment.niveaux" :key="i">
+      <div class="flex justify-between mt-4">
+        <h3 class="mb-1 text-sm text-blue-600">Niveau ({{ i }})</h3>
+        <button @click="removeNiveau(n.id)" class="flex items-center">
+          <span> effacer niveau</span>
+        </button>
+      </div>
+      <div class="flex flex-col">
+        <div class="-my-2">
+          <div class="inline-block min-w-full py-2 align-middle">
+            <div
+              class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg"
+            >
+              <table class="min-w-full divide-y divide-gray-200">
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <chambre-item
+                    v-for="(m, f) in batiment.niveaux[i].rooms"
+                    :key="f"
+                    :numero="f"
+                    :chambre="m"
+                    :batimentId="batiment.id"
+                  />
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-end w-full">
+        <nuxt-link
+          class="inline mt-1 text-sm text-blue-600 border-b-2 border-transparent w-36 hover:border-blue-500"
+          :to="`/maison/${n.id}/room/newRoom`"
+          >Ajouter une chambre</nuxt-link
+        >
+      </div>
+    </div>
   </div>
 </template>
 
-<script >
-import { BATIMENT_ONE_QUERY } from "~/apollo/batiment_gql";
-import {mapActions} from "vuex"
+<script>
+import { mapActions } from "vuex";
+import { BATIMENT_ONE_QUERY } from "../../../apollo/batiment_gql";
 export default {
-  data(){
-    return{
-      isNiveauEdit:false,
-      niveau:''
+ 
+  async asyncData({app,params}){
+    let client = app.apolloProvider.defaultClient;
+    const {data}=await client.query({query:BATIMENT_ONE_QUERY,variables: {
+        id: params.id,
+    },});
+    return {
+      batiment:data
     }
   },
-  async asyncData({ app, params }) {
-    const client = app.apolloProvider.defaultClient;
-    const { data } = await client.query({
-      query: BATIMENT_ONE_QUERY,
-      variables: { id: params.id },
-    });
-    const { batiment } = data;
-    return { batiment };
+  data() {
+    return {
+      isNiveauEdit: false,
+      niveau: "",
+    };
   },
-  computed:{
-    // tt(){
-    //   let tableau=[]
-    //   for(var i=0;i<this.batiment.niveaux.length;i++){
-      
-         
-    //     tableau.push(...this.batiment.niveaux[i].rooms)
-         
-    //   }
-    //   console.log(tableau);
-    //    return tableau;
-    // }
-  },
-  methods:{
-    ...mapActions({createNiveau:"house/createNiveau"}),
-    showCreateNiveau(){
-
-      this.isNiveauEdit=true;
+  methods: {
+    ...mapActions({
+      createNiveau: "house/createNiveau",
+      deleteNiveau: "house/deleteNiveau",
+      getHouse:"house/loadOneBatiment"
+    }),
+    showCreateNiveau() {
+      this.isNiveauEdit = true;
       console.log("Mala");
     },
-    saveNiveau(){
+    saveNiveau() {
       this.createNiveau({
-        batiment:this.$route.params.id,
-        name:this.niveau
-      })
-      this.isNiveauEdit=false;
-    }
-  }
+        batiment: this.batiment.id,
+        name: this.niveau,
+      });
+      this.isNiveauEdit = false;
+    },
+    annulNiveau() {
+      this.isNiveauEdit = false;
+    },
+    removeNiveau(id) {
+      this.deleteNiveau({
+        id,
+      });
+    },
+  },
 };
 </script>

@@ -1,23 +1,23 @@
 <template>
   <div>
-    <div class="flex justify-between items-center px-4 py-2 rounded-t-md">
-      <h3 class="text-xl text-blue-700 font-bold">Mouvement compte</h3>
+    <div class="flex items-center justify-between px-4 py-2 rounded-t-md">
+      <h3 class="text-xl font-bold text-blue-700">Mouvement compte</h3>
       
-    <nuxt-link class="px-4 py-1 rounded text-white bg-orange-600" to="/comptabilite/payment">Ajouter payment</nuxt-link>
+    <nuxt-link class="px-4 py-1 text-white bg-orange-600 rounded" to="/comptabilite/payment">Ajouter payment</nuxt-link>
     </div>
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-      <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
         <div class="overflow-hidden border-b border-gray-200">
           <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-100">
               <tr>
                 <th
                   scope="col"
-                  class="px-6 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  class="px-6 py-2 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6"
+                    class="w-6 h-6"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -32,37 +32,37 @@
                 </th>
                 <th
                   scope="col"
-                  class="px-6 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  class="px-6 py-2 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
                 >
                   Operation
                 </th>
                 <th
                   scope="col"
-                  class="px-6 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  class="px-6 py-2 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
                 >
                   Montant( $ )
                 </th>
                 <th
                   scope="col"
-                  class="px-6 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  class="px-6 py-2 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
                 >
                   Compte
                 </th>
                  <th
                   scope="col"
-                  class="px-6 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  class="px-6 py-2 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
                 >
-                  Garantie
+                  type
                 </th>
                 <th
                   scope="col"
-                  class="px-6 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  class="px-6 py-2 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
                 >
                   Date
                 </th>
                 <th
                   scope="col"
-                  class="px-6 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  class="px-6 py-2 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
                 >
                   Actions
                 </th>

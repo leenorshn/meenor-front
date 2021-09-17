@@ -101,6 +101,7 @@
         </div>
       </div>
     </div>
+    <!-- <pre>{{batiment}}</pre> -->
     <div class="flex items-center justify-end"></div>
     <div v-for="(n, i) in batiment.niveaux" :key="i">
       <div class="flex justify-between mt-4">
@@ -151,8 +152,9 @@ export default {
     const {data}=await client.query({query:BATIMENT_ONE_QUERY,variables: {
         id: params.id,
     },});
+    let bat=data.batiment;
     return {
-      batiment:data
+      batiment:bat
     }
   },
   data() {

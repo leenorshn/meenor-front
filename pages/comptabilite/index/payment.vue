@@ -15,15 +15,15 @@
                     enregistrer un payment
                   </p>
                   <div class="hidden sm:block" aria-hidden="true">
-                    <div class="py-5">
+                    <div class="py-2">
                       <div class="border-t border-gray-200"></div>
                     </div>
                   </div>
                   <nuxt-link class="absolute px-8 py-1 font-semibold text-white bg-black rounded right-2 top-2" to="/comptabilite/general">retour</nuxt-link>
                 </div>
                 <div class="flex flex-col">
-                  <div class="flex items-center w-full space-x-3">
-                    <div v-if="clients" class="flex-1">
+                  
+                    <div v-if="clients" class="flex-1 w-2/3">
                       <label
                         for="client_id"
                         class="block text-sm text-gray-700"
@@ -35,7 +35,8 @@
                             <option v-for="(client,i) in clients" :key="i" :value="client.id">{{client.name}}</option>
                       </select>
                     </div>
-                    <div class="flex-1">
+                    <div class="flex items-center w-2/3 space-x-5">
+                      <div class="flex-1">
                       <label
                         for="company_website"
                         class="block text-sm text-gray-700"
@@ -64,14 +65,14 @@
                       <select v-model="typePayment" id="client_id">
                             <option value="">Type de paiement</option>
                             <option value="avance">Avance</option>
-                            <option value="paymentTotal">Payment comptant</option>
                             <option value="garantie">Garantie</option>
                       </select>
                     </div>
-                  </div>
-                  <div class="flex w-full px-4 space-x-5">
+                    </div>
                   
-                  <div class="w-1/2">
+                  
+                  
+                  <div class="w-2/3">
                       <label for="state" class="block text-sm text-gray-700"
                         >Date de debut</label
                       >
@@ -85,7 +86,7 @@
                     </div>  
                     
 
-                    <div class="w-1/2">
+                    <div class="w-2/3">
                       <label
                         for="postal_code"
                         class="block text-sm text-gray-700"
@@ -100,7 +101,7 @@
                         class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       />
                     </div>
-                  </div>
+                  
                 </div>
               </div>
               <div

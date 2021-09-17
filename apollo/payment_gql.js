@@ -1,28 +1,37 @@
 import gql from "graphql-tag";
 
 export const GET_PAYMENTS = gql`
-  query getpayments{
+  query getpayments {
+    # payments {
+    #   id
+    #   # locataire {
+    #   #   id
+    #   #   name
+    #   #   avatar
+    #   #   phone
+    #   # }
+    #   amount
+    #   typePayment
+    #   fromDate
+    #   toDate
+    #   createdAt
+    # }
     payments {
       id
-      # locataire {
-      #   id
-      #   name
-      #   avatar
-      #   phone
-      # }
       amount
       typePayment
-      fromDate
       toDate
+      duree
+      fromDate
       createdAt
     }
   }
 `;
 
-export const DELETE_PAYMENT=gql`
-  mutation deletePay($id:ID!){
-  deletePayment(id:$id)
-}
+export const DELETE_PAYMENT = gql`
+  mutation deletePay($id: ID!) {
+    deletePayment(id: $id)
+  }
 `;
 
 export const NEW_PAYMENT = gql`

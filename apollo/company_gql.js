@@ -1,21 +1,21 @@
 import gql from "graphql-tag";
 
 export const COMPANY_QUERY = gql`
-  query{
-  company{
-    id
-    name
-    description
-    contacts{
-      email
-      phone
-    }
-    address{
-      city
-      local
+  query {
+    company {
+      id
+      name
+      description
+      contacts {
+        email
+        phone
+      }
+      address {
+        city
+        local
+      }
     }
   }
-}
 `;
 
 export const ADD_CITY = gql`

@@ -24,7 +24,7 @@ export const actions = {
       });
       context.commit("LOAD_PAYMENT",res)
     } catch (error) {
-      dispatch("pushNotification",{
+      context.dispatch("pushNotification",{
         type:"error",
         message:"Erreur de chargement de payment!"
       },{root:true})

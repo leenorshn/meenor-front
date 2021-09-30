@@ -72,7 +72,8 @@
                   
                   
                   
-                  <div class="w-2/3">
+                  <div class="flex items-center w-2/3 space-x-4">
+                      <div class="w-full">
                       <label for="state" class="block text-sm text-gray-700"
                         >Date de debut</label
                       >
@@ -86,7 +87,7 @@
                     </div>  
                     
 
-                    <div class="w-2/3">
+                    <div class="w-full">
                       <label
                         for="postal_code"
                         class="block text-sm text-gray-700"
@@ -101,7 +102,20 @@
                         class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       />
                     </div>
-                  
+                  </div>
+                  <div class="w-2/3">
+                      <label for="state" class="block text-sm text-gray-700"
+                        >Bond de reference</label
+                      >
+                      <input
+                        type="text"
+                        name="state"
+                        v-model="payment.refBond"
+                        id="state"
+                        placeholder="Bond"
+                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      />
+                    </div>
                 </div>
               </div>
               <div

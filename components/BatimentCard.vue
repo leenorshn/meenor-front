@@ -2,10 +2,10 @@
   
                 <li  class="flex ">
                         <div class="flex-shrink-0 w-24 h-24 overflow-hidden border border-gray-200 rounded-md">
-                            <!-- <img :src="product.imageSrc" :alt="product.imageAlt" class="object-cover object-center w-full h-full" /> -->
+                            <img :src="`/ndako.svg`" :alt="`house img`" class="object-cover object-center w-full h-full" />
                           </div>
 
-                          <div class="flex flex-col flex-1 py-2 ml-4">
+                          <div class="flex flex-col flex-1 ml-4">
                             <div>
                               <div class="flex justify-between text-base font-medium text-gray-900">
                                 <h3>

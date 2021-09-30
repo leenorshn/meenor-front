@@ -2,26 +2,14 @@ import gql from "graphql-tag";
 
 export const GET_PAYMENTS = gql`
   query getpayments {
-    # payments {
-    #   id
-    #   # locataire {
-    #   #   id
-    #   #   name
-    #   #   avatar
-    #   #   phone
-    #   # }
-    #   amount
-    #   typePayment
-    #   fromDate
-    #   toDate
-    #   createdAt
-    # }
+   
     payments {
       id
       amount
       typePayment
       toDate
       duree
+      refBond
       fromDate
       createdAt
     }

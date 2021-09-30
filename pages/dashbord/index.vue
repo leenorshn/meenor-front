@@ -2,10 +2,10 @@
   <div class="flex px-2 pt-4 pb-8">
     <div class="w-3/4 pr-4">
       <div class="flex space-x-4">
-        <div class="w-1/4 bg-white h-72 rounded-md" v-if="!hide">
+        <div class="w-1/4 bg-white rounded-md h-72" v-if="!hide">
           <circle-chart :data="chartDataCircle" :options="circleChartOptions" />
         </div>
-        <div class="w-3/4 bg-white h-72 rounded-md" v-if="!hide">
+        <div class="w-3/4 bg-white rounded-md h-72" v-if="!hide">
           <my-line
 
             v-if="showLine"
@@ -17,57 +17,57 @@
       </div>
       <div class="grid grid-cols-3 py-4 gap-x-3">
         <div
-          class="bg-blue-800 h-28 rounded-md relative flex justify-center items-center"
+          class="relative flex items-center justify-center bg-blue-800 rounded-md h-28"
         >
-          <h3 class="text-sm text-gray-100 absolute right-2 top-1">
+          <h3 class="absolute text-sm text-gray-100 right-2 top-1">
             Solde actuel
           </h3>
           <h3 class="text-3xl text-white">
-            27 400 <span class="text-lg">$</span>
+            0 <span class="text-lg">$</span>
           </h3>
         </div>
         <div
-          class="bg-red-500 h-28 rounded-md relative flex justify-center items-center"
+          class="relative flex items-center justify-center bg-red-500 rounded-md h-28"
         >
-          <h3 class="text-sm text-gray-100 absolute right-2 top-1">
+          <h3 class="absolute text-sm text-gray-100 right-2 top-1">
             Sortie (hebdo.)
           </h3>
           <h3 class="text-3xl text-white">
-            5025 <span class="text-lg">$</span>
+            0 <span class="text-lg">$</span>
           </h3>
         </div>
         <div
-          class="bg-green-500 h-28 rounded-md relative flex justify-center items-center"
+          class="relative flex items-center justify-center bg-green-500 rounded-md h-28"
         >
-          <h3 class="text-sm text-gray-100 absolute right-2 top-1">
+          <h3 class="absolute text-sm text-gray-100 right-2 top-1">
             Prevision (ans)
           </h3>
           <h3 class="text-3xl text-white">
-            152 500 <span class="text-lg">$</span>
+            0 <span class="text-lg">$</span>
           </h3>
         </div>
       </div>
-      <h3 class="text-blue-600 text-lg mb-1">Dernier paiements</h3>
-      <div class="h-96 w-full rounded-md">
+      <h3 class="mb-1 text-lg text-blue-600">Dernier paiements</h3>
+      <div class="w-full rounded-md h-96">
         <div>
           <div class="flex flex-col">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div
-                class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8"
+                class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8"
               >
                 <div
-                  class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
+                  class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg"
                 >
                   <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                       <tr>
                         <th
                           scope="col"
-                          class="px-4 py-3 flex justify-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          class="flex justify-center px-4 py-3 text-xs font-medium tracking-wider text-gray-500 uppercase"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            class="h-6 w-6"
+                            class="w-6 h-6"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -82,32 +82,33 @@
                         </th>
                         <th
                           scope="col"
-                          class="px-2 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          class="px-2 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
                         >
                           Montant($)
                         </th>
+                        
                         <th
                           scope="col"
-                          class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
-                        >
-                          Durée
-                        </th>
-                        <th
-                          scope="col"
-                          class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          class="px-3 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
                         >
                           Date debut
                         </th>
                         <th
                           scope="col"
-                          class="px-2 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          class="px-2 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
                         >
                           Date fin
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-3 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
+                        >
+                          Durée
                         </th>
                         
                         <th
                           scope="col"
-                          class="text-center text-xs font-medium text-gray-500 uppercase tracking-wider px-6 py-3"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
                         >
                           Date
                         </th>
@@ -122,9 +123,9 @@
               </div>
             </div>
           </div>
-          <div class="w-full flex justify-end">
+          <div class="flex justify-end w-full">
             <nuxt-link
-              class="w-16 my-2 text-blue-600 text-sm inline border-b-2 border-transparent hover:border-blue-500"
+              class="inline w-16 my-2 text-sm text-blue-600 border-b-2 border-transparent hover:border-blue-500"
               to="/"
               >Voir plus</nuxt-link
             >

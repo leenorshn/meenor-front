@@ -1,30 +1,21 @@
 <template>
   <div>
-    <div class="container mx-auto shadow-sm bg-gray-200">
+    <div class="container mx-auto bg-gray-200 shadow-sm">
       <div
-        class="
-          bg-black
-          text-white
-          py-3
-          px-4
-          w-full
-          flex
-          items-center
-          justify-between
-        "
+        class="flex items-center justify-between w-full px-4 py-3 text-white bg-black "
       >
-        <h2 class="font-semibold tracking-wide text-xl">Creer un immeuble</h2>
+        <h2 class="text-xl font-semibold tracking-wide">Creer un immeuble</h2>
         <nuxt-link
-          class="bg-white text-blue-800 px-8 py-2 font-semibold rounded-md"
+          class="px-8 py-2 font-semibold text-blue-800 bg-white rounded-md"
           to="/maison"
           >Retour</nuxt-link
         >
       </div>
       <div class="flex p-8 space-x-16">
-        <div class="flex flex-col justify-center h-80 w-96 items-center border-2 border-dashed border-gray-400 rounded-md">
+        <div class="flex flex-col items-center justify-center border-2 border-gray-400 border-dashed rounded-md h-80 w-96">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-16 w-16 text-gray-500"
+            class="w-16 h-16 text-gray-500"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -37,20 +28,17 @@
             />
           </svg>
           <div class="text-center">
-            <h2 class="text-xl text-gray-600 font-sans font-semibold">Drop file to upload</h2>
+            <h2 class="font-sans text-xl font-semibold text-gray-600">Drop file to upload</h2>
             <p>Or</p>
-            <label for="" class="bg-white text-blue-600 h-9 px-6 inline-flex 
-            items-center rounded
-            border border-gray-400
-            ">
+            <label for="" class="inline-flex items-center px-6 text-blue-600 bg-white border border-gray-400 rounded h-9 ">
               Select files
               <input type="file" name="file" class="sr-only">
             </label>
-            <p class="text-sm text-gray-400 mt-4">Maximum upload file size: 5Mb</p>
+            <p class="mt-4 text-sm text-gray-400">Maximum upload file size: 5Mb</p>
           </div>
         </div>
         <div class="flex-grow space-y-4">
-          <div class="flex space-x-4 w-full">
+          <div class="flex w-full space-x-4">
             <div class="flex-1">
             <label for="house_name" class="block text-sm text-gray-500"
               >Nom du batiment:</label
@@ -60,17 +48,7 @@
               v-model="newHouse.name"
               id="house_name"
               placeholder="Ex: Immeuble X"
-              class="
-                mt-1
-                focus:ring-indigo-500
-                focus:border-indigo-500
-                block
-                w-full
-                shadow-sm
-                sm:text-sm
-                border-gray-300
-                rounded-md
-              "
+              class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
           </div>
 
@@ -83,17 +61,7 @@
               v-model.number="newHouse.niveauNumber"
               id="house_name"
               placeholder="Ex: 3"
-              class="
-                mt-1
-                focus:ring-indigo-500
-                focus:border-indigo-500
-                block
-                w-full
-                shadow-sm
-                sm:text-sm
-                border-gray-300
-                rounded-md
-              "
+              class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
           </div>
 
@@ -126,33 +94,23 @@
               v-model="address.local"
               id="first_name"
               placeholder="Rue/Avenue & numero"
-              class="
-                mt-1
-                focus:ring-indigo-500
-                focus:border-indigo-500
-                block
-                w-full
-                shadow-sm
-                sm:text-sm
-                border-gray-300
-                rounded-md
-              "
+              class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
           </div>
         </div>
       </div>
       <div class="">
-      <div class="mx-auto py-5 px-16 space-y-3">
-        <div class="flex py-2 w-full space-x-6 justify-end">
+      <div class="px-16 py-5 mx-auto space-y-3">
+        <div class="flex justify-end w-full py-2 space-x-6">
           <button
             @click.prevent="annuler()"
-            class="w-64 px-8 py-3 rounded font-semibold tracking-wider bg-orange-600 text-white"
+            class="w-64 px-8 py-3 font-semibold tracking-wider text-white bg-orange-600 rounded"
           >
             Annuler
           </button>
           <button
             @click.prevent="createBatiment()"
-            class="w-64 px-8 py-3 rounded font-semibold bg-blue-600 text-white"
+            class="w-64 px-8 py-3 font-semibold text-white bg-blue-600 rounded"
           >
             Enregistrer
           </button>
@@ -168,7 +126,7 @@
 import { mapActions } from "vuex";
 import { CITY_QUERY } from "~/apollo/company_gql";
 export default {
-  data() {
+  data(){
     return {
       newHouse: {},
       address:{
@@ -177,12 +135,24 @@ export default {
       }
     };
   },
-  apollo:{
-    cities:{
-      query:CITY_QUERY
-      }
+ async asyncData({app}) {
+let client =app.apolloProvider.defaultClient;
+
+      const res= await client.query({query:CITY_QUERY})
+      .then(({data})=>{
+        return data && data.cities;
+      });
+     // dispatch("getCompany");
+     //commit("SET_CITY",res)
+
+     console.log(res);
+     return {
+      cities:res
+    }
+    
     
   },
+  
   methods: {
     ...mapActions({ createHouse: "batiment/createBatiment" }),
     createBatiment() {

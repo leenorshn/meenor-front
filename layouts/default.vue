@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-gray-100 min-h-screen relative">
-    <nav-bar/>
+  <div class="relative min-h-screen bg-gray-100">
+    <nav-bar class="sticky top-0 z-50"/>
     <div class="container mx-auto ">
       <Nuxt />
     </div>

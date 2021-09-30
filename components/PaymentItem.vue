@@ -13,7 +13,7 @@
     <td
       class="px-4 py-4 text-sm text-center text-gray-500 whitespace-nowrap"
     >
-     {{item.typePayment}}
+     {{item.refBond}}
     </td>
     <td
       class="px-4 py-4 text-sm text-center text-gray-500 whitespace-nowrap"

@@ -47,7 +47,7 @@ export default {
       clientConfigs: {
         default:{
          httpEndpoint:'http://localhost:8080/graphql',
-          //httpEndpoint: "https://meenor-u3esd5yulq-lz.a.run.app/graphql",//,
+         // httpEndpoint: "https://meenor-u3esd5yulq-lz.a.run.app/graphql",//,
          // wsEndpoint: 'ws://localhost:4000'
         }
         

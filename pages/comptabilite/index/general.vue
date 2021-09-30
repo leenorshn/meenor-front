@@ -52,7 +52,7 @@
                   scope="col"
                   class="px-6 py-2 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
                 >
-                  type
+                  Bond (ref)
                 </th>
                 <th
                   scope="col"

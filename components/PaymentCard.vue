@@ -2,7 +2,7 @@
     <tr>
     
     <td class="px-3 pl-3 text-center whitespace-nowrap">
-      <div class="text-sm text-gray-700">{{payment.id}}</div>
+      <div class="text-sm text-gray-700">{{payment.id.substring(18)}}</div>
     </td>
     
     <td class="px-2 text-center whitespace-nowrap">
@@ -27,7 +27,7 @@
     </td>
     <td class="px-2 py-4 text-sm text-center text-gray-500 whitespace-nowrap">
       
-      {{diff}}
+      {{diff.toFixed(0)+' moi'}}
     </td>
     <td
       class="flex items-center justify-center px-2 py-3 text-xs font-medium text-gray-500 whitespace-nowrap"

@@ -60,7 +60,7 @@
       <div class="flex flex-col pl-6 space-y-2">
         <nuxt-link
           to="/clients/creator"
-          class="flex w-24 text-base text-blue-600 border-b-2 border-transparent  hover:border-blue-500"
+          class="flex w-24 text-base text-blue-600 border-b-2 border-transparent hover:border-blue-500"
         >
           <Icon :iconName="`u-new`"/>
 
@@ -68,7 +68,7 @@
         >
         <nuxt-link
           to="/clients/notificator"
-          class="flex w-32 text-base text-blue-600 border-b-2 border-transparent  hover:border-blue-500"
+          class="flex w-32 text-base text-blue-600 border-b-2 border-transparent hover:border-blue-500"
         >
           <Icon :iconName="`notify`"/>
           Notifications</nuxt-link
@@ -105,7 +105,22 @@
 <script>
 import gql from 'graphql-tag';
 import { mapActions } from "vuex";
+import { QUERY_LOCATAIRES } from '../../apollo/locataire_gql';
 export default {
+
+    async asyncData({app,params}){
+    let client = app.apolloProvider.defaultClient
+   const res=await client.query({query:QUERY_LOCATAIRES, })
+        .then(({ data }) => {
+         return data && data.locataires
+        })
+console.log(res);
+
+
+        return {
+          locataires:res
+        }
+  },
   apollo:{
     cities:{
       query:gql`
@@ -117,26 +132,8 @@ export default {
         }
       `
     },
-    // batiments:{
-    //   query:gql`
-    //     batiments{
-    //       id
-    //       name
-    //     }
-    //   `
-    // }
+    
   },
-  mounted(){
-    this.getLocataire()
-  },
-  computed:{
-    locataires(){
-      return this.$store.state.house.locataires;
-    }
-  },
- methods:{
-   ...mapActions({getLocataire:"house/getLocataire"})
- },
   
 };
 </script>

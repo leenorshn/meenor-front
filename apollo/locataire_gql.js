@@ -15,9 +15,21 @@ export const QUERY_LOCATAIRES = gql`
       name
       phone
       avatar
-      room {
+      room{
         id
         numero
+      }
+      payments{
+        id
+        amount
+        typePayment
+        duree
+        locataire{
+          id
+          name
+        }
+        refBond
+        createdAt
       }
     }
   }

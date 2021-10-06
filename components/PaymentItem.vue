@@ -18,6 +18,11 @@
     <td
       class="px-4 py-4 text-sm text-center text-gray-500 whitespace-nowrap"
     >
+     {{item.duree+" moi"}}
+    </td>
+    <td
+      class="px-4 py-4 text-sm text-center text-gray-500 whitespace-nowrap"
+    >
       {{$moment(Date(item.createdAt)).format("DD-MM-YYYY") }}
     </td>
     <td

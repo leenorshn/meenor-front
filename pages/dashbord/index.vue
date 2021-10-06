@@ -1,5 +1,5 @@
 <template>
-  <div class="flex px-2 pt-4 pb-8">
+  <div class="flex max-w-6xl px-2 pt-4 pb-8 mx-auto">
     <div class="w-3/4 pr-4">
       <div class="flex space-x-4">
         <div class="w-1/4 bg-white rounded-md h-72" v-if="!hide">

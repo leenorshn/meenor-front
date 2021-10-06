@@ -4,7 +4,7 @@
       <div class="text-sm font-bold text-white">{{"chambre "+ chambre.numero }}</div>
     </td>
     <td class="whitespace-nowrap">
-      <div v-if="chambre.locataires" class="flex items-center">
+      <div v-if="chambre.locataires.length>0" class="flex items-center">
         <div class="flex-shrink-0 py-1 m-1 h-9 w-9">
           <img
             class="object-cover object-center rounded-full h-9 w-9"
@@ -127,6 +127,7 @@ RoomToUseModal
   },
   props: {
     numero: Number,
+    index:Number,
     batimentId:String,
     chambre: Object,
   },

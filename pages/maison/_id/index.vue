@@ -129,6 +129,7 @@
                     :key="f"
                     :numero="f"
                     :chambre="m"
+                    :index="f"
                     :batimentId="batiment.id"
                   />
                 </tbody>

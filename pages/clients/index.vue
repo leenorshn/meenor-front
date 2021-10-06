@@ -1,11 +1,11 @@
 <template>
-  <div class="flex space-x-4 py-6">
-    <div class="w-3/4 bg-white shadow rounded-md">
+  <div class="flex max-w-6xl py-6 mx-auto space-x-4">
+    <div class="w-3/4 bg-white rounded-md shadow">
       <!-- This example requires Tailwind CSS v2.0+ -->
       <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div
-            class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8"
+            class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8"
           >
             <div class="overflow-hidden border-b border-gray-200 sm:rounded-lg">
               <table class="min-w-full divide-y divide-gray-200">
@@ -13,71 +13,31 @@
                   <tr>
                     <th
                       scope="col"
-                      class="
-                        px-6
-                        py-3
-                        text-left text-xs
-                        font-medium
-                        text-gray-500
-                        uppercase
-                        tracking-wider
-                      "
+                      class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase "
                     >
                       Client
                     </th>
                     <th
                       scope="col"
-                      class="
-                        px-6
-                        py-3
-                        text-left text-xs
-                        font-medium
-                        text-gray-500
-                        uppercase
-                        tracking-wider
-                      "
+                      class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase "
                     >
                       Location
                     </th>
                     <th
                       scope="col"
-                      class="
-                        px-6
-                        py-3
-                        text-left text-xs
-                        font-medium
-                        text-gray-500
-                        uppercase
-                        tracking-wider
-                      "
+                      class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase "
                     >
                       Status
                     </th>
                     <th
                       scope="col"
-                      class="
-                        px-6
-                        py-3
-                        text-center text-xs
-                        font-medium
-                        text-gray-500
-                        uppercase
-                        tracking-wider
-                      "
+                      class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase "
                     >
                       Messagerie
                     </th>
                     <th
                       scope="col"
-                      class="
-                        px-6
-                        py-3
-                        text-center text-xs
-                        font-medium
-                        text-gray-500
-                        uppercase
-                        tracking-wider
-                      "
+                      class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase "
                     >
                       Actions
                     </th>
@@ -100,15 +60,7 @@
       <div class="flex flex-col pl-6 space-y-2">
         <nuxt-link
           to="/clients/creator"
-          class="
-            text-blue-600
-            flex
-            text-base
-            border-b-2
-            w-24
-            border-transparent
-            hover:border-blue-500
-          "
+          class="flex w-24 text-base text-blue-600 border-b-2 border-transparent  hover:border-blue-500"
         >
           <Icon :iconName="`u-new`"/>
 
@@ -116,36 +68,18 @@
         >
         <nuxt-link
           to="/clients/notificator"
-          class="
-            text-blue-600
-            flex
-            text-base
-            border-b-2
-            w-32
-            border-transparent
-            hover:border-blue-500
-          "
+          class="flex w-32 text-base text-blue-600 border-b-2 border-transparent  hover:border-blue-500"
         >
           <Icon :iconName="`notify`"/>
           Notifications</nuxt-link
         >
       </div>
       <div
-        class="
-          h-24
-          relative
-          bg-blue-700
-          shadow-md
-          rounded-md
-          my-5
-          flex
-          items-center
-          justify-center
-        "
+        class="relative flex items-center justify-center h-24 my-5 bg-blue-700 rounded-md shadow-md "
       >
         <div class="flex items-baseline justify-center space-x-2">
           <Icon :iconName="`users`"/>
-          <h2 class="text-2xl text-white font-semibold">
+          <h2 class="text-2xl font-semibold text-white">
             {{ locataires.length }}
           </h2>
           <span class="text-sm text-gray-200"> locataires</span>

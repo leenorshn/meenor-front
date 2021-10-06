@@ -22,3 +22,26 @@ export const QUERY_LOCATAIRES = gql`
     }
   }
 `;
+export const QUERY_LOCATAIRE=gql`
+  query ($id:ID!){
+    locataire(id:$id) {
+      id
+      name
+      phone
+      avatar
+      payments{
+        id
+        amount
+        typePayment
+        duree
+        locataire{
+          id
+          name
+        }
+        refBond
+        createdAt
+      }
+    }
+  }
+
+`;

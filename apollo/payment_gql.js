@@ -11,6 +11,10 @@ export const GET_PAYMENTS = gql`
       duree
       refBond
       fromDate
+      locataire{
+        id
+        name
+      }
       createdAt
     }
   }

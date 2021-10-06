@@ -34,13 +34,16 @@
             </div>
           </h5>
         </div>
+        <div v-if="!isNiveauEdit" class="flex flex-col items-end">
+          <nuxt-link to="/maison" class="px-5 py-1 text-sm font-semibold bg-blue-700 rounded text-blue-50">Retour</nuxt-link>
         <button
-          v-if="!isNiveauEdit"
+          
           class="block w-32 text-lg text-blue-600 border-b-2 border-transparent hover:border-blue-500"
           @click.prevent="showCreateNiveau()"
         >
           Creer un niveau
         </button>
+        </div>
         <div v-else>
           <input type="text" v-model="niveau" placeholder="niveau" />
           <div class="flex items-center">
@@ -83,13 +86,16 @@
             mieux gerer votre batiment.
           </p>
         </div>
-        <button
-          v-if="!isNiveauEdit"
+        <div  v-if="!isNiveauEdit" class="flex flex-col items-start">
+          
+          <button
+         
           class="block w-32 text-lg text-blue-600 border-b-2 border-transparent hover:border-blue-500"
           @click.prevent="showCreateNiveau()"
         >
           Creer un niveau
         </button>
+        </div>
         <div v-else class="flex items-center">
           <input type="text" v-model="niveau" placeholder="niveau" />
           <button

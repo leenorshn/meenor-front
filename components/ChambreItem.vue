@@ -4,7 +4,7 @@
       <div class="text-sm font-bold text-white">{{"chambre "+ chambre.numero }}</div>
     </td>
     <td class="whitespace-nowrap">
-      <div v-if="chambre.locataire" class="flex items-center">
+      <div v-if="chambre.locataires" class="flex items-center">
         <div class="flex-shrink-0 py-1 m-1 h-9 w-9">
           <img
             class="object-cover object-center rounded-full h-9 w-9"
@@ -14,9 +14,9 @@
         </div>
         <div class="ml-4">
           <div class="text-xs font-medium text-gray-900">
-            {{ chambre.locataire.name }}
+            {{ chambre.locataires[0].name }}
           </div>
-          <div class="text-xs text-gray-400">{{ chambre.locataire.phone }}</div>
+          <div class="text-xs text-gray-400">{{ chambre.locataires[0].phone }}</div>
         </div>
       </div>
       <div v-else class="flex items-center">

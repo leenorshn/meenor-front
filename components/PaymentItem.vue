@@ -2,13 +2,13 @@
   <tr>
     <td class="px-6 py-4 whitespace-nowrap">{{item.id.substring(0,6)}}</td>
     <td class="px-6 py-4 whitespace-nowrap">
-      <div class="inline-block px-4 text-sm text-gray-900 bg-green-100 rounded-md ">Entré</div>
+      <div class="inline-block p-1 text-sm text-gray-900 bg-green-100 rounded-md ">{{item.locataire.name}}</div>
     </td>
     <td class="px-6 py-4 text-center whitespace-nowrap">{{item.amount+" $"}}</td>
     <td
       class="px-4 py-4 text-sm text-center text-gray-500 whitespace-nowrap"
     >
-      Payment locatif
+      {{item.typePayment}}
     </td>
     <td
       class="px-4 py-4 text-sm text-center text-gray-500 whitespace-nowrap"

@@ -15,26 +15,14 @@
                   scope="col"
                   class="px-6 py-2 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-6 h-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"
-                    />
-                  </svg>
+                  
+                 id
                 </th>
                 <th
                   scope="col"
                   class="px-6 py-2 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
                 >
-                  Operation
+                  client
                 </th>
                 <th
                   scope="col"
@@ -46,13 +34,13 @@
                   scope="col"
                   class="px-6 py-2 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
                 >
-                  Compte
+                  Type
                 </th>
                  <th
                   scope="col"
                   class="px-6 py-2 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
                 >
-                  Bond (ref)
+                  Bon (ref)
                 </th>
                 <th
                   scope="col"

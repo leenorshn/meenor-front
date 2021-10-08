@@ -1,39 +1,29 @@
 <template>
-    <tr>
-    
-    <td class="px-3 pl-3 text-center whitespace-nowrap">
-      <div class="text-sm text-gray-700">{{payment.id.substring(18)}}</div>
+   <tr>
+    <td class="px-6 py-4 whitespace-nowrap">{{payment.id.substring(0,6)}}</td>
+    <td class="px-6 py-4 whitespace-nowrap">
+      <div class="inline-block p-1 text-sm text-gray-900 bg-green-100 rounded-md ">{{payment.locataire.name}}</div>
     </td>
-    
-    <td class="px-2 text-center whitespace-nowrap">
-      <div class="text-xs text-gray-700">{{payment.amount+" $"}}</div>
-    </td>
-    
-    
-    <td class="pl-3 text-center whitespace-nowrap">
-      <div>
-          
-          {{$moment(payment.fromDate).format("DD-MM-YYYY")}}
-      </div>
-      
-    </td>
-    
-    <td class="px-2 py-4 text-sm text-center text-gray-500 whitespace-nowrap">
-      <span
-        class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full"
-      >
-       {{$moment(payment.toDate).format("DD-MM-YYYY")}}
-      </span>
-    </td>
-    <td class="px-2 py-4 text-sm text-center text-gray-500 whitespace-nowrap">
-      
-      {{diff.toFixed(0)+' moi'}}
+    <td class="px-6 py-4 text-center whitespace-nowrap">{{payment.amount+" $"}}</td>
+    <td
+      class="px-4 py-4 text-sm text-center text-gray-500 whitespace-nowrap"
+    >
+      {{payment.typePayment}}
     </td>
     <td
-      class="flex items-center justify-center px-2 py-3 text-xs font-medium text-gray-500 whitespace-nowrap"
+      class="px-4 py-4 text-sm text-center text-gray-500 whitespace-nowrap"
     >
-    
-     <h2>{{$moment(Date(payment.createdAt)).format("DD-MM-YYYY")}}</h2> 
+     {{payment.refBond}}
+    </td>
+    <td
+      class="px-4 py-4 text-sm text-center text-gray-500 whitespace-nowrap"
+    >
+     {{payment.duree+" moi"}}
+    </td>
+    <td
+      class="px-4 py-4 text-sm text-center text-gray-500 whitespace-nowrap"
+    >
+      {{$moment(Date(payment.createdAt)).format("DD-MM-YYYY") }}
     </td>
     
   </tr>

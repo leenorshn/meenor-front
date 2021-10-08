@@ -2,15 +2,15 @@
     <div>
          <div class="w-11/12 mx-auto">
       <div class="flex py-4 space-x-4">
-        <div class="w-1/5 bg-blue-900 shadow rounded-md p-4 space-y-8 h-larger">
-          <div class="space-y-4 ml-4">
+        <div class="w-1/5 p-4 space-y-8 bg-blue-900 rounded-md shadow h-larger">
+          <div class="ml-4 space-y-4">
             <nuxt-link
-              class="flex space-x-2 items-center"
+              class="flex items-center space-x-2"
               to="/comptabilite/general"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-gray-50"
+                class="w-5 h-5 text-gray-50"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -25,12 +25,12 @@
               <h3 class="text-white">Payment</h3>
             </nuxt-link>
             <nuxt-link
-              class="flex space-x-2 items-center"
-              to="/comptabilite/sortie"
+              class="flex items-center space-x-2"
+              to="/comptabilite/rapportSortie"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-gray-50"
+                class="w-5 h-5 text-gray-50"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -46,12 +46,12 @@
               <h3 class="text-white">Sortie</h3></nuxt-link
             >
             <nuxt-link
-              class="flex space-x-2 items-center"
+              class="flex items-center space-x-2"
               to="/comptabilite/account"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-gray-50"
+                class="w-5 h-5 text-gray-50"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -67,13 +67,13 @@
             >
           </div>
           <div class="mt-10 space-y-3">
-            <h3 class="text-yellow-500 text-lg font-semibold">Information</h3>
-            <p class="text-gray-300 text-sm text-justify">
+            <h3 class="text-lg font-semibold text-yellow-500">Information</h3>
+            <!-- <p class="text-sm text-justify text-gray-300">
               En cours de dev
-            </p>
+            </p> -->
           </div>
         </div>
-        <div class="w-4/5 shadow rounded bg-white">
+        <div class="w-4/5 bg-white rounded shadow">
           <nuxt-child></nuxt-child>
         </div>
       </div>

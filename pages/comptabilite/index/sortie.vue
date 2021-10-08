@@ -5,7 +5,7 @@
         <div class="mt-5 md:mt-0 md:col-span-3">
           <form action="#" method="POST">
             <div class="overflow-hidden sm:rounded-md">
-              <div class="px-4 py-5 space-y-6 bg-white sm:p-6">
+              <div class="px-4 py-2 space-y-6 bg-white sm:p-6">
                 <div>
                   <h1 class="text-3xl font-semibold tracking-wide text-indigo-700">
                     Retrait 
@@ -15,13 +15,13 @@
                     enregistrer une sortie
                   </p>
                   <div class="hidden sm:block" aria-hidden="true">
-                    <div class="py-5">
+                    <div class="py-2">
                       <div class="border-t border-gray-200"></div>
                     </div>
                   </div>
                 </div>
 
-                <div class="flex flex-col items-center space-y-4">
+                <div class="flex flex-col items-center space-y-2">
                   <div class="w-1/2">
                     <label
                       for="company_website"
@@ -40,7 +40,7 @@
                       <input
                         type="text"
                         name="company_website"
-                        v-model="sortie.amount"
+                        v-model.number="sortie.amount"
                         id="company_website"
                         class="flex-1 block w-full pl-16 border-gray-300 rounded-r-md sm:text-sm"
                         placeholder="Montant demandé"
@@ -68,12 +68,29 @@
                     <label
                       for="postal_code"
                       class="block text-sm font-medium text-gray-700"
+                      >Bon</label
+                    >
+                    <input
+                      type="text"
+                      name="postal_code"
+                      placeholder="Ex: victor H."
+                      id="postal_code"
+                      v-model="sortie.bonRef"
+                      autocomplete="postal-code"
+                      class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    />
+                  </div>
+                  <div class="w-1/2">
+                    <label
+                      for="postal_code"
+                      class="block text-sm font-medium text-gray-700"
                       >Personne de reference:</label
                     >
                     <input
                       type="text"
                       name="postal_code"
                       placeholder="Ex: victor H."
+                      v-model="sortie.personRef"
                       id="postal_code"
                       autocomplete="postal-code"
                       class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
@@ -87,21 +104,21 @@
                
             
               <div class="hidden sm:block" aria-hidden="true">
-                    <div class="py-5">
+                    <div class="py-1">
                       <div class="border-t border-gray-200"></div>
                     </div>
                   </div>
               <div
-                class="flex items-center justify-end px-4 py-3 space-x-4 text-right bg-gray-50 sm:px-6"
+                class="flex items-center justify-end px-4 py-1 space-x-4 text-right bg-gray-50 sm:px-6"
               >
                 <button
-                  @click.prevent="annulerSortie()"
+                  @click.prevent="annulerSortie"
                   class="inline-flex justify-center px-20 py-2 text-sm font-medium bg-orange-600 rounded-md shadow-sm text-indigo-50 hover:text-white focus:outline-none "
                 >
                   Annuler
                 </button>
                 <button
-                 @click.prevent="validerSortie()"
+                 @click.prevent="validSortie"
                   class="inline-flex justify-center px-20 py-2 text-sm font-medium text-white bg-indigo-600 border-2 border-indigo-500 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Valider
@@ -118,26 +135,22 @@
 import { mapActions } from "vuex";
 import { ACCOUNT_QUERY } from "~/apollo/payment_gql.js";
 export default {
-  layout: "account",
-  apollo:{
-    accounts:{
-      query:ACCOUNT_QUERY
-    }
-  },
+  
   data(){
     return {
       sortie:{}
     }
   },
-  method:{
+  
+  methods:{
     ...mapActions({createSortie:'payment/createSortie'}),
     annulerSortie(){
       this.sortie={}
     },
-    validerSortie(){
+    validSortie(){
 
       this.createSortie({
-        ...sortie,
+        ...this.sortie
       });
 
       this.annulerSortie();

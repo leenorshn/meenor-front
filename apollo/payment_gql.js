@@ -10,7 +10,7 @@ export const GET_PAYMENTS = gql`
       duree
       refBond
       fromDate
-      locataire{
+      locataire {
         id
         name
       }
@@ -46,6 +46,19 @@ export const NEW_SORTIE = gql`
   mutation createSortie($data: SortieCreateInput!) {
     createSortie(data: $data) {
       id
+    }
+  }
+`;
+
+export const GET_SORTIES = gql`
+  query {
+    sorties {
+      id
+      amount
+      personRef
+      bonRef
+      libele
+      createdAt
     }
   }
 `;

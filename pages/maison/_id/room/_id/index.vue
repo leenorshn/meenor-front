@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col max-w-5xl mx-auto mt-4 bg-white rounded-md shadow">
-    <div class="flex items-center justify-between px-8 py-2">
-      <h2>{{`chambre numero: ${room.numero}`}}</h2>
+    <div class="flex items-center justify-between px-8 py-4 overflow-hidden bg-blue-700 rounded-t-md">
+      <h2 class="text-xl font-bold text-blue-50">{{`chambre numero: ${room.numero}`}}</h2>
       
       <div>
         <nuxt-link 
@@ -9,66 +9,81 @@
          class="px-6 py-2 text-white bg-blue-500 rounded-md">Retour</nuxt-link>
       </div>
     </div>
+    <div class="border-b-2 border-blue-500">
+      
+    </div>
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div v-for="(locataire ,indexT) in room.locataires" :key="indexT">
+
+        <h2 class="px-4 py-3 ml-10 text-xl font-semibold text-blue-600">{{locataire.name}}</h2>
+     
       <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
         <div class="overflow-hidden border-b border-gray-200 sm:rounded-lg">
           <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
-              <tr>
-                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                  client
-                </th>
-                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                  montant
-                </th>
-                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                  type
-                </th>
-                <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                  date
-                </th>
-                <th scope="col" class="relative px-6 py-3">
-                  <span class="sr-only">Edit</span>
-                </th>
-              </tr>
-            </thead>
+                      <tr>
+                        <th
+                          scope="col"
+                          class="flex justify-center px-4 py-3 text-xs font-medium tracking-wider text-gray-500 uppercase"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-6 h-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"
+                            />
+                          </svg>
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-2 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
+                        >
+                          Montant($)
+                        </th>
+                        
+                        <th
+                          scope="col"
+                          class="px-3 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
+                        >
+                          Date debut
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-2 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
+                        >
+                          Date fin
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-3 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
+                        >
+                          Durée
+                        </th>
+                        
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
+                        >
+                          Date
+                        </th>
+                      </tr>
+                    </thead>
             <tbody class="bg-white divide-y divide-gray-200">
-              <tr v-for="pay in room.payments" :key="pay.id">
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="flex items-center">
-                    <div class="flex-shrink-0 w-10 h-10">
-                      <img class="w-10 h-10 rounded-full" :src="pay" alt="" />
-                    </div>
-                    <div class="ml-4">
-                      <div class="text-sm font-medium text-gray-900">
-                        victor
-                      </div>
-                      <div class="text-sm text-gray-500">
-                        0978254387
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">{{ pay.amount }}</div>
-                  <div class="text-sm text-gray-500">{{ pay.typePayment }}</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
-                    {{pay.currency}}
-                  </span>
-                </td>
-                <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                  {{ pay.createdAt }}
-                </td>
-                <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                </td>
-              </tr>
+                       
+                <payment-card v-for="(pay,i) in room.locataires[indexT].payments" :key="i" :numero="i" :payment="pay" />
+              
             </tbody>
           </table>
         </div>
       </div>
+       </div>
     </div>
   </div>
 </template>

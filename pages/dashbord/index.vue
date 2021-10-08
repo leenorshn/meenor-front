@@ -23,7 +23,7 @@
             Solde actuel
           </h3>
           <h3 class="text-3xl text-white">
-            0 <span class="text-lg">$</span>
+            {{company.balance}} <span class="text-lg">$</span>
           </h3>
         </div>
         <div
@@ -33,7 +33,7 @@
             Sortie (hebdo.)
           </h3>
           <h3 class="text-3xl text-white">
-            0 <span class="text-lg">$</span>
+            {{company.sortie}} <span class="text-lg">$</span>
           </h3>
         </div>
         <div
@@ -51,77 +51,68 @@
       <div class="w-full rounded-md h-96">
         <div>
           <div class="flex flex-col">
+
+
+            
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-              <div
-                class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8"
-              >
-                <div
-                  class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg"
+      <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+        <div class="overflow-hidden border-b border-gray-200">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-100">
+              <tr>
+                <th
+                  scope="col"
+                  class="px-6 py-2 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
                 >
-                  <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
-                      <tr>
-                        <th
-                          scope="col"
-                          class="flex justify-center px-4 py-3 text-xs font-medium tracking-wider text-gray-500 uppercase"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="w-6 h-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"
-                            />
-                          </svg>
-                        </th>
-                        <th
-                          scope="col"
-                          class="px-2 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
-                        >
-                          Montant($)
-                        </th>
-                        
-                        <th
-                          scope="col"
-                          class="px-3 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
-                        >
-                          Date debut
-                        </th>
-                        <th
-                          scope="col"
-                          class="px-2 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
-                        >
-                          Date fin
-                        </th>
-                        <th
-                          scope="col"
-                          class="px-3 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
-                        >
-                          Durée
-                        </th>
-                        
-                        <th
-                          scope="col"
-                          class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
-                        >
-                          Date
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
-                      <payment-card v-for="(n, i) in payments" :key="i" :numero="i" :payment="n" />
-                    </tbody>
-                  </table>
-                  <!-- <pre>{{user}}</pre> -->
-                </div>
-              </div>
-            </div>
+                  
+                 id
+                </th>
+                <th
+                  scope="col"
+                  class="px-6 py-2 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                >
+                  client
+                </th>
+                <th
+                  scope="col"
+                  class="px-6 py-2 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
+                >
+                  Montant( $ )
+                </th>
+                <th
+                  scope="col"
+                  class="px-6 py-2 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
+                >
+                  Type
+                </th>
+                 <th
+                  scope="col"
+                  class="px-6 py-2 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
+                >
+                  Bon (ref)
+                </th>
+                <th
+                  scope="col"
+                  class="px-6 py-2 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
+                >
+                  Duree
+                </th>
+                <th
+                  scope="col"
+                  class="px-6 py-2 text-xs font-medium tracking-wider text-center text-gray-500 uppercase"
+                >
+                  Date
+                </th>
+                
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+              <payment-card v-for="(n, i) in payments" :payment="n" :key="i" />
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
           </div>
           <div class="flex justify-end w-full">
             <nuxt-link
@@ -141,6 +132,8 @@
 <script>
 import CalenderBlock from "../../components/CalenderBlock.vue";
 import { GET_PAYMENTS } from "~/apollo/payment_gql.js";
+import PaymentCard from "../../components/PaymentCard.vue";
+import gql from "graphql-tag";
 
 export default {
   components: { CalenderBlock },
@@ -158,9 +151,20 @@ export default {
       });
 
       //redirect(`/maison/${res.id}/room`)
+      const resCompany= await app.apolloProvider.defaultClient.query({
+        query:gql`query{
+  company{
+    balance
+    sortie
+  }
+}`
+      }).then(({ data }) => {
+        return data && data.company;
+      });
 
     return {
       payments: res,
+      company:resCompany
     };
   },
 

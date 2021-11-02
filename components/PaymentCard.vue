@@ -32,7 +32,7 @@
 <script>
 export default {
     props:{
-        numero:Number,
+       
         payment:Object,
     },
     computed:{

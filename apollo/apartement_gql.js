@@ -23,8 +23,8 @@ export const DELETE_NIVEAU = gql`
 `;
 
 export const GET_ROOM = gql`
-  query getRoom($id: ID!) {
-    room(id: $id) {
+  query {
+    room(id: "6156f1cd8fa402000e869cfe") {
       id
       format
       price
@@ -36,8 +36,15 @@ export const GET_ROOM = gql`
         payments {
           id
           amount
-          fromDate
+          typePayment
           toDate
+          duree
+          refBond
+          fromDate
+          locataire {
+            id
+            name
+          }
           createdAt
         }
       }

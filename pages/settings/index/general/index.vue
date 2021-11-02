@@ -35,25 +35,23 @@
         <div class="text-lg font-semibold text-black">Id-Nat:</div>
         <div>{{company.id_nat}}</div>
       </div>
-      <div>
+      <div class="flex space-x-4 items-center">
         <div class="text-lg font-semibold">Adresse:</div>
         <div class="text-gray-500">
          {{company.address.city}}/ {{company.address.local}}
         </div>
       </div>
       <div>
-        <div class="text-lg font-semibold text-black">Contacts:</div>
-        <div class="ml-4">
-          <h2 class="text-lg font-semibold text-gray-700">
-            Email:   <span class="ml-4 text-sm font-normal text-gray-600"></span>
-          </h2>
+    
+        <div class="">
+          
           <h2 class="text-lg font-semibold text-gray-700">
             Phone: <span class="ml-2 text-sm font-normal text-gray-600">{{company.phone}}</span>
           </h2>
         </div>
        
       </div>
-      <div>
+      <div class="flex items-center space-x-4">
         <div class="text-lg font-semibold text-black">Detail:</div>
         <h4 class="text-gray-500">{{company.description}}</h4>
       </div>

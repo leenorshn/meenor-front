@@ -23,8 +23,8 @@ export const DELETE_NIVEAU = gql`
 `;
 
 export const GET_ROOM = gql`
-  query {
-    room(id: "6156f1cd8fa402000e869cfe") {
+  query getRoom($id: ID!) {
+    room(id: $id) {
       id
       format
       price

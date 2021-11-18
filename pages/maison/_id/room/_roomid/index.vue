@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col max-w-5xl mx-auto mt-4 bg-white rounded-md shadow">
     <div class="flex items-center justify-between px-8 py-4 overflow-hidden bg-blue-700 rounded-t-md">
-      <h2 class="text-xl font-bold text-blue-50">{{`chambre numero: ${room.numero}`}}</h2>
+      <h2 class="text-xl font-bold text-blue-50">{{`chambre numero: ${"room.numero"}`}}</h2>
       
       <div>
         <nuxt-link 
@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="border-b-2 border-blue-500">
-      
+     
     </div>
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div v-for="(locataire ,indexT) in room.locataires" :key="indexT">
@@ -70,7 +70,7 @@
                     </thead>
             <tbody class="bg-white divide-y divide-gray-200">
                        
-                <payment-card v-for="(pay,i) in room.locataires[indexT].payments" :key="i" :numero="i" :payment="pay" />
+                <payment-card v-for="(pay,i) in room.locataires[indexT].payments" :key="i" :numero="i" :payment="pay" /> 
               
             </tbody>
           </table>
@@ -84,15 +84,12 @@
 import { GET_ROOM } from "~/apollo/apartement_gql.js";
 export default {
   async asyncData({ app, params }) {
-    console.log(">>>>>>>>>>>>>",params.id);
+    console.log(">>>>>>>>>>>>>",params.roomid);
     const res = await app.apolloProvider.defaultClient
       .query({
         query: GET_ROOM,
         variables:{
-          
-          
-            id: params.id,
-          
+              id: params.roomid
         },
       })
       .then(({ data }) => {
